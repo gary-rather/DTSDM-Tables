@@ -1,8 +1,6 @@
 import org.junit.*;
 import org.junit.runners.MethodSorters;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -13,7 +11,11 @@ import static org.junit.Assert.assertEquals;
 public class AgncyOrgWhTest {
 
     Connection conn = null;
+    static WriteResults wr = null;
 
+    public void AgncyOrgWhTest(){
+        System.out.println("xx");
+    }
     @Before
     public void getConnection() {
         Connection con = null;
@@ -38,13 +40,31 @@ public class AgncyOrgWhTest {
     }
 
 
-    @Test
+   @BeforeClass
+    public  static void openResults(){
+        wr = new WriteResults("AgncyOrgWhTest.html");
+        wr.pageHeader();
+    }
 
+    @AfterClass
+    public static void closeResults(){
+        wr.closePage();
+        wr.printWriter.flush();
+        wr.printWriter.close();
+    }
+
+
+
+    @Test
     /*
      * -- EXPECT to get 1 row where AGNCY_ORG_WID = 0; AGNCY_WID = 0; DPRTMNT_AGNCY_SHRT_CD = 'UN'; AGNCY_SHRT_CD = 'UN'; ORG_CD = 'UN'.
      */
     public void test1() {
     	System.out.println("Starting AgncyOrgWhTest.test1");
+    	wr.printDiv("AgncyOrgWhTest.test1");
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+
         String sql = "Select AGNCY_ORG_WID, \n" +
                 "AGNCY_WID, \n" +
                 "DPRTMNT_AGNCY_SHRT_CD, \n" +
@@ -59,33 +79,67 @@ public class AgncyOrgWhTest {
                 "from dtsdm.AGNCY_ORG_WH ao \n" +
                 "where ao.agncy_org_wid = 0 \n";
 
+        SqlObject sqlObj = new SqlObject("sql",sql.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj);
+
+        wr.logSql(theSql);
+
         int rowCount = 0;
-        int agncyOrgWid = 0;
-        int agncyWid = 0;
+        int agncyOrgWid = -1;
+        int agncyWid = -1;
         String dprtmntAgncyShrtCd = null;
         String agncyShrtCd = null;
         String orgCd = null;
 
         System.out.println("Starting AgncyOrgWhTest.test1,sql1");
         try {
+
             try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery()) {
+                    StringBuffer sb = new StringBuffer();
                     //System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
                         agncyOrgWid = rs.getInt("AGNCY_ORG_WID");
+
                         agncyWid = rs.getInt("AGNCY_WID");
+
                         dprtmntAgncyShrtCd = rs.getString("DPRTMNT_AGNCY_SHRT_CD");
+
                         agncyShrtCd = rs.getString("AGNCY_SHRT_CD");
+
                         orgCd = rs.getString("ORG_CD");
                         rowCount++;
                     }
+
+
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro1 = new ResultObject((1 == rowCount),"(1 == rowCount)");
+        roList.add(ro1);
+
+        ResultObject ro2 = new ResultObject((0 == agncyOrgWid),"(0 == agncyOrgWid)");
+        roList.add(ro2);
+
+        ResultObject ro3 = new ResultObject((0 == agncyWid),"(0 == agncyWid)");
+        roList.add(ro3);
+
+        ResultObject ro4 = new ResultObject(("UNK".equalsIgnoreCase("dprtmntAgncyShrtCd")),"('UNK' equals 'dprtmntAgncyShrtCd'");
+        roList.add(ro4);
+
+        ResultObject ro5 = new ResultObject(("UNK".equalsIgnoreCase("agncyShrtCd")),"('UNK' equals 'agncyShrtCd'");
+        roList.add(ro5);
+
+        ResultObject ro6 = new ResultObject(("UNK".equalsIgnoreCase("orgCd")),"('UNK' equals 'orgCd'");
+        roList.add(ro6);
+
+        wr.logTestResults(roList);
 
         assertEquals(1, rowCount);
         assertEquals(0, agncyOrgWid);
@@ -103,6 +157,7 @@ public class AgncyOrgWhTest {
         
         System.out.println("Finish AgncyOrgWhTest.test1");
         System.out.println();
+
     }
 
     @Test
@@ -112,16 +167,22 @@ public class AgncyOrgWhTest {
      */
     public void test2() {
     	System.out.println("Starting AgncyOrgWhTest.test2");
-        String sql = "Select distinct ao.agncy_org_wid, count(*) \n" +
-                "From dtsdm.agncy_org_wh ao \n" +
-                "Group by ao.agncy_org_wid \n" +
-                "order by ao.AGNCY_ORG_WID";
+        wr.printDiv("AgncyOrgWhTest.test2");
+        String sql = "select count (distinct  ao.agncy_org_wid) DISTINCT_COUNT from dtsdm.agncy_org_wh ao";
 
-        String sql1 = "Select  count(*) \n" +
-                "From dtsdm.agncy_org_wh ao " ;
-        int rowCount = 0;
-        int agncyOrgWid = 0;
-        int count = 0;
+        String sql1 = "Select  count(*) total_count From dtsdm.agncy_org_wh ao " ;
+
+        // Output the Sql to be executed
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj = new SqlObject("sql",sql);
+        sqlList.add(sqlObj);
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
+        sqlList.add(sqlObj1);
+        wr.logSql(sqlList);
+
+
+
+        int distinctCount = 0;
         int totalCount = 0;
 
         System.out.println("Starting AgncyOrgWhTest.test2,sql");
@@ -131,10 +192,7 @@ public class AgncyOrgWhTest {
                 try (ResultSet rs = ps.executeQuery()) {
                     //System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        agncyOrgWid = rs.getInt("AGNCY_ORG_WID");
-                        count = rs.getInt("count(*)");
-
-                        rowCount++;
+                        distinctCount = rs.getInt("DISTINCT_COUNT");
                     }
                 }
             }
@@ -149,7 +207,7 @@ public class AgncyOrgWhTest {
                 try (ResultSet rs = ps.executeQuery()) {
                     //System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        totalCount = rs.getInt("count(*)");
+                        totalCount = rs.getInt("total_count");
                     }
                 }
             }
@@ -158,9 +216,15 @@ public class AgncyOrgWhTest {
         }
 
 
-        assertEquals(rowCount, totalCount);
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((distinctCount == totalCount),"(distinctCount == totalCount)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
 
-        System.out.println("test1 rowCount= " + rowCount + " total count = " + totalCount);
+        assertEquals(distinctCount, totalCount);
+
+        System.out.println("test1 distinctCount= " + distinctCount + " total count = " + totalCount);
         
         System.out.println("Finish AgncyOrgWhTest.test2");
         System.out.println();
@@ -175,7 +239,7 @@ public class AgncyOrgWhTest {
      */
     public void test3() {
     	System.out.println("Starting AgncyOrgWhTest.test3");
-    	
+        wr.printDiv("AgncyOrgWhTest.test3");
         String sql = "select distinct agncy_org_wh.agncy_wid\n" +
                 "from dtsdm.agncy_org_wh \n";
 
@@ -183,6 +247,14 @@ public class AgncyOrgWhTest {
                 "from dtsdm.agncy_org_wh ao,DTSDM_SRC_STG.orglist ol\n" +
                 "where ao.agncy_shrt_cd = substr(ol.u##org,2,1)\n" +
                 "order by agncy_wid" ;
+
+        // Output the Sql to be executed
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj = new SqlObject("sql",sql);
+        sqlList.add(sqlObj);
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<BR>"));
+        sqlList.add(sqlObj1);
+        wr.logSql(sqlList);
 
         ArrayList<Integer >sql1AgncyWid = new ArrayList<Integer>();
         ArrayList<Integer> sql2AgncyWid = new ArrayList<Integer>();
@@ -239,6 +311,13 @@ public class AgncyOrgWhTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+       wr.printYellowDiv("TEST 3 Need Review");
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((distinctCount == rowCount),"(distinctCount == rowCount)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
 
         System.out.println("distinctCount = rowCount " + distinctCount + " = " + rowCount);
         assertEquals(distinctCount,rowCount);
@@ -252,14 +331,21 @@ public class AgncyOrgWhTest {
          */
     public void test4() {
     	System.out.println("Starting AgncyOrgWhTest.test4");
-    	
+        wr.printDiv("AgncyOrgWhTest.test4");
         String sql = "select distinct ao.DPRTMNT_AGNCY_SHRT_CD \n" + 
         		"from DTSDM.AGNCY_ORG_WH ao \n" + 
         		"";
 
         String sql1 = "Select distinct substr(ol.U##ORG,0,2) \n" +
                 "From DTSDM_SRC_STG.ORGLIST ol" ;
-                
+
+        // Output the Sql to be executed
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj = new SqlObject("sql",sql);
+        sqlList.add(sqlObj);
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
+        sqlList.add(sqlObj1);
+        wr.logSql(sqlList);
 
         int distinctCount = 0;
         int rowCount = 0;
@@ -294,6 +380,12 @@ public class AgncyOrgWhTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((distinctCount == rowCount),"(distinctCount == rowCount)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
+
         System.out.println("distinctCount = rowCount " + distinctCount + " = " + rowCount);
         assertEquals(distinctCount,rowCount);
         
@@ -307,14 +399,21 @@ public class AgncyOrgWhTest {
          */
     public void test5() {
    	System.out.println("Starting AgncyOrgWhTest.test5");
-    	
+        wr.printDiv("AgncyOrgWhTest.test5");
         String sql = "select distinct ao.DPRTMNT_AGNCY_SHRT_CD \n" + 
         		"from DTSDM.AGNCY_ORG_WH ao \n" + 
         		"";
 
         String sql1 = "Select distinct substr(ol.U##ORG,0,2) \n" +
                 "From DTSDM_SRC_STG.ORGLIST ol" ;
-                
+
+        // Log the Sql
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj = new SqlObject("sql",sql);
+        sqlList.add(sqlObj);
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
+        sqlList.add(sqlObj1);
+        wr.logSql(sqlList);
 
         int distinctCount = 0;
         int rowCount = 0;
@@ -349,6 +448,12 @@ public class AgncyOrgWhTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((distinctCount == rowCount),"(distinctCount == rowCount)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
+
         System.out.println("distinctCount = rowCount " + distinctCount + " = " + rowCount);
         assertEquals(distinctCount,rowCount);
         
@@ -362,6 +467,7 @@ public class AgncyOrgWhTest {
          */
     public void test6() {
     	System.out.println("Starting AgncyOrgWhTest.test6");
+        wr.printDiv("AgncyOrgWhTest.test6");
         String sql1 = "select distinct ao.DPRTMNT_AGNCY_SHRT_CD, ao.org_cd \n" + 
         		"from DTSDM.AGNCY_ORG_WH ao \n";
 
@@ -373,7 +479,15 @@ public class AgncyOrgWhTest {
                       "from DTSDM_SRC_STG.orglist ol \n" +
                       "where substr(u##org,0,2) in ('DN', 'DD', 'DM', 'DJ')";
 
-
+        // Log the Sql
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
+        sqlList.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2);
+        sqlList.add(sqlObj2);
+        SqlObject sqlObj3 = new SqlObject("sql3",sql3);
+        sqlList.add(sqlObj3);
+        wr.logSql(sqlList);
 
        int distinctCount = 0;
         int destCount = 0;
@@ -428,12 +542,17 @@ public class AgncyOrgWhTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((destCount == srcCount),"(destCount == srcCount)");
+        roList.add(ro1);
+
+        wr.logTestResults(roList);
+
         System.out.println("Distinct Count  " + distinctCount );
         assertEquals(destCount,srcCount);
         
-        System.out.println("Destination Count = Source wCount " + destCount + " = " + srcCount);
-        assertEquals(destCount,srcCount);
-        
+
         System.out.println("Finish AgncyOrgWhTest.test6");
         System.out.println();
     }
@@ -444,10 +563,16 @@ public class AgncyOrgWhTest {
          */
     public void test7() {
     	System.out.println("Starting AgncyOrgWhTest.test7");
+        wr.printDiv("AgncyOrgWhTest.test7");
         String sql1 = "Select distinct AGNCY_ORG_WH.CURR_SW, count(*) \n" + 
         		"From DTSDM.AGNCY_ORG_WH \n" + 
         		"Group by AGNCY_ORG_WH.CURR_SW \n" ;;
 
+        // Log the Sql
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
+        sqlList.add(sqlObj1);
+        wr.logSql(sqlList);
 
 
         int distinctCount = 0;
@@ -465,6 +590,12 @@ public class AgncyOrgWhTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        wr.printYellowDiv("Test 7 Need Review");
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((distinctCount == distinctCount),"(distinctCount == distinctCount)");
+        roList.add(ro1);
+
         System.out.println("distinctCount " + distinctCount );
         assertEquals(distinctCount,distinctCount);
         
@@ -478,7 +609,8 @@ public class AgncyOrgWhTest {
          */
     public void test8() {
     	System.out.println("Starting AgncyOrgWhTest.test8");
-    	
+        wr.printDiv("AgncyOrgWhTest.test8");
+
         String sql1 = "Select count (*)\n" +
                       "From DTSDM. AGNCY_ORG_WH \n";
 
@@ -486,6 +618,13 @@ public class AgncyOrgWhTest {
                       "From DTSDM. AGNCY_ORG_WH\n" +
                       "Group by trunc(AGNCY_ORG_WH.INSERT_DATE)";
 
+        // Log the Sql
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
+        sqlList.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2);
+        sqlList.add(sqlObj2);
+        wr.logSql(sqlList);
 
 
         int distinctCount = 0;
@@ -526,6 +665,11 @@ public class AgncyOrgWhTest {
             e.printStackTrace();
         }
 
+        // Log the Reults
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((distinctCount == totalCount),"(distinctCount == totalCount)");
+        roList.add(ro1);
+
         System.out.println("distinctCount = totalCount " + distinctCount + " = " + totalCount);
         assertEquals(distinctCount,totalCount);
         System.out.println("Finish AgncyOrgWhTest.test8");
@@ -538,7 +682,8 @@ public class AgncyOrgWhTest {
          */
     public void test9() {
     	System.out.println("Starting AgncyOrgWhTest.test9");
-    	
+        wr.printDiv("AgncyOrgWhTest.test9");
+
         String sql1 = "Select count (*)\n" +
                       "From DTSDM. AGNCY_ORG_WH \n";
 
@@ -546,6 +691,13 @@ public class AgncyOrgWhTest {
                       "From DTSDM. AGNCY_ORG_WH\n" +
                       "Group by trunc(AGNCY_ORG_WH.UPDATE_DATE)";
 
+        // Log the Sql
+        ArrayList<SqlObject> sqlList = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
+        sqlList.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2);
+        sqlList.add(sqlObj2);
+        wr.logSql(sqlList);
 
 
         int distinctCount = 0;
@@ -585,6 +737,11 @@ public class AgncyOrgWhTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        // Log the Reults
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((count == totalCount),"(count == totalCount)");
+        roList.add(ro1);
 
         System.out.println("count = totalCount " + count + " = " + totalCount);
         assertEquals(count,totalCount);
