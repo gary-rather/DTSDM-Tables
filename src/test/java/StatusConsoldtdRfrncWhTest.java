@@ -10,31 +10,12 @@ import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class StatusConsoldtdRfrncWhTest {
+public class StatusConsoldtdRfrncWhTest extends TableTest {
 
-    Connection conn = null;
-
-    @Before
-    public void getConnection() {
-        Connection con = null;
-        try {
-        	Conf config = new Conf();
-        	
-            Properties props = new Properties();
-            props.put("myConnectionURL", config.getMyConnectionURL());
-            props.put("user", config.getUser());
-            props.put("password", config.getPassword());
-            //System.out.println("myConnectionURL " + props.getProperty("myConnectionURL"));
-            //System.out.println("user " + props.getProperty("user"));
-            //System.out.println("password " + props.getProperty("password"));
-            
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection(props.getProperty("myConnectionURL"), props);
-            System.out.println("Connection Successful");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.conn = con;
+     @BeforeClass
+    public  static void openResults(){
+        wr = new WriteResults("StatusConsoldtdRfrncWhTest.html");
+        wr.pageHeader();
     }
 
     @Test
@@ -43,7 +24,10 @@ public class StatusConsoldtdRfrncWhTest {
      * -- EXPECT - STATUS_WID = 0; STATUS_MASTER_WID = 0; STATUS_CD = 'UN'; STATUS_DESCR = 'UNKNOWN'; others NULL
      */
     public void test1() {
-    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test1");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         String sql = "Select * from DTSDM.STATUS_CONSOLDTD_RFRNC_WH where STATUS_WID=0";
         int number = 0;
         
@@ -74,7 +58,10 @@ public class StatusConsoldtdRfrncWhTest {
      *
      */
     public void test2() {
-    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test2");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         // Select count distinct rows
         String sql1 = "Select distinct count(STATUS_WID) from DTSDM.STATUS_CONSOLDTD_RFRNC_WH";
 
@@ -129,7 +116,10 @@ public class StatusConsoldtdRfrncWhTest {
      * -- EXPECT count of [Select count(distinct(ds.cur_status)) from FRED.DOCSTAT ds;]
      */
     public void test3() {
-    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test3");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         // Select distinct country codes
         String sql1 = "Select count(distinct(ds.cur_status)) from DTSDM_SRC_STG.DOCSTAT ds";
 
@@ -218,7 +208,10 @@ public class StatusConsoldtdRfrncWhTest {
     @Test
 
     public void test4() {
-    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test4");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         // Select distinct country codes
         String sql1 = "select * from STATUS_CONSOLDTD_RFRNC_WH where RCD_TYPE_CD = 'DEBT_TRNS'";
 

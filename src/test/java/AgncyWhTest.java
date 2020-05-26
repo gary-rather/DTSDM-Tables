@@ -8,9 +8,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class AgncyWhTest {
+public class AgncyWhTest extends TableTest {
 
 	Connection conn = null;
+	static WriteResults wr = null;
 
 	@Before
 	public void getConnection() {
@@ -35,10 +36,26 @@ public class AgncyWhTest {
 		}
 		this.conn = con;
 	}
+	@BeforeClass
+	public  static void openResults(){
+		wr = new WriteResults("AgncyWhTest.html");
+		wr.pageHeader();
+	}
+
+	@AfterClass
+	public static void closeResults(){
+		wr.closePage();
+		wr.printWriter.flush();
+		wr.printWriter.close();
+	}
 
 	@Test
 	public void test1() {
-		System.out.println("Starting AgncyWhTest.test1");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		String sql = "Select count(*) \n" + "from DTSDM.AGNCY_WH \n" + " where AGNCY_WH. AGNCY_WID = 0 \n";
 		int number = 0;
 
@@ -72,7 +89,11 @@ public class AgncyWhTest {
 	 * greater then 1:
 	 */
 	public void test2() {
-		System.out.println("Starting AgncyWhTest.test2");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select count distinct rows
 		String sql1 = "Select distinct (AGNCY_WH.AGNCY_WID), count (*) \n" + "from DTSDM.AGNCY_WH \n"
 				+ "group by AGNCY_WH.AGNCY_WID \n" + "having count(*) > 1 \n";
@@ -108,7 +129,11 @@ public class AgncyWhTest {
 	 * value ‘1’
 	 */
 	public void test3() {
-		System.out.println("Starting AgncyWhTest.test3");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct country codes
 		// All dprtmnt_id should be 1 expect the row 0;
 		String sql1 = "Select distinct AGNCY_WH. DPRTMNT_WID from DTSDM.AGNCY_WH where AGNCY_WID != 0 ";
@@ -149,7 +174,11 @@ public class AgncyWhTest {
 	 * Check the values of the AGNCY_WH. AGNCY_CD column
 	 */
 	public void test4() {
-		System.out.println("Starting AgncyWhTest.test4");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct country codes
 		String sql1 = "Select count(distinct AGNCY_WH.AGNCY_CD) from DTSDM.AGNCY_WH ";
 
@@ -240,7 +269,11 @@ public class AgncyWhTest {
 	 * Check the values of the AGNCY_WH.AGNCY_DESCR column
 	 */
 	public void test5() {
-		System.out.println("Starting AgncyWhTest.test5");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct country codes
 		String sql1 = "Select distinct AGNCY_WH.AGNCY_DESCR \n" + "from DTSDM.AGNCY_WH\n";
 
@@ -328,7 +361,11 @@ public class AgncyWhTest {
 	 * Check the population of the AGNCY_WH.CURR_SW column
 	 */
 	public void test6() {
-		System.out.println("Starting AgncyWhTest.test6");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct country codes
 		String sql1 = "Select distinct AGNCY_WH.CURR_SW, count(*) \n" + "From DTSDM.AGNCY_WH \n"
 				+ "Group by AGNCY_WH.CURR_SW \n ";
@@ -368,7 +405,11 @@ public class AgncyWhTest {
 	 * Check the population of the AGNCY_WH.EFF_START_DT column
 	 */
 	public void test7() {
-		System.out.println("Starting AgncyWhTest.test7");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct EFF_START_DT
 		String sql1 = "Select count (*) \n" + "From DTSDM.AGNCY_WH\n";
 
@@ -427,7 +468,11 @@ public class AgncyWhTest {
 	 * Check the population of the AGNCY_WH.UPDATE_DATE column
 	 */
 	public void test8() {
-		System.out.println("Starting AgncyWhTest.test8");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct EFF_START_DT
 		String sql1 = "Select count (*) \n" + "From DTSDM.AGNCY_WH\n";
 

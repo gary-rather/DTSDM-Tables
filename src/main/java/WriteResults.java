@@ -7,7 +7,9 @@ public class WriteResults {
 
     public WriteResults(String filename) {
         try {
-            File results = new File("out", filename);
+            File outDIr = new File("target/out");
+            if (!outDIr.exists()) outDIr.mkdir();
+            File results = new File("target/out", filename);
             System.out.println("Open File: " + results.getAbsolutePath());
             FileWriter fw = new FileWriter(results, false);
             printWriter = new PrintWriter(fw);

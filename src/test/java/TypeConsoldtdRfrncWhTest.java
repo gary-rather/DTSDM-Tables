@@ -11,33 +11,13 @@ import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TypeConsoldtdRfrncWhTest {
+public class TypeConsoldtdRfrncWhTest extends TableTest {
 
-    Connection conn = null;
-
-    @Before
-    public void getConnection() {
-        Connection con = null;
-        try {
-        	Conf config = new Conf();
-        	
-            Properties props = new Properties();
-            props.put("myConnectionURL", config.getMyConnectionURL());
-            props.put("user", config.getUser());
-            props.put("password", config.getPassword());
-            //System.out.println("myConnectionURL " + props.getProperty("myConnectionURL"));
-            //System.out.println("user " + props.getProperty("user"));
-            //System.out.println("password " + props.getProperty("password"));
-            
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection(props.getProperty("myConnectionURL"), props);
-            System.out.println("Connection Successful");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.conn = con;
+    @BeforeClass
+    public  static void openResults(){
+        wr = new WriteResults("TypeConsoldtdRfrncWhTest.html");
+        wr.pageHeader();
     }
-
 
     @Test
     /**
@@ -46,7 +26,10 @@ public class TypeConsoldtdRfrncWhTest {
      * TYPE_WID = 0; TYPE_NATRL_KEY = 'UNKNOWN', TYPE_CD = 'UNK'; TYPE_DESCR = 'UNKNOWN'; RCD_TYPE_CD =  'UNK';  RCD_TYPE_DESCR = 'UNKNOWN'; others NULL
      */
     public void test1() {
-    	System.out.println("Starting TypeConsoldtdRfrncWhTest.test1");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         String sql = "Select * from DTSDM. TYPE_CONSOLDTD_RFRNC_WH \n" +
                 "where TYPE_CONSOLDTD_RFRNC_WH.TYPE_WID = 0\n";
         int number = 0;
@@ -82,7 +65,10 @@ public class TypeConsoldtdRfrncWhTest {
      * Check the population of the TYPE_CONSOLDTD_RFRNC_WH.TYPE_WID (PK) column
      */
     public void test2() {
-    	System.out.println("Starting TypeConsoldtdRfrncWhTest.test2");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         // Select count distinct rows
         String sql1 = "Select count (distinct TYPE_CONSOLDTD_RFRNC_WH.TYPE_WID) \n" +
                 "from DTSDM.TYPE_CONSOLDTD_RFRNC_WH\n";
@@ -168,7 +154,10 @@ public class TypeConsoldtdRfrncWhTest {
      * Check the population of TYPE_CONSOLDTD_RFRNC_WH for DCMNT type
      */
     public void test3() {
-    	System.out.println("Starting TypeConsoldtdRfrncWhTest.test3");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         // Select distinct country codes
         String sql1 = "SELECT DISTINCT DOCSTAT.U##DOCTYPE AS TYPE_CD \n" +
                 "FROM DTSDM_SRC_STG.DOCSTAT DOCSTAT \n";
@@ -278,7 +267,10 @@ public class TypeConsoldtdRfrncWhTest {
      * - Check the population of TYPE_CONSOLDTD_RFRNC_WH for DEBT_TRNS type
      */
     public void test4() {
-    	System.out.println("Starting TypeConsoldtdRfrncWhTest.test4");
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         // Select distinct country codes
         String sql1 = "SELECT DISTINCT PM_DEBT_HIST.TYPE, count(*) count \n" +
                 "FROM DTSDM_SRC_STG.PM_DEBT_HIST PM_DEBT_HIST \n" +

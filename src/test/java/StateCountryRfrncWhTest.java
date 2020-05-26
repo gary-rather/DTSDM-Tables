@@ -10,37 +10,19 @@ import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class StateCountryRfrncWhTest {
+public class StateCountryRfrncWhTest extends TableTest {
 
-    Connection conn = null;
-
-    @Before
-    public void getConnection() {
-        Connection con = null;
-        try {
-        	Conf config = new Conf();
-        	
-            Properties props = new Properties();
-            props.put("myConnectionURL", config.getMyConnectionURL());
-            props.put("user", config.getUser());
-            props.put("password", config.getPassword());
-            //System.out.println("myConnectionURL " + props.getProperty("myConnectionURL"));
-            //System.out.println("user " + props.getProperty("user"));
-            //System.out.println("password " + props.getProperty("password"));
-            
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection(props.getProperty("myConnectionURL"), props);
-            System.out.println("Connection Successful");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.conn = con;
-    }
-
+	@BeforeClass
+	public  static void openResults(){
+		wr = new WriteResults("StateCountryRfrncWhTest.html");
+		wr.pageHeader();
+	}
 
 	@Test
 	public void test1() {
-		System.out.println("Starting StateCountryRfrncWhTest.test1");
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
 		String sql = "Select count(*) " +
 				"from DTSDM.STATE_COUNTRY_RFRNC_WH " +
 				"where STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_WID = 0";
@@ -72,7 +54,9 @@ public class StateCountryRfrncWhTest {
 
 	@Test
 	public void test2() {
-		System.out.println("Starting StateCountryRfrncWhTest.test2");
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
 		// Select count distinct rows
 		String sql1 = "Select count (distinct STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_WID) from DTSDM. STATE_COUNTRY_RFRNC_WH";
 
@@ -128,7 +112,9 @@ public class StateCountryRfrncWhTest {
 
 	@Test
 	public void test3() {
-		System.out.println("Starting StateCountryRfrncWhTest.test3");
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
 		// Select distinct country codes
 		String sql1 = "Select count(distinct STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_CD ) \n" +
 				      "from DTSDM. STATE_COUNTRY_RFRNC_WH \n";
@@ -220,8 +206,10 @@ public class StateCountryRfrncWhTest {
 
 	@Test
 	public void test4() {
-		System.out.println("Starting StateCountryRfrncWhTest.test4");
-		
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct country codes
 		String sql1 = "Select count(distinct STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_NAME  ) \n" +
 				"from DTSDM. STATE_COUNTRY_RFRNC_WH \n";
@@ -310,8 +298,11 @@ public class StateCountryRfrncWhTest {
 
 	@Test
 	public void test5() {
-		System.out.println("Starting StateCountryRfrncWhTest.test5");
-		
+    	// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
 		// Select distinct country codes
 		String sql1 = "select STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_CD, STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_NAME,STATE_COUNTRY_RFRNC_WH.CONUS_IND, \n" +
 				"STATE_COUNTRY_RFRNC_WH.HTL_TAX_EXMPT_CD, STATE_COUNTRY_RFRNC_WH.HTL_TAX_EXMPT_EXP_DT \n" +
@@ -357,7 +348,9 @@ public class StateCountryRfrncWhTest {
 
 	@Test
 	public void test6() {
-		System.out.println("Starting StateCountryRfrncWhTest.test6");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 		
 		// Select distinct country codes
 		String sql1 = "Select distinct STATE_COUNTRY_RFRNC_WH.CURR_SW, count(*) as table_rows_cnt \n" +
@@ -398,7 +391,10 @@ public class StateCountryRfrncWhTest {
 	 * Check the population of the AGNCY_WH.EFF_START_DT column
 	 */
 	public void test7() {
-		System.out.println("Starting StateCountryRfrncWhTest.test7");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
 		// Select distinct EFF_START_DT
 		String sql1 = "Select count (*) \n" +
 				"From DTSDM.AGNCY_WH\n";
@@ -466,7 +462,10 @@ public class StateCountryRfrncWhTest {
 	 * Check the population of the AGNCY_WH.UPDATE_DATE column
 	 */
 	public void test8() {
-		System.out.println("Starting StateCountryRfrncWhTest.test8");
+		// Log the Class and method
+		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
 		// Select distinct EFF_START_DT
 		String sql1 = "Select count (*) \n" +
 				"From DTSDM.AGNCY_WH\n";

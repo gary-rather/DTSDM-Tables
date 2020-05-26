@@ -10,34 +10,13 @@ import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class DprtmntWhTest {
+public class DprtmntWhTest extends TableTest {
 
-    Connection conn = null;
-
-    @Before
-    public void getConnection() {
-        Connection con = null;
-        try {
-        	Conf config = new Conf();
-        	
-            Properties props = new Properties();
-            props.put("myConnectionURL", config.getMyConnectionURL());
-            props.put("user", config.getUser());
-            props.put("password", config.getPassword());
-            //System.out.println("myConnectionURL" + props.getProperty("myConnectionURL"));
-            //System.out.println("user" + props.getProperty("user"));
-            //System.out.println("password" + props.getProperty("password"));
-            
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection(props.getProperty("myConnectionURL"), props);
-            System.out.println("Connection Successful");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.conn = con;
+     @BeforeClass
+    public  static void openResults(){
+        wr = new WriteResults("DprtmntWhTest.html");
+        wr.pageHeader();
     }
-    
-
 
     @Test
     /*
@@ -47,7 +26,9 @@ public class DprtmntWhTest {
      *          Manual comparison with the external file.
      */
     public void test1() {
-    	System.out.println("Starting DprtmntWhTest.test1");
+    	System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         String sql = "select count (distinct(DPRTMNT_WID)) from DTSDM.dprtmnt_wh";
 
         int count = 0;
@@ -78,7 +59,8 @@ public class DprtmntWhTest {
      * EXPECT to see only one value ‘D’ in this field because only one department is using DTS now.
      */
     public void test2() {
-    	System.out.println("Starting DprtmntWhTest.test2");
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
     	
         String sql1 = "select count (*) from DTSDM.dprtmnt_wh";
         
@@ -131,7 +113,9 @@ public class DprtmntWhTest {
      * There is only one record in the table and the DPRTMNT_DESCR vale is ‘Department of Defense’
      */
     public void test3() {
-    	System.out.println("Starting DprtmntWhTest.test3");
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
         assertEquals(0, 0);
 
     }
