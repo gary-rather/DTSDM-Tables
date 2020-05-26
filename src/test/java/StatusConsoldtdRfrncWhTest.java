@@ -1,49 +1,53 @@
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 
+import org.junit.*;
+import org.junit.runners.MethodSorters;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-@ExtendWith(MyTestWatcher.class)
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@DisplayName("StatusConsoldtdRfrncWhTest")
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StatusConsoldtdRfrncWhTest {
 
     Connection conn = null;
-    //String myConnectionURL = "jdbc:oracle:thin:dtsdn/Gizmo900@10.1.10.201:1521:ORCLPDB";
-    String myConnectionURL = "jdbc:oracle:thin:@10.1.10.201:1521:ORCLPDB";
 
-    @BeforeAll
-    private void getConnection(){
+    @Before
+    public void getConnection() {
         Connection con = null;
         try {
+        	Conf config = new Conf();
+        	
             Properties props = new Properties();
-            //props.put("DB_DRIVER","oracle.jdbc.OracleDriver");
-            props.setProperty("user", "dtsdm");
-            props.setProperty("password", "cL3ar#12");
-
-            con = DriverManager.getConnection(myConnectionURL,props);
+            props.put("myConnectionURL", config.getMyConnectionURL());
+            props.put("user", config.getUser());
+            props.put("password", config.getPassword());
+            //System.out.println("myConnectionURL " + props.getProperty("myConnectionURL"));
+            //System.out.println("user " + props.getProperty("user"));
+            //System.out.println("password " + props.getProperty("password"));
+            
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            con = DriverManager.getConnection(props.getProperty("myConnectionURL"), props);
             System.out.println("Connection Successful");
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         this.conn = con;
     }
 
-
     @Test
-    @Order(1)
-    @DisplayName("testOne")
     /**
      * Check that the "unknown" record 0 is populated. Pass  ???
      * -- EXPECT - STATUS_WID = 0; STATUS_MASTER_WID = 0; STATUS_CD = 'UN'; STATUS_DESCR = 'UNKNOWN'; others NULL
      */
-    void testOne() {
+    public void test1() {
+    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test1");
         String sql = "Select * from DTSDM.STATUS_CONSOLDTD_RFRNC_WH where STATUS_WID=0";
         int number = 0;
+        
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test1,sql1");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
                 //ps.setInt(1, userId);
@@ -66,12 +70,11 @@ public class StatusConsoldtdRfrncWhTest {
     }
 
     @Test
-    @Order(2)
-    @DisplayName("testTwo")
     /**
      *
      */
-    void testTwo() {
+    public void test2() {
+    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test2");
         // Select count distinct rows
         String sql1 = "Select distinct count(STATUS_WID) from DTSDM.STATUS_CONSOLDTD_RFRNC_WH";
 
@@ -82,7 +85,7 @@ public class StatusConsoldtdRfrncWhTest {
         int distinctCount = 0;
         int totalCount = 0;
 
-        // Get distinct count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test2,sql1");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
@@ -99,7 +102,7 @@ public class StatusConsoldtdRfrncWhTest {
             e.printStackTrace();
         }
 
-        // Get total count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test2,sql2");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
                 //ps.setInt(1, userId);
@@ -121,13 +124,12 @@ public class StatusConsoldtdRfrncWhTest {
     }
 
     @Test
-    @Order(3)
-    @DisplayName("testThree")
     /**
      * Check to ensure that all distinct DCMNT records are being populated.
      * -- EXPECT count of [Select count(distinct(ds.cur_status)) from FRED.DOCSTAT ds;]
      */
-    void testThree() {
+    public void test3() {
+    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test3");
         // Select distinct country codes
         String sql1 = "Select count(distinct(ds.cur_status)) from DTSDM_SRC_STG.DOCSTAT ds";
 
@@ -147,7 +149,7 @@ public class StatusConsoldtdRfrncWhTest {
         int srcCount = 0;
         int dupeCount = 0;
 
-        // Get dest count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test3,sql1");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
@@ -160,11 +162,11 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testThree sql1 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test3 sql1 failed");
             e.printStackTrace();
         }
 
-        // Get total count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test3,sql2");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
                 //ps.setInt(1, userId);
@@ -177,11 +179,11 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testThree sql2 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test3 sql2 failed");
             e.printStackTrace();
         }
 
-        // Get dupe count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test3,sql3");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql3)) {
                 //ps.setInt(1, userId);
@@ -196,7 +198,7 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testThree sql2 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test3 sql2 failed");
             e.printStackTrace();
         }
 
@@ -214,9 +216,9 @@ public class StatusConsoldtdRfrncWhTest {
     }
 
     @Test
-    @Order(5)
-    @DisplayName("testFour")
-    void testFour() {
+
+    public void test4() {
+    	System.out.println("Starting StatusConsoldtdRfrncWhTest.test4");
         // Select distinct country codes
         String sql1 = "select * from STATUS_CONSOLDTD_RFRNC_WH where RCD_TYPE_CD = 'DEBT_TRNS'";
 
@@ -239,7 +241,7 @@ public class StatusConsoldtdRfrncWhTest {
         int rowCountSql4 = 0;
         int rowCountSql5 = 0;
 
-        // Get dest count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test4,sql1");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
@@ -259,11 +261,11 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testFour sql1 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test4 sql1 failed");
             e.printStackTrace();
         }
 
-        // Get total count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test4,sql2");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
                 //ps.setInt(1, userId);
@@ -276,11 +278,11 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testFour sql2 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test4 sql2 failed");
             e.printStackTrace();
         }
 
-        // Get minus count
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test4,sql3");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql3)) {
                 //ps.setInt(1, userId);
@@ -294,11 +296,11 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testFour sql3 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test4 sql3 failed");
             e.printStackTrace();
         }
 
-        // GetSql 4
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test4,sql4");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql4)) {
                 //ps.setInt(1, userId);
@@ -312,11 +314,11 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testFour sql4 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test4 sql4 failed");
             e.printStackTrace();
         }
 
-        // GetSql 5
+        System.out.println("Starting StatusConsoldtdRfrncWhTest.test4,sql5");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql5)) {
                 //ps.setInt(1, userId);
@@ -330,7 +332,7 @@ public class StatusConsoldtdRfrncWhTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("StatusConsoldtdRfrncWhTest.testFour sql5 failed");
+            System.out.println("StatusConsoldtdRfrncWhTest.test4 sql5 failed");
             e.printStackTrace();
         }
 

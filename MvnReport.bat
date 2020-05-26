@@ -1,8 +1,9 @@
-set JAVA_HOME=D:\Java\jdk1.8.0_221
-set MAVEN_HOME=D:\ApacheGroup\apache-maven-3.6.3
+set JAVA_HOME=D:\Java\jdk\jdk8
+set MAVEN_HOME=X:\java\apps\maven\apache-maven-3.1.1
 set PATH=%PATH%;%MAVEN_HOME%\bin;%JAVA_HOME%\bin
 
 call mvn  clean
 
-call mvn surefire-report:report  
+call mvn test
+call mvn surefire-report:report 
 pause
