@@ -595,6 +595,7 @@ public class AgncyOrgWhTest {
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
         ResultObject ro1 = new ResultObject((distinctCount == distinctCount),"(distinctCount == distinctCount)");
         roList.add(ro1);
+        wr.logTestResults(roList);
 
         System.out.println("distinctCount " + distinctCount );
         assertEquals(distinctCount,distinctCount);
@@ -669,6 +670,7 @@ public class AgncyOrgWhTest {
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
         ResultObject ro1 = new ResultObject((distinctCount == totalCount),"(distinctCount == totalCount)");
         roList.add(ro1);
+        wr.logTestResults(roList);
 
         System.out.println("distinctCount = totalCount " + distinctCount + " = " + totalCount);
         assertEquals(distinctCount,totalCount);
@@ -742,6 +744,7 @@ public class AgncyOrgWhTest {
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
         ResultObject ro1 = new ResultObject((count == totalCount),"(count == totalCount)");
         roList.add(ro1);
+        wr.logTestResults(roList);
 
         System.out.println("count = totalCount " + count + " = " + totalCount);
         assertEquals(count,totalCount);
