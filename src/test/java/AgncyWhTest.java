@@ -2,6 +2,7 @@ import org.junit.*;
 import org.junit.runners.MethodSorters;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
@@ -10,44 +11,12 @@ import static org.junit.Assert.assertTrue;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AgncyWhTest extends TableTest {
 
-	Connection conn = null;
-	static WriteResults wr = null;
-
-	@Before
-	public void getConnection() {
-		Connection con = null;
-		try {
-			Conf config = new Conf();
-
-			Properties props = new Properties();
-			props.put("myConnectionURL", config.getMyConnectionURL());
-			props.put("user", config.getUser());
-			props.put("password", config.getPassword());
-			// System.out.println("myConnectionURL " +
-			// props.getProperty("myConnectionURL"));
-			// System.out.println("user " + props.getProperty("user"));
-			// System.out.println("password" + props.getProperty("password"));
-
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection(props.getProperty("myConnectionURL"), props);
-			System.out.println("Connection Successful");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		this.conn = con;
-	}
 	@BeforeClass
 	public  static void openResults(){
 		wr = new WriteResults("AgncyWhTest.html");
 		wr.pageHeader();
 	}
 
-	@AfterClass
-	public static void closeResults(){
-		wr.closePage();
-		wr.printWriter.flush();
-		wr.printWriter.close();
-	}
 
 	@Test
 	public void test1() {
@@ -57,6 +26,13 @@ public class AgncyWhTest extends TableTest {
 
 
 		String sql = "Select count(*) \n" + "from DTSDM.AGNCY_WH \n" + " where AGNCY_WH. AGNCY_WID = 0 \n";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj = new SqlObject("sql",sql.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj);
+		wr.logSql(theSql);
+
 		int number = 0;
 
 		System.out.println("Starting AgncyWhTest.test1,sql");
@@ -98,6 +74,12 @@ public class AgncyWhTest extends TableTest {
 		String sql1 = "Select distinct (AGNCY_WH.AGNCY_WID), count (*) \n" + "from DTSDM.AGNCY_WH \n"
 				+ "group by AGNCY_WH.AGNCY_WID \n" + "having count(*) > 1 \n";
 
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj);
+		wr.logSql(theSql);
+
 		// if the count the same no duplicates are found
 		int dupeCount = 0;
 
@@ -137,6 +119,12 @@ public class AgncyWhTest extends TableTest {
 		// Select distinct country codes
 		// All dprtmnt_id should be 1 expect the row 0;
 		String sql1 = "Select distinct AGNCY_WH. DPRTMNT_WID from DTSDM.AGNCY_WH where AGNCY_WID != 0 ";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj);
+		wr.logSql(theSql);
 
 		// if the count the same no duplicates are found
 		int dptWidCount = 0;
@@ -187,6 +175,16 @@ public class AgncyWhTest extends TableTest {
 		String sql3 = "Select distinct AGNCY_WH.AGNCY_CD \n" + "from DTSDM.AGNCY_WH \n"
 				+ "where AGNCY_WH.AGNCY_CD not in \n" + "(Select distinct u##agency \n"
 				+ "  from DTSDM_SRC_STG.adm_agency )";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj3);
+		wr.logSql(theSql);
 
 		// if the count the same no duplicates are found
 		int destCount = 0;
@@ -283,6 +281,17 @@ public class AgncyWhTest extends TableTest {
 				+ "where AGNCY_WH.AGNCY_DESCR not in (Select distinct agency_desc\n"
 				+ "from DTSDM_SRC_STG.adm_agency)\n";
 
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj3);
+		wr.logSql(theSql);
+
+
 		int agncyDescrCount = 0;
 
 		int srcAgncyDescrCount = 0;
@@ -370,6 +379,14 @@ public class AgncyWhTest extends TableTest {
 		String sql1 = "Select distinct AGNCY_WH.CURR_SW, count(*) \n" + "From DTSDM.AGNCY_WH \n"
 				+ "Group by AGNCY_WH.CURR_SW \n ";
 
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		wr.logSql(theSql);
+
+
 		// if the count the same no duplicates are found
 		int tableRowsCount = 0;
 		int groupByCount = 0;
@@ -415,6 +432,15 @@ public class AgncyWhTest extends TableTest {
 
 		String sql2 = "Select distinct trunc(AGNCY_WH.INSERT_DATE) INSERT_DATE, count (*) \n" + "From DTSDM.AGNCY_WH \n"
 				+ "Group by trunc(AGNCY_WH.INSERT_DATE) \n";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		wr.logSql(theSql);
+
 
 		// if the count the same
 		int count = 0;
@@ -478,6 +504,15 @@ public class AgncyWhTest extends TableTest {
 
 		String sql2 = "Select distinct trunc(AGNCY_WH.UPDATE_DATE) UPDATE_DATE, count (*) \n" + "From DTSDM.AGNCY_WH \n"
 				+ "Group by trunc(AGNCY_WH.UPDATE_DATE) \n";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		wr.logSql(theSql);
+
 
 		// if the count the same
 		int count = 0;

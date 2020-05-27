@@ -4,6 +4,7 @@ import org.junit.runners.MethodSorters;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 
@@ -29,11 +30,18 @@ public class DprtmntWhTest extends TableTest {
     	System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql = "select count (distinct(DPRTMNT_WID)) from DTSDM.dprtmnt_wh";
+        String sql1 = "select count (distinct(DPRTMNT_WID)) from DTSDM.dprtmnt_wh";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+         wr.logSql(theSql);
+
 
         int count = 0;
         try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
@@ -65,6 +73,15 @@ public class DprtmntWhTest extends TableTest {
         String sql1 = "select count (*) from DTSDM.dprtmnt_wh";
         
         String sql2 = "select count (distinct(DPRTMNT_CD) ) from DTSDM.dprtmnt_wh";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj2);
+        wr.logSql(theSql);
+
 
         int totalRowCount = 0;
         int distinctCdCount = 0;

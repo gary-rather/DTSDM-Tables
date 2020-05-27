@@ -5,6 +5,7 @@ import org.junit.runners.MethodSorters;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
@@ -23,13 +24,21 @@ public class StateCountryRfrncWhTest extends TableTest {
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-		String sql = "Select count(*) " +
+		String sql1 = "Select count(*) " +
 				"from DTSDM.STATE_COUNTRY_RFRNC_WH " +
 				"where STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_WID = 0";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		wr.logSql(theSql);
+
+
 		int number = 0;
 		System.out.println("Starting StateCountryRfrncWhTest.test1,sql1");
 		try {
-			try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
+			try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
 				//ps.setInt(1, userId);
 				try (ResultSet rs = ps.executeQuery();) {
 					//System.out.println("Size of results = " + rs.getInt(1));
@@ -62,6 +71,15 @@ public class StateCountryRfrncWhTest extends TableTest {
 
 		// Select total distinct rows
 		String sql2 = "Select count ( STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_WID) from DTSDM. STATE_COUNTRY_RFRNC_WH";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		wr.logSql(theSql);
+
 
 		// if the count the same no duplicates are found
 		int distinctCount = 0;
@@ -128,6 +146,17 @@ public class StateCountryRfrncWhTest extends TableTest {
 				"minus \n" +
 				"select distinct U##STCODE \n" +
 				"from DTSDM_SRC_STG.STATE  \n";
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj3);
+		wr.logSql(theSql);
+
 
 		// if the count the same no duplicates are found
 		int destCount = 0;
@@ -224,6 +253,17 @@ public class StateCountryRfrncWhTest extends TableTest {
 				"select distinct STATE.U##STNAME \n" +
 				"from DTSDM_SRC_STG.STATE  \n";
 
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj3);
+		wr.logSql(theSql);
+
+
 		// if the count the same no duplicates are found
 		int destCount = 0;
 		int srcCount = 0;
@@ -316,6 +356,13 @@ public class StateCountryRfrncWhTest extends TableTest {
 				"    ON  HTL_TAX_EXMPT_LOCATION1.STATE_CODE = STATE.U##STCODE " ;
 
 
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		wr.logSql(theSql);
+
+
 
 		// if the count the same no duplicates are found
 		int minusCount = 0;
@@ -357,6 +404,13 @@ public class StateCountryRfrncWhTest extends TableTest {
 				"From DTSDM.STATE_COUNTRY_RFRNC_WH \n" +
 				"Where STATE_COUNTRY_RFRNC_WH.CURR_SW = 1 \n" +
 				"group by STATE_COUNTRY_RFRNC_WH.CURR_SW " ;
+
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		wr.logSql(theSql);
 
 
 
@@ -403,6 +457,15 @@ public class StateCountryRfrncWhTest extends TableTest {
 		String sql2 = "Select distinct trunc(AGNCY_WH.INSERT_DATE) INSERT_DATE, count (*) \n" +
 				"From DTSDM.AGNCY_WH \n" +
 				"Group by trunc(AGNCY_WH.INSERT_DATE) \n";
+
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		wr.logSql(theSql);
 
 
 		// if the count the same
@@ -474,6 +537,15 @@ public class StateCountryRfrncWhTest extends TableTest {
 		String sql2 = "Select distinct trunc(AGNCY_WH.UPDATE_DATE) UPDATE_DATE, count (*) \n" +
 				"From DTSDM.AGNCY_WH \n" +
 				"Group by trunc(AGNCY_WH.UPDATE_DATE) \n";
+
+
+		// log the Sql
+		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+		SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj1);
+		SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+		theSql.add(sqlObj2);
+		wr.logSql(theSql);
 
 
 		// if the count the same

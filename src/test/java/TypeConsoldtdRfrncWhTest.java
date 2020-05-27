@@ -30,13 +30,21 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql = "Select * from DTSDM. TYPE_CONSOLDTD_RFRNC_WH \n" +
+        String sql1 = "Select * from DTSDM. TYPE_CONSOLDTD_RFRNC_WH \n" +
                 "where TYPE_CONSOLDTD_RFRNC_WH.TYPE_WID = 0\n";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        wr.logSql(theSql);
+
+
         int number = 0;
         
         System.out.println("Starting TypeConsoldtdRfrncWhTest.test1,sql1");
         try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
@@ -81,6 +89,17 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
                 "from DTSDM.TYPE_CONSOLDTD_RFRNC_WH \n" +
                 "group by TYPE_CONSOLDTD_RFRNC_WH.TYPE_WID \n" +
                 "having count(*) > 1 \n";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj2);
+        SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj3);
+        wr.logSql(theSql);
+
 
         // if the count the same no duplicates are found
         int distinctCount = 0;
@@ -181,6 +200,17 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
         String sql3 = "select *  \n" +
                 "from TYPE_CONSOLDTD_RFRNC_WH \n" +
                 "where RCD_TYPE_CD = 'DCMNT'  \n";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj2);
+        SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj3);
+        wr.logSql(theSql);
+
 
         // if the count the same no duplicates are found
         ArrayList<String> srcDocstatList = new ArrayList<String>();
@@ -289,6 +319,17 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
                 "minus \n" +
                 "select distinct STATE.U##STNAME \n" +
                 "from DTSDM_SRC_STG.STATE  \n";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj2);
+        SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj3);
+        wr.logSql(theSql);
+
 
         // if the count the same no duplicates are found
         ArrayList<String> typeList = new ArrayList<String>();

@@ -25,7 +25,7 @@ public class AgncyOrgWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
 
 
         String sql = "Select AGNCY_ORG_WID, \n" +
@@ -42,9 +42,10 @@ public class AgncyOrgWhTest extends TableTest {
                 "from dtsdm.AGNCY_ORG_WH ao \n" +
                 "where ao.agncy_org_wid = 0 \n";
 
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
         SqlObject sqlObj = new SqlObject("sql",sql.replaceAll("\n","\n<br>"));
         theSql.add(sqlObj);
-
         wr.logSql(theSql);
 
         int rowCount = 0;

@@ -5,6 +5,7 @@ import org.junit.runners.MethodSorters;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
@@ -28,12 +29,20 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql = "Select * from DTSDM.STATUS_CONSOLDTD_RFRNC_WH where STATUS_WID=0";
+        String sql1 = "Select * from DTSDM.STATUS_CONSOLDTD_RFRNC_WH where STATUS_WID=0";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        wr.logSql(theSql);
+
+
         int number = 0;
         
         System.out.println("Starting StatusConsoldtdRfrncWhTest.test1,sql1");
         try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
@@ -67,6 +76,15 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
 
         // Select total distinct rows
         String sql2 = "Select count(*) from DTSDM.STATUS_CONSOLDTD_RFRNC_WH";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj2);
+        wr.logSql(theSql);
+
 
         // if the count the same no duplicates are found
         int distinctCount = 0;
@@ -133,6 +151,17 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 "where rcd_type_cd = 'DCMNT' \n" +
                 "group by STATUS_WID,STATUS_CD,STATUS_DESCR,STATUS_TYPE_DESCR,RCD_TYPE_CD,RCD_TYPE_DESCR \n" +
                 "having count(*) > 1 \n";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj2);
+        SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj3);
+        wr.logSql(theSql);
+
 
         // if the count the same no duplicates are found
         int destCount = 0;
@@ -225,6 +254,22 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 "where RCD_TYPE_CD = 'DEBT_TRNS'\n";
 
         String sql5 = "Select distinct pdh.type from DTSDM_SRC_STG.pm_debt_hist pdh";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj2);
+        SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj3);
+        SqlObject sqlObj4 = new SqlObject("sql4",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj4);
+        SqlObject sqlObj5 = new SqlObject("sql5",sql3.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj5);
+
+        wr.logSql(theSql);
+
 
         // if the count the same no duplicates are found
         int rowCountSql1 = 0;
