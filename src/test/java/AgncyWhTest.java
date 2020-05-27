@@ -50,6 +50,13 @@ public class AgncyWhTest extends TableTest {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((1 == number),"(1 == number)");
+		roList.add(ro1);
+		wr.logTestResults(roList);
+
 		System.out.println("Test AgncyWh  Row 0 1= " + number);
 		assertEquals(1, number);
 
@@ -100,6 +107,12 @@ public class AgncyWhTest extends TableTest {
 			e.printStackTrace();
 		}
 
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((0 == dupeCount),"(0 == dupeCount)");
+		roList.add(ro1);
+		wr.logTestResults(roList);
+
 		assertEquals(0, dupeCount);
 		System.out.println("Agncy_WH   ddupe wid =  " + dupeCount);
 	}
@@ -146,6 +159,14 @@ public class AgncyWhTest extends TableTest {
 			System.out.println("AgncyWh.test3 sql1 failed");
 			e.printStackTrace();
 		}
+
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((1 == dptWidCount),"(1 == dptWidCount)");
+		roList.add(ro1);
+		ResultObject ro2 = new ResultObject((1 == dptWid),"(1 == dptWid)");
+		roList.add(ro2);
+		wr.logTestResults(roList);
 
 		System.out.println("AgncyWh  DprtmntWid  count should be 1  actual = " + dptWidCount);
 		assertEquals(1, dptWidCount);
@@ -244,6 +265,23 @@ public class AgncyWhTest extends TableTest {
 			e.printStackTrace();
 		}
 
+
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((destCount > 0),"(destCount == 0)");
+		roList.add(ro1);
+		ResultObject ro2 = new ResultObject((srcCount > 0),"(srcCount > 0)");
+		roList.add(ro2);
+		ResultObject ro3 = new ResultObject((destCount == (srcCount + 1)),"(destCount == (srcCount + 1))");
+		roList.add(ro3);
+		ResultObject ro4 = new ResultObject((1 == minusCount),"(1 == minusCount)");
+		roList.add(ro4);
+		ResultObject ro5 = new ResultObject(("UNK".equalsIgnoreCase(row)),"('UNK' == row)");
+		roList.add(ro5);
+
+		wr.logTestResults(roList);
+
+
 		System.out.println("AgncyWh Test Four    Destination count actual = " + destCount);
 		assertTrue(destCount >= 0);
 
@@ -252,7 +290,7 @@ public class AgncyWhTest extends TableTest {
 
 		//include row 0 so dest count +1 over src
 		System.out.println("Test Four    Destination count should equal Source Count " + destCount + " = " + srcCount + "row0 = 1" );
-		assertEquals(destCount, srcCount + 1);
+		assertEquals(destCount, (srcCount + 1));
 		
 		System.out.println("Test Four    rows not in Src" + minusCount );
 		assertEquals(1, minusCount);
