@@ -57,14 +57,15 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //try {
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((1 == number), "(1 == number)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
+
         assertEquals(1, number);
-        //} catch (Throwable t){
-        //	System.out.println("Assertion rows returned failed ");
-        //	t.printStackTrace();
-        //    throw t;
-        //}
-        System.out.println("Test TypeConsoldtdRfrncWhTest Success " + "Row 0  count = 1");
+         System.out.println("Test TypeConsoldtdRfrncWhTest Success " + "Row 0  count = 1");
     }
 
     @Test
@@ -158,6 +159,14 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
             System.out.println("TypeConsoldtdRfrncWhTest.test3 sql2 failed");
             e.printStackTrace();
         }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((distinctCount == totalCount), "(distinctCount == totalCount)");
+        roList.add(ro1);
+        ResultObject ro2 = new ResultObject((0 == dupeCount), "(0 == dupeCount)");
+        roList.add(ro2);
+        wr.logTestResults(roList);
 
         System.out.println("TypeConsoldtdRfrncWhTest  distinct / total  actual = " + distinctCount + " = " + totalCount);
         assertEquals(distinctCount, totalCount);
@@ -278,6 +287,16 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
             System.out.println("TypeConsoldtdRfrncWhTest.test3 sql2 failed");
             e.printStackTrace();
         }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((5 == srcCount), "(5 == srcCount)");
+        roList.add(ro1);
+        ResultObject ro2 = new ResultObject((5 == destCount), "(5 == destCount)");
+        roList.add(ro2);
+        ResultObject ro3 = new ResultObject((5 == docCount), "(5 == docCount)");
+        roList.add(ro3);
+        wr.logTestResults(roList);
 
         System.out.println("stateCountryCount   src actual = " + destCount + " = " + srcCount);
         assertEquals(5, srcCount);
@@ -410,6 +429,15 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((302 == typeCount), "(302 == typeCount)");
+        roList.add(ro1);
+        ResultObject ro2 = new ResultObject((301 == descrCount), "(301 == descrCount)");
+        roList.add(ro2);
+        ResultObject ro3 = new ResultObject((1 == minusCount), "(1 == minusCount)");
+        roList.add(ro3);
+        wr.logTestResults(roList);
 
         System.out.println("Test Four    Destination Name  expected 302 actual = " + typeCount);
         assertEquals(302, typeCount);

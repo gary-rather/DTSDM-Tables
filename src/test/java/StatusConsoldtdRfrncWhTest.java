@@ -13,8 +13,8 @@ import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StatusConsoldtdRfrncWhTest extends TableTest {
 
-     @BeforeClass
-    public  static void openResults(){
+    @BeforeClass
+    public static void openResults() {
         wr = new WriteResults("StatusConsoldtdRfrncWhTest.html");
         wr.pageHeader();
     }
@@ -33,21 +33,21 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
-        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj1 = new SqlObject("sql1", sql1.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj1);
         wr.logSql(theSql);
 
 
         int number = 0;
-        
+
         System.out.println("Starting StatusConsoldtdRfrncWhTest.test1,sql1");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        number =  rs.getInt(1);
+                    while (rs.next()) {
+                        number = rs.getInt(1);
 
                     }
                 }
@@ -56,10 +56,16 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
             e.printStackTrace();
         }
 
-        System.out.println("Test StatusConsoldtdRfrncWhTest Success " + "Row 0  count = " + number) ;
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((1 == number), "(1 == number)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
+
+        System.out.println("Test StatusConsoldtdRfrncWhTest Success " + "Row 0  count = " + number);
         assertEquals(1, number);
 
-        System.out.println("Test StatusConsoldtdRfrncWhTest Success " + "Row 0  count = 1") ;
+        System.out.println("Test StatusConsoldtdRfrncWhTest Success " + "Row 0  count = 1");
     }
 
     @Test
@@ -79,9 +85,9 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
-        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj1 = new SqlObject("sql1", sql1.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj1);
-        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj2 = new SqlObject("sql2", sql2.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj2);
         wr.logSql(theSql);
 
@@ -96,8 +102,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        distinctCount =  rs.getInt(1);
+                    while (rs.next()) {
+                        distinctCount = rs.getInt(1);
 
                     }
                 }
@@ -113,8 +119,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        totalCount =  rs.getInt(1);
+                    while (rs.next()) {
+                        totalCount = rs.getInt(1);
 
                     }
                 }
@@ -124,8 +130,14 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((totalCount == distinctCount), "(totalCount == distinctCount)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
+
         assertEquals(totalCount, distinctCount);
-        System.out.println("StatusConsoldtdRfrncWhTest  DistinctCount = TotalCount " + distinctCount + " = " + totalCount) ;
+        System.out.println("StatusConsoldtdRfrncWhTest  DistinctCount = TotalCount " + distinctCount + " = " + totalCount);
     }
 
     @Test
@@ -154,11 +166,11 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
-        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj1 = new SqlObject("sql1", sql1.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj1);
-        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj2 = new SqlObject("sql2", sql2.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj2);
-        SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj3 = new SqlObject("sql3", sql3.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj3);
         wr.logSql(theSql);
 
@@ -174,8 +186,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        destCount =  rs.getInt(1);
+                    while (rs.next()) {
+                        destCount = rs.getInt(1);
 
                     }
                 }
@@ -191,8 +203,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        srcCount =  rs.getInt(1);
+                    while (rs.next()) {
+                        srcCount = rs.getInt(1);
 
                     }
                 }
@@ -209,8 +221,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
 
-                    while(rs.next()) {
-                        String row =  rs.getString(1);
+                    while (rs.next()) {
+                        String row = rs.getString(1);
                         dupeCount++;
 
                     }
@@ -221,13 +233,17 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
             e.printStackTrace();
         }
 
-            System.out.println("StatusConsoldtdRfrncWhTest  dest / src actual = " + destCount + " = " + srcCount);
-            assertEquals(destCount, srcCount);
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((destCount == srcCount), "(destCount == srcCount)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
+
+        System.out.println("StatusConsoldtdRfrncWhTest  dest / src actual = " + destCount + " = " + srcCount);
+        assertEquals(destCount, srcCount);
 
 
-
-
-        System.out.println("stateCountryCount  Destination duplicate actual = " + dupeCount) ;
+        System.out.println("stateCountryCount  Destination duplicate actual = " + dupeCount);
         assertEquals(0, dupeCount);
         System.out.println();
 
@@ -257,15 +273,15 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
-        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj1 = new SqlObject("sql1", sql1.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj1);
-        SqlObject sqlObj2 = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj2 = new SqlObject("sql2", sql2.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj2);
-        SqlObject sqlObj3 = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj3 = new SqlObject("sql3", sql3.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj3);
-        SqlObject sqlObj4 = new SqlObject("sql4",sql2.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj4 = new SqlObject("sql4", sql2.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj4);
-        SqlObject sqlObj5 = new SqlObject("sql5",sql3.replaceAll("\n","\n<br>"));
+        SqlObject sqlObj5 = new SqlObject("sql5", sql3.replaceAll("\n", "\n<br>"));
         theSql.add(sqlObj5);
 
         wr.logSql(theSql);
@@ -285,13 +301,13 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        String statusWid =  rs.getString("STATUS_WID");
-                        String statusCd =  rs.getString("STATUS_CD");
-                        String statusDescr =  rs.getString("STATUS_Descr");
-                        String statusTyeDescr =  rs.getString("STATUS_TYPE_DESCR");
-                        String rcdTypeCd =  rs.getString("RCD_TYPE_CD");
-                        String rcdTypeDescr =  rs.getString("RCD_TYPE_DESCR");
+                    while (rs.next()) {
+                        String statusWid = rs.getString("STATUS_WID");
+                        String statusCd = rs.getString("STATUS_CD");
+                        String statusDescr = rs.getString("STATUS_Descr");
+                        String statusTyeDescr = rs.getString("STATUS_TYPE_DESCR");
+                        String rcdTypeCd = rs.getString("RCD_TYPE_CD");
+                        String rcdTypeDescr = rs.getString("RCD_TYPE_DESCR");
                         rowCountSql1++;
 
 
@@ -309,8 +325,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        String StatusDescr =  rs.getString("STATUS_DESCR");
+                    while (rs.next()) {
+                        String StatusDescr = rs.getString("STATUS_DESCR");
                         rowCountSql2++;
                     }
                 }
@@ -326,8 +342,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        String status =  rs.getString("STATUS");
+                    while (rs.next()) {
+                        String status = rs.getString("STATUS");
                         rowCountSql3++;
 
                     }
@@ -344,8 +360,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
-                    while(rs.next()) {
-                        String statusTypeDescr =  rs.getString("STATUS_TYPE_DESCR");
+                    while (rs.next()) {
+                        String statusTypeDescr = rs.getString("STATUS_TYPE_DESCR");
                         rowCountSql4++;
 
                     }
@@ -362,8 +378,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
 
-                    while(rs.next()) {
-                        String type =  rs.getString("TYPE");
+                    while (rs.next()) {
+                        String type = rs.getString("TYPE");
                         rowCountSql5++;
 
                     }
@@ -374,14 +390,19 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((rowCountSql2 == rowCountSql3), "(rowCountSql2 == rowCountSql3)");
+        roList.add(ro1);
+        ResultObject ro2 = new ResultObject((rowCountSql4 == rowCountSql5), "(rowCountSql4 == rowCountSql5)");
+        roList.add(ro2);
+        wr.logTestResults(roList);
 
-        System.out.println("Test Five   Sql 1 rowcount " + rowCountSql1) ;
-        //assertEquals(301, rowCountSql1);
 
-        System.out.println("Test Five  rowCount2 should equal rowCount3 " + rowCountSql2 + " = " + rowCountSql3) ;
+        System.out.println("Test Five  rowCount2 should equal rowCount3 " + rowCountSql2 + " = " + rowCountSql3);
         assertEquals(rowCountSql2, rowCountSql3);
 
-        System.out.println("Test Five  rowCount4 should equal rowCount5 " + rowCountSql4 + " = " + rowCountSql5) ;
+        System.out.println("Test Five  rowCount4 should equal rowCount5 " + rowCountSql4 + " = " + rowCountSql5);
         assertEquals(rowCountSql2, rowCountSql3);
 
     }

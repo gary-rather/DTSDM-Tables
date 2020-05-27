@@ -52,7 +52,7 @@ public class AgncyWhTest extends TableTest {
 		}
 
 		// Log the results before
-		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ArrayList<ResultObject> roList = new ArrayList<>();
 		ResultObject ro1 = new ResultObject((1 == number),"(1 == number)");
 		roList.add(ro1);
 		wr.logTestResults(roList);
@@ -388,6 +388,20 @@ public class AgncyWhTest extends TableTest {
 			e.printStackTrace();
 		}
 
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((agncyDescrCount > 0),"(agncyDescrCount > 0)");
+		roList.add(ro1);
+		ResultObject ro2 = new ResultObject((srcAgncyDescrCount > 0),"(srcAgncyDescrCount > 0)");
+		roList.add(ro2);
+		ResultObject ro3 = new ResultObject((agncyDescrCount == srcAgncyDescrCount),"(agncyDescrCount == srcAgncyDescrCount)");
+		roList.add(ro3);
+		ResultObject ro4 = new ResultObject((1 == minusCount),"(1 == minusCount)");
+		roList.add(ro4);
+		ResultObject ro5 = new ResultObject(("UNK".equalsIgnoreCase(row)),"('UNK' == row)");
+		roList.add(ro5);
+		wr.logTestResults(roList);
+
 		System.out.println("AgncyWh Test Five  AGNCY_DESCR  Destination count actual = " + agncyDescrCount);
 		assertTrue(agncyDescrCount >= 0);
 
@@ -446,6 +460,15 @@ public class AgncyWhTest extends TableTest {
 			System.out.println("AgncyWh.test6 sql1 failed");
 			e.printStackTrace();
 		}
+
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((1 == tableRowsCount),"(1 == tableRowsCount)");
+		roList.add(ro1);
+		ResultObject ro2 = new ResultObject(("1".equalsIgnoreCase(currSw)),"(1 == currSw)");
+		roList.add(ro2);
+		wr.logTestResults(roList);
+
 
 		System.out.println("Test Six  All CURR_SW value = 1 = " + tableRowsCount);
 		assertEquals(1, tableRowsCount);
@@ -520,7 +543,12 @@ public class AgncyWhTest extends TableTest {
 			e.printStackTrace();
 		}
 
-		System.out.println("Test Seven    distinctCount = " + count);
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((count == runningCount),"(count == runningCount)");
+		roList.add(ro1);
+		wr.logTestResults(roList);
+
 
 		System.out.println("Test Seven    runningCount = " + runningCount);
 		assertEquals(count, runningCount);
@@ -592,7 +620,12 @@ public class AgncyWhTest extends TableTest {
 			e.printStackTrace();
 		}
 
-		System.out.println("Test Eight    distinctCount = " + count);
+		// Log the results before
+		ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+		ResultObject ro1 = new ResultObject((count == runningCount),"(count == runningCount)");
+		roList.add(ro1);
+		wr.logTestResults(roList);
+
 
 		System.out.println("Test Eight    runningCount = " + runningCount);
 		assertEquals(count, runningCount);

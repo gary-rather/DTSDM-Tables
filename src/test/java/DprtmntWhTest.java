@@ -55,6 +55,12 @@ public class DprtmntWhTest extends TableTest {
             e.printStackTrace();
         }
 
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((1 == count),"(1 == count)");
+        roList.add(ro1);
+         wr.logTestResults(roList);
+
         assertEquals(1, count);
 
         System.out.println("Test DprtmntWhTest Success " + "  count = " + count);
@@ -117,6 +123,12 @@ public class DprtmntWhTest extends TableTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+        ResultObject ro1 = new ResultObject((totalRowCount == distinctCdCount),"(totalRowCount == distinctCdCount)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
 
         System.out.println("Test2 totalRowCount = distinctCdCount " + totalRowCount + " = " + distinctCdCount);
         assertEquals(totalRowCount, distinctCdCount);
