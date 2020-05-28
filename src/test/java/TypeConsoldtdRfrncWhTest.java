@@ -30,7 +30,7 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "Select * from DTSDM. TYPE_CONSOLDTD_RFRNC_WH \n" +
+        String sql1 = "Select count(*) from DTSDM. TYPE_CONSOLDTD_RFRNC_WH \n" +
                 "where TYPE_CONSOLDTD_RFRNC_WH.TYPE_WID = 0\n";
 
         // log the Sql
@@ -431,20 +431,15 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
 
         // Log the results before
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
-        ResultObject ro1 = new ResultObject((302 == typeCount), "(302 == typeCount)");
+        ResultObject ro1 = new ResultObject((descrCount == typeCount), "(descrCount == typeCount)");
         roList.add(ro1);
-        ResultObject ro2 = new ResultObject((301 == descrCount), "(301 == descrCount)");
-        roList.add(ro2);
+
         ResultObject ro3 = new ResultObject((1 == minusCount), "(1 == minusCount)");
         roList.add(ro3);
         wr.logTestResults(roList);
 
-        System.out.println("Test Four    Destination Name  expected 302 actual = " + typeCount);
-        assertEquals(302, typeCount);
-
-
-        System.out.println("Test Four    Source Name  expected 301 actual = " + descrCount);
-        assertEquals(301, descrCount);
+        System.out.println("Test Four    Descr count  ==  typeCount " + descrCount + "=="+  typeCount);
+        assertEquals(descrCount, typeCount);
 
 
         System.out.println("Test Four  Destination minus Src  Name  expected 1 actual = " + minusCount);

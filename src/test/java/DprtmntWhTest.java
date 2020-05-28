@@ -57,7 +57,7 @@ public class DprtmntWhTest extends TableTest {
 
         // Log the results before
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
-        ResultObject ro1 = new ResultObject((1 == count),"(1 == count)");
+        ResultObject ro1 = new ResultObject((2 == count),"(2 == count)");
         roList.add(ro1);
          wr.logTestResults(roList);
 

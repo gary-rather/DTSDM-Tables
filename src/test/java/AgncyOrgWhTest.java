@@ -94,13 +94,13 @@ public class AgncyOrgWhTest extends TableTest {
         ResultObject ro3 = new ResultObject((0 == agncyWid),"(0 == agncyWid)");
         roList.add(ro3);
 
-        ResultObject ro4 = new ResultObject(("UNK".equalsIgnoreCase("dprtmntAgncyShrtCd")),"('UNK' equals 'dprtmntAgncyShrtCd'");
+        ResultObject ro4 = new ResultObject(("UNK".equalsIgnoreCase(dprtmntAgncyShrtCd)),"('UNK' equals 'dprtmntAgncyShrtCd'");
         roList.add(ro4);
 
-        ResultObject ro5 = new ResultObject(("UNK".equalsIgnoreCase("agncyShrtCd")),"('UNK' equals 'agncyShrtCd'");
+        ResultObject ro5 = new ResultObject(("UNK".equalsIgnoreCase(agncyShrtCd)),"('UNK' equals 'agncyShrtCd'");
         roList.add(ro5);
 
-        ResultObject ro6 = new ResultObject(("UNK".equalsIgnoreCase("orgCd")),"('UNK' equals 'orgCd'");
+        ResultObject ro6 = new ResultObject(("UNK".equalsIgnoreCase(orgCd)),"('UNK' equals 'orgCd'");
         roList.add(ro6);
 
         wr.logTestResults(roList);

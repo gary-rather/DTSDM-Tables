@@ -29,7 +29,7 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "Select * from DTSDM.STATUS_CONSOLDTD_RFRNC_WH where STATUS_WID=0";
+        String sql1 = "Select count(*) from DTSDM.STATUS_CONSOLDTD_RFRNC_WH where STATUS_WID=0";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
