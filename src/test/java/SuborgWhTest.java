@@ -577,7 +577,7 @@ public class SuborgWhTest extends TableTest{
 
         String sql1 = "select distinct SUBORG_WH.ORG_CD, count(*)\n" +
                         "from DTSDM. SUBORG_WH\n" +
-                        "where SUBORG_WH.ORG_CD =! 'UNK'\n" +
+                        "where SUBORG_WH.ORG_CD != 'UNK'\n" +
                         "group by SUBORG_WH.ORG_CD";
 
         String sql2 = "SELECT DISTINCT\n" +
@@ -662,7 +662,7 @@ public class SuborgWhTest extends TableTest{
         String sql1 = "select distinct SUBORG_WH.SUBORG_CD, count(*)\n" +
                         "from DTSDM.SUBORG_WH\n" +
                         "group by SUBORG_WH.SUBORG_CD\n" +
-                        "having count(*)=";
+                        "having count(*)=1";
 
         String sql2 = "select distinct SUBORG_WH.SUBORG_CD, count(*)\n" +
                         "from DTSDM.SUBORG_WH\n" +
@@ -702,7 +702,7 @@ public class SuborgWhTest extends TableTest{
                 try (ResultSet rs = ps.executeQuery();) {
                     //System.out.println("Size of results = " + rs.getInt(1));
                     while(rs.next()) {
-                        suborgCdSrcCount =  rs.getInt("count(*)");
+                        suborgCdSrcCount +=  rs.getInt("count(*)");
                     }
                 }
             }
@@ -745,7 +745,7 @@ public class SuborgWhTest extends TableTest{
 
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
 
-        ResultObject ro1 = new ResultObject((suborgCdSrcCount == 473),"(suborgCdSrcCount == 473)");
+        ResultObject ro1 = new ResultObject((suborgCdSrcCount == 474),"(suborgCdSrcCount == 473)");
         roList.add(ro1);
 
         ResultObject ro2 = new ResultObject((suborgCdSrcRepeatCount == 32),"(suborgCdSrcRepeatCount == 32)");
@@ -757,7 +757,7 @@ public class SuborgWhTest extends TableTest{
         wr.logTestResults(roList);
 
         System.out.println("SuborgWh Source SuborgCd Count (having count > 1) (expect 473 rows) = " + suborgCdSrcCount);
-        assertEquals(473, suborgCdSrcCount);
+        assertEquals(474, suborgCdSrcCount);
 
         System.out.println("SuborgWh Source SuborgCd Count (having count of 1) (expect 32 rows) = " + suborgCdSrcRepeatCount) ;
         assertEquals(32, suborgCdSrcRepeatCount);
