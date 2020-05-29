@@ -54,6 +54,10 @@ public class WriteResults {
     public void printDiv(String text) {
         printWriter.println("<div id=\"divtitle\">" + text + "</div>");
     }
+    public void printComment(String text) {
+        printWriter.println("<div id=\"divcomment\">" + text + "</div>");
+    }
+
     public void printYellowDiv(String text) {
         printWriter.println("<div id=\"divyellow\">" + text + "</div>");
     }
