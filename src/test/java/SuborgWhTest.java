@@ -745,7 +745,7 @@ public class SuborgWhTest extends TableTest{
 
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
 
-        ResultObject ro1 = new ResultObject((suborgCdSrcCount == 474),"(suborgCdSrcCount == 473)");
+        ResultObject ro1 = new ResultObject((suborgCdSrcCount == 473),"(suborgCdSrcCount == 473)");
         roList.add(ro1);
 
         ResultObject ro2 = new ResultObject((suborgCdSrcRepeatCount == 32),"(suborgCdSrcRepeatCount == 32)");
@@ -757,7 +757,7 @@ public class SuborgWhTest extends TableTest{
         wr.logTestResults(roList);
 
         System.out.println("SuborgWh Source SuborgCd Count (having count > 1) (expect 473 rows) = " + suborgCdSrcCount);
-        assertEquals(474, suborgCdSrcCount);
+        assertEquals(473, suborgCdSrcCount);
 
         System.out.println("SuborgWh Source SuborgCd Count (having count of 1) (expect 32 rows) = " + suborgCdSrcRepeatCount) ;
         assertEquals(32, suborgCdSrcRepeatCount);
