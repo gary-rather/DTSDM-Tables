@@ -190,7 +190,7 @@ public class DcmntWhTest extends TableTest {
 
         String sql2 = "select sum(table_row_cnt) from \n" +
                         "(select distinct U##VCHNUM, ADJ_LEVEL, count(*) table_row_cnt \n" +
-                        "from FRED.VOUCHER group by U##VCHNUM, ADJ_LEVEL)";
+                        "from DTSDM_SRC_STG.VOUCHER group by U##VCHNUM, ADJ_LEVEL)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -417,7 +417,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "Select distinct PERSON_ATTRIB_WID from DTSDM.DCMNT_WH";
 
         String sql2 = "select distinct a.PERSON_ATTRIB_WID, count(*) table_row_cnt\n" +
-                        "from DTSDM.PERSON_ATTRIB_HIST_WH a, FRED.VOUCHER b, DTSDM.PERSON_WH c\n" +
+                        "from DTSDM.PERSON_ATTRIB_HIST_WH a, DTSDM_SRC_STG.VOUCHER b, DTSDM.PERSON_WH c\n" +
                         "where a.SSN_FULL = b.U##SSN and b.ADJ_LEVEL = 0 \n" +
                         "and a.PERSON_WID = c.PERSON_WID and c.SSN_FULL = b.U##SSN\n" +
                         "and b.U##DOCTYPE in ('VCH','AUTH', 'LVCH') and a.FNAME = b.FNAME\n" +
@@ -436,7 +436,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from PERSON_ATTRIB_WH, PERSON_WH, and FRED.VOUCHER table (load being tested)
+        int testCount = 0; //comes from PERSON_ATTRIB_WH, PERSON_WH, and DTSDM_SRC_STG.VOUCHER table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test6,sql1");
         try {
@@ -500,7 +500,7 @@ public class DcmntWhTest extends TableTest {
                         "from DTSDM.DCMNT_WH group by DCMNT_TYPE_WID";
 
         String sql2 = "select distinct a.TYPE_WID\n" +
-                        "from DTSDM.TYPE_CONSOLDTD_RFRNC_WH a, FRED.DOCSTAT b \n" +
+                        "from DTSDM.TYPE_CONSOLDTD_RFRNC_WH a, DTSDM_SRC_STG.DOCSTAT b \n" +
                         "where a.TYPE_CD = b.U##DOCTYPE";
 
         // log the Sql
@@ -515,7 +515,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from TYPE_CONSOLODTD_RFRNC_WH and FRED.DOCSTAT table (load being tested)
+        int testCount = 0; //comes from TYPE_CONSOLODTD_RFRNC_WH and DTSDM_SRC_STG.DOCSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test7,sql1");
         try {
@@ -580,7 +580,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "select distinct AO_PERSON_WID from DTSDM.DCMNT_WH";
 
         String sql2 = "select distinct a.PERSON_WID \n" +
-                        "from DTSDM.PERSON_WH a, FRED.DOCSTAT b \n" +
+                        "from DTSDM.PERSON_WH a, DTSDM_SRC_STG.DOCSTAT b \n" +
                         "where a.SSN_FULL = b.APPROVE_SSN";
 
         // log the Sql
@@ -595,7 +595,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from PERSON_WH and FRED.DOCSTAT table (load being tested)
+        int testCount = 0; //comes from PERSON_WH and DTSDM_SRC_STG.DOCSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test8,sql1");
         try {
@@ -659,7 +659,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "select distinct DELEGT_PERSON_WID from DTSDM.DCMNT_WH";
 
         String sql2 = "select distinct a.PERSON_WID\n" +
-                        "from DTSDM.PERSON_WH a, FRED.VCHSTAT b\n" +
+                        "from DTSDM.PERSON_WH a, DTSDM_SRC_STG.VCHSTAT b\n" +
                         "where a.SSN_FULL = b.DELEGATE_SSN";
 
         // log the Sql
@@ -674,7 +674,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from PERSON_WH and FRED.VCHSTAT table (load being tested)
+        int testCount = 0; //comes from PERSON_WH and DTSDM_SRC_STG.VCHSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test9,sql1");
         try {
@@ -739,7 +739,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "select distinct nvl(NXT_RTNG_OFFCL_WID,0) from DTSDM.DCMNT_WH";
 
         String sql2 = "select distinct p.PERSON_WID\n" +
-                        "from DTSDM.PERSON_WH p, FRED.VCHSTAT vs\n" +
+                        "from DTSDM.PERSON_WH p, DTSDM_SRC_STG.VCHSTAT vs\n" +
                         "where p.SSN_FULL = vs.U##NEXT_SSN";
 
         // log the Sql
@@ -754,7 +754,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from PERSON_WH and FRED.VCHSTAT table (load being tested)
+        int testCount = 0; //comes from PERSON_WH and DTSDM_SRC_STG.VCHSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test10,sql1");
         try {
@@ -818,7 +818,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "select distinct nvl(AGNCY_WID,0), count(*) from DTSDM.DCMNT_WH group by AGNCY_WID";
 
         String sql2 = "select distinct ao.AGNCY_WID, count(*)\n" +
-                        "from DTSDM.SUBORG_WH so, FRED.VOUCHER v, DTSDM.AGNCY_ORG_WH ao\n" +
+                        "from DTSDM.SUBORG_WH so, DTSDM_SRC_STG.VOUCHER v, DTSDM.AGNCY_ORG_WH ao\n" +
                         "where v.U##ORG = so.FULL_ORG_CD\n" +
                         "and so.AGNCY_ORG_WID = ao.AGNCY_ORG_WID\n" +
                         "group by ao.AGNCY_WID";
@@ -835,7 +835,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from SUBORG_WH, AGNCY_ORG_WH and FRED.VOUCHER table (load being tested)
+        int testCount = 0; //comes from SUBORG_WH, AGNCY_ORG_WH and DTSDM_SRC_STG.VOUCHER table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test11,sql1");
         try {
@@ -899,7 +899,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "select distinct SUBORG_WID, count(*) from DTSDM.DCMNT_WH group by SUBORG_WID";
 
         String sql2 = "select distinct so.SUBORG_WID \n" +
-                        "from DTSDM.SUBORG_WH so, FRED.VOUCHER v \n" +
+                        "from DTSDM.SUBORG_WH so, DTSDM_SRC_STG.VOUCHER v \n" +
                         "where v.U##ORG = so.FULL_ORG_CD";
 
         // log the Sql
@@ -914,7 +914,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from SUBORG_WH and FRED.VOUCHER table (load being tested)
+        int testCount = 0; //comes from SUBORG_WH and DTSDM_SRC_STG.VOUCHER table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test12,sql1");
         try {
@@ -979,7 +979,7 @@ public class DcmntWhTest extends TableTest {
                         "from DTSDM.DCMNT_WH group by CURR_DCMNNT_STATUS_WID";
 
         String sql2 = "select distinct scr.STATUS_WID\n" +
-                        "from DTSDM.STATUS_CONSOLDTD_RFRNC_WH scr, FRED.DOCSTAT d \n" +
+                        "from DTSDM.STATUS_CONSOLDTD_RFRNC_WH scr, DTSDM_SRC_STG.DOCSTAT d \n" +
                         "where scr.STATUS_DESCR = d.CUR_STATUS \n" +
                         "and d.U##DOCTYPE in ('VCH','AUTH', 'LVCH')";
 
@@ -995,7 +995,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from STATUS_CONSOLDTD_RFRNC_WH and FRED.DOCSTAT table (load being tested)
+        int testCount = 0; //comes from STATUS_CONSOLDTD_RFRNC_WH and DTSDM_SRC_STG.DOCSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test13,sql1");
         try {
@@ -1060,7 +1060,7 @@ public class DcmntWhTest extends TableTest {
                         "( \n" +
                         "\t select dc.CURR_DCMNNT_STATUS_DT as etl_curr_dcmnt_status_dt, \n" +
                         "\t\t\t d.CUR_STATUS_DATE as test_curr_dcmnt_status_dt\n" +
-                        "\t from DTSDM.DCMNT_WH dc, FRED.DOCSTAT d\n" +
+                        "\t from DTSDM.DCMNT_WH dc, DTSDM_SRC_STG.DOCSTAT d\n" +
                         "\t where dc.DCMNT_NAME = d.U##VCHNUM\n" +
                         "\t and dc.SRC_SSN = d.U##SSN\n" +
                         "\t and dc.SRC_DOCTYPE = d.U##DOCTYPE\n" +
@@ -1122,7 +1122,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "select distinct NXT_DCMNT_STATUS_WID, count(*) from DTSDM.DCMNT_WH group by NXT_DCMNT_STATUS_WID";
 
         String sql2 = "select distinct scr.STATUS_WID\n" +
-                        "from DTSDM.STATUS_CONSOLDTD_RFRNC_WH scr, FRED.DOCSTAT d\n" +
+                        "from DTSDM.STATUS_CONSOLDTD_RFRNC_WH scr, DTSDM_SRC_STG.DOCSTAT d\n" +
                         "where scr.STATUS_DESCR = d.AWAITING\n" +
                         "and d.U##DOCTYPE in ('VCH','AUTH', 'LVCH')";
 
@@ -1138,7 +1138,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from STATUS_CONSOLDTD_RFRNC_WH and FRED.DOCSTAT table (load being tested)
+        int testCount = 0; //comes from STATUS_CONSOLDTD_RFRNC_WH and DTSDM_SRC_STG.DOCSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test15,sql1");
         try {
@@ -1207,7 +1207,7 @@ public class DcmntWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
         String sql1 = "select distinct DCMNT_NAME, count(*) from DTSDM.DCMNT_WH group by DCMNT_NAME";
-        String sql2 = "select distinct VCHNUM, count(*) from FRED.VOUCHER group by VCHNUM";
+        String sql2 = "select distinct VCHNUM, count(*) from DTSDM_SRC_STG.VOUCHER group by VCHNUM";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -1221,7 +1221,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from FRED.VOUCHER table (load being tested)
+        int testCount = 0; //comes from DTSDM_SRC_STG.VOUCHER table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test17,sql1");
         try {
@@ -1287,7 +1287,7 @@ public class DcmntWhTest extends TableTest {
                         "from DTSDM.DCMNT_WH group by NVL(SUBSTR(DCMNT_NAME, 0, INSTR(DCMNT_NAME, '_')-1), DCMNT_NAME)";
 
         String sql2 = "select distinct NVL(SUBSTR(VCHNUM, 0, INSTR(VCHNUM, '_')-1), VCHNUM), count(*)\n" +
-                        "from FRED.VOUCHER group by NVL(SUBSTR(VCHNUM, 0, INSTR(VCHNUM, '_')-1),VCHNUM)";
+                        "from DTSDM_SRC_STG.VOUCHER group by NVL(SUBSTR(VCHNUM, 0, INSTR(VCHNUM, '_')-1),VCHNUM)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -1301,7 +1301,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from FRED.VOUCHER table (load being tested)
+        int testCount = 0; //comes from DTSDM_SRC_STG.VOUCHER table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test18,sql1");
         try {
@@ -1366,7 +1366,7 @@ public class DcmntWhTest extends TableTest {
         String sql1 = "select distinct ADJSTMT_LVL, count(*) from DTSDM.DCMNT_WH\n" +
                         "group by ADJSTMT_LVL order by ADJSTMT_LVL";
 
-        String sql2 = "select distinct ADJ_LEVEL, count(*) from FRED.VOUCHER\n" +
+        String sql2 = "select distinct ADJ_LEVEL, count(*) from DTSDM_SRC_STG.VOUCHER\n" +
                         "group by ADJ_LEVEL order by ADJ_LEVEL";
 
         // log the Sql
@@ -1381,7 +1381,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from FRED.VOUCHER table (load being tested)
+        int testCount = 0; //comes from DTSDM_SRC_STG.VOUCHER table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test19,sql1");
         try {
@@ -1465,7 +1465,7 @@ public class DcmntWhTest extends TableTest {
                         "( \n" +
                         "\t select dc.trip_purpose_descr as etl_purpose_descr, " +
                         "\t\t\t t.purpose as test_purpose_descr \n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.trip t \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.trip t \n" +
                         "\t where dc.dcmnt_name = t.u##vchnum \n" +
                         "\t and dc.src_ssn = t.u##ssn \n" +
                         "\t and dc.src_doctype = t.u##doctype \n" +
@@ -1528,7 +1528,7 @@ public class DcmntWhTest extends TableTest {
                         "( \n" +
                         "\t select (dc.trip_rtrn_dt - dc.trip_dprt_dt)+1 as etl_trip_tdy_days_cnt, \n" +
                         "\t\t\t (d.retdate - depdate)+1 as test_tdy_days_cnt \n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
                         "\t and dc.src_doctype = d.u##doctype \n" +
@@ -1591,7 +1591,7 @@ public class DcmntWhTest extends TableTest {
                         "( \n" +
                         "\t select dc.trip_cp_cr_amt as etl_cp_cr_amt \n, " +
                         "\t\t\t i.tcost as test_cp_cr_amt \n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.ITINRY i \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.ITINRY i \n" +
                         "\t where dc.dcmnt_name = i.u##vchnum \n" +
                         "\t and dc.src_ssn = i.u##ssn \n" +
                         "\t and dc.src_doctype = i.u##doctype \n" +
@@ -1659,7 +1659,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.trip_cpc_crc_amt as etl_cpc_crc_amt, \n" +
                         "\t\t\t i.tcost as test_cpc_crc_amt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.ITINRY i \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.ITINRY i \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = i.u##vchnum \n" +
                         "\t and dc.src_ssn = i.u##ssn \n" +
@@ -1729,7 +1729,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.adjstr_person_wid as etl_adjstr_person_wid, " +
                         "\t\t\t p.person_wid as test_adjstr_person_wid \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, dtsdm.person_wh p, fred.vchadj v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, dtsdm.person_wh p, DTSDM_SRC_STG.vchadj v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = v.u##vchnum \n" +
                         "\t and dc.src_ssn = v.u##ssn \n" +
@@ -1795,7 +1795,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.adjstmt_dt as etl_adjstmt_dt, \n" +
                         "\t\t\t v.adj_date as test_adjstmt_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.vchadj v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.vchadj v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = v.u##vchnum \n" +
                         "\t and dc.src_ssn = v.u##ssn \n" +
@@ -1860,7 +1860,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.sgnd_dt as etl_sgnd_dt, \n" +
                         "\t\t\t d.sign_date as test_sgnd_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -1925,7 +1925,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.apprvd_dt as etl_apprvd_dt, \n" +
                         "\t\t\t d.approve_date as test_apprvd_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d, fred.voucher v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d, DTSDM_SRC_STG.voucher v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -1992,7 +1992,7 @@ public class DcmntWhTest extends TableTest {
                         "\t Select dc.create_dt as etl_create_dt, \n" +
                         "\t\t\t d.create_date as test_create_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2057,7 +2057,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.cncld_dt as etl_cncld_dt, \n" +
                         "\t\t\t d.cancel_date as test_cncld_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2170,7 +2170,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.advnc_rjct_date as etl_advnc_rjct_date, \n" +
                         "\t\t\t d.adv_reject_date as test_advnc_rjct_date \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2236,7 +2236,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.claim_amt as etl_override_flag, \n" +
                         "\t\t\t v.amt_claim as test_claim_amt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.voucher v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.voucher v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = v.u##vchnum \n" +
                         "\t and dc.src_ssn = v.u##ssn \n" +
@@ -2331,7 +2331,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.tot_entrd_amt as etl_tot_entrd_amt, " +
                         "\t\t\t i.entered_amt as test_tot_entrd_amt\n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.itinry i\n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.itinry i\n" +
                         "\n" +
                         "\t where dc.dcmnt_name = i.u##vchnum\n" +
                         "\t and dc.src_ssn = i.u##ssn\n" +
@@ -2427,7 +2427,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.prev_dcmnt_name as etl_prev_dcmnt_name, \n" +
                         "\t\t\t d.prior_vchnum as test_prev_dcmnt_name \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2492,7 +2492,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.src_orig_create_dt as etl_src_orig_create_dt, \n" +
                         "\t\t\t d.orig_create_date as test_src_orig_create_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2557,7 +2557,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.src_last_updt_dt as etl_src_last_updt_dt, \n" +
                         "\t\t\t d.last_update_date as test_src_last_updt_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn\n" +
@@ -2622,7 +2622,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.frst_tckt_issued_dt as etl_frst_tckt_issued_dt, \n" +
                         "\t\t\t d.ticketed_date as test_frst_tckt_issued_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2687,7 +2687,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.sgnd_person_wid as etl_sgnd_person_wid, \n" +
                         "\t\t\t d.sign_ssn as test_sgnd_person_wid\n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2752,7 +2752,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.audit_fail_dt as etl_audit_fail_dt, \n" +
                         "\t\t\t d.audit_fail_date as test_audit_fail_dt\n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d\n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d\n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum\n" +
                         "\t and dc.src_ssn = d.u##ssn\n" +
@@ -2818,7 +2818,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.cto_submt_dt as etl_cto_submt_dt, \n" +
                         "\t\t\t d.cto_submit_date as test_cto_submt_dt\n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d\n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d\n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum\n" +
                         "\t and dc.src_ssn = d.u##ssn\n" +
@@ -2884,7 +2884,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.vchr_submt_dt as etl_vchr_submt_dt, \n" +
                         "\t\t\t d.voucher_submitted_date as test_vchr_submt_dt \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.docstat d \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.docstat d \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = d.u##vchnum \n" +
                         "\t and dc.src_ssn = d.u##ssn \n" +
@@ -2949,7 +2949,7 @@ public class DcmntWhTest extends TableTest {
                         "(\n" +
                         "\t select dc.trip_num as etl_trip_num, va.tripnum as test_trip_num \n" +
                         "\n" +
-                        "\t\t\t from dtsdm.dcmnt_wh dc, fred.vchadj va \n" +
+                        "\t\t\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.vchadj va \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = va.u##vchnum \n" +
                         "\t and dc.src_ssn = va.u##ssn \n" +
@@ -3016,7 +3016,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select ltrim(dc.dcmnt_ref) as etl_dcmnt_ref,\n " +
                         "\t\t\t ltrim(v.reference) as test_dcmnt_ref \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.voucher v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.voucher v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = v.u##vchnum \n" +
                         "\t and dc.src_ssn = v.u##ssn \n" +
@@ -3081,7 +3081,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.src_progress_recid as etl_src_progress_recid, \n" +
                         "\t\t\t v.progress_recid as test_src_progress_recid \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.voucher v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.voucher v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = v.u##vchnum \n" +
                         "\t and dc.src_ssn = v.u##ssn \n" +
@@ -3158,7 +3158,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from PERSON_WH and FRED.DOCSTAT table (load being tested)
+        int testCount = 0; //comes from PERSON_WH and DTSDM_SRC_STG.DOCSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test65,sql1");
         try {
@@ -3225,7 +3225,7 @@ public class DcmntWhTest extends TableTest {
                         "(\n" +
                         "\t select dc.amendmnt_flag as etl_amendmnt_flag, v.tran_type \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.voucher v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.voucher v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = v.u##vchnum \n" +
                         "\t and dc.src_ssn = v.u##ssn\n" +
@@ -3239,7 +3239,7 @@ public class DcmntWhTest extends TableTest {
                         "(\n" +
                         "\t select dc.amendmnt_flag as etl_amendmnt_flag, v.tran_type \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, fred.voucher v \n" +
+                        "\t from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.voucher v \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = v.u##vchnum \n" +
                         "\t and dc.src_ssn = v.u##ssn\n" +
@@ -3264,8 +3264,8 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int countAmendYes = 0; //comes from FRED.VOUCHER table (load being tested) where amendment flag is 'Y' for yes
-        int countAmendNo = 0; //comes from FRED.VOUCHER table (load being tested) where amendment flag is 'N' for no
+        int countAmendYes = 0; //comes from DTSDM_SRC_STG.VOUCHER table (load being tested) where amendment flag is 'Y' for yes
+        int countAmendNo = 0; //comes from DTSDM_SRC_STG.VOUCHER table (load being tested) where amendment flag is 'N' for no
 
         System.out.println("Starting DcmntWhTest.test66,sql1");
         try {
@@ -3380,7 +3380,7 @@ public class DcmntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int testCount = 0; //comes from PERSON_WH and FRED.DOCSTAT table (load being tested)
+        int testCount = 0; //comes from PERSON_WH and DTSDM_SRC_STG.DOCSTAT table (load being tested)
 
         System.out.println("Starting DcmntWhTest.test70,sql1");
         try {
@@ -3476,7 +3476,7 @@ public class DcmntWhTest extends TableTest {
                         "\t select dc.curr_dcmnt_status_prsc_wid as etl_curr_dcmnt_status_prsc_wid, \n" +
                         "\t\t\t p.ssn_full as test_curr_dcmnt_status_prsc_wid \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, dtsdm.person_wh p, fred.vchstat vs \n" +
+                        "\t from dtsdm.dcmnt_wh dc, dtsdm.person_wh p, DTSDM_SRC_STG.vchstat vs \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = vs.u##vchnum \n" +
                         "\t and dc.src_ssn = vs.u##ssn \n" +
