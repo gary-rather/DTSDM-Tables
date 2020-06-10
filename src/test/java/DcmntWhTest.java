@@ -3528,4 +3528,72 @@ public class DcmntWhTest extends TableTest {
 
     }
 
+    @Test
+    /**
+     * --DCMNT_WH ROW COUNT Althea
+     */
+    public void test77() {
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
+        String sql = "select src.src_cnt - trgt.trgt_cnt as rcd_cnt_discrepancy\n" +
+                "from\n" +
+                "    (\n" +
+                "        select count(*) src_cnt\n" +
+                "        from\n" +
+                "            (\n" +
+                "                select distinct\n" +
+                "                u##vchnum,\n" +
+                "                u##doctype,\n" +
+                "                u##ssn, \n" +
+                "                adj_level\n" +
+                "                from dtsdm_src_stg.voucher\n" +
+                "                --where u##doctype != 'SAUTH'\n" +
+                "            ) \n" +
+                "        ) src,\n" +
+                "    (\n" +
+                "        select count(*) trgt_cnt\n" +
+                "        from dtsdm.dcmnt_wh\n" +
+                "        where dcmnt_wid != 0\n" +
+                "    ) trgt";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<>();
+        SqlObject sqlObj = new SqlObject("sql",sql.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj);
+        wr.logSql(theSql);
+
+        int rcd_cnt_discrepancy = 0;
+
+        System.out.println("Starting "+ this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName() + " sql" );
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        rcd_cnt_discrepancy = rs.getInt(1);
+
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<>();
+        ResultObject ro1 = new ResultObject((0 == rcd_cnt_discrepancy),"(0 == rcd_cnt_discrepancy)");
+        roList.add(ro1);
+        wr.logTestResults(roList);
+
+        System.out.println("Test DcmntWh  rcd_cnt_discrepancy == " + rcd_cnt_discrepancy);
+        assertEquals(0, rcd_cnt_discrepancy);
+
+        System.out.println("Finish " +  this.getClass().getSimpleName() + ".test77");
+        System.out.println();
+    }
+
 }
