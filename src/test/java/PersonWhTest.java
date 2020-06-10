@@ -24,7 +24,7 @@ public class PersonWhTest extends TableTest {
     @Test
     /*
      */
-    public void test1() {
+    public void test01() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printComment("Check that the \"unknown\" record 0 is populated.");
@@ -70,7 +70,7 @@ public class PersonWhTest extends TableTest {
     @Test
     /*
      */
-    public void test2() {
+    public void test02() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printComment("- Check the population of the PERSON_WH.PERSON_WID (PK) column");
@@ -160,7 +160,7 @@ public class PersonWhTest extends TableTest {
     @Test
     /*
      */
-    public void test3() {
+    public void test03() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printComment("Check the population of the PERSON_WH.SUBORG_WID column. ");
@@ -207,7 +207,7 @@ public class PersonWhTest extends TableTest {
     @Test
     /*
      */
-    public void test4() {
+    public void test04() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printComment("Check the population of the PERSON_WH.SSN_FULL column");
@@ -284,7 +284,7 @@ public class PersonWhTest extends TableTest {
     @Test
     /*
      */
-    public void test5() {
+    public void test05() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
@@ -458,4 +458,124 @@ public class PersonWhTest extends TableTest {
         System.out.println("Finish PersonWh.test5");
     }
 
- }
+    @Test
+    /**
+     * --PERSON_WH ROW COUNT
+     */
+    public void test06() {
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
+        String sql1 = "select src.src_cnt - trgt.trgt_cnt rcd_cnt_discrepancy\n" +
+                "from\n" +
+                "    (\n" +
+                "        select count(distinct u##ssn) src_cnt\n" +
+                "        from dtsdm_src_stg.person\n" +
+                "    ) src,\n" +
+                "    (\n" +
+                "        select count(*) trgt_cnt\n" +
+                "        from dtsdm.person_wh\n" +
+                "        where person_wid != 0\n" +
+                "    ) trgt\n";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+
+        wr.logSql(theSql);
+
+        int number = 0;
+
+        System.out.println("Starting "+ this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName() + " sql1" );
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        number = rs.getInt(1);
+
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<>();
+        ResultObject ro1 = new ResultObject((1 == number),"(0 == number)");
+        roList.add(ro1);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test PersonWh  0 == " + number);
+        assertEquals(0, number);
+
+        System.out.println("Finish " +  this.getClass().getSimpleName() + ".test06");
+        System.out.println();
+    }
+
+    @Test
+    /**
+     * --Identify missing data
+     */
+    public void test07() {
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
+        String sql1 = "select a.*\n" +
+                "from dtsdm_src_stg.person a\n" +
+                "where not exists\n" +
+                "    (\n" +
+                "        select b.person_wid\n" +
+                "        from dtsdm.person_wh b\n" +
+                "        where b.ssn_full = a.u##ssn\n" +
+                "    )\n" +
+                "order by a.u##ssn";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+         wr.logSql(theSql);
+
+        int number = 0;
+
+        System.out.println("Starting "+ this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName() + " sql1" );
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        String ssn = rs.getString("ssn");
+                        number++;
+
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<>();
+        ResultObject ro1 = new ResultObject((1 == number),"(0 == number)");
+        roList.add(ro1);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test PersonWh 0 == " + number);
+        assertEquals(0, number);
+
+        System.out.println("Finish " +  this.getClass().getSimpleName() + ".test07");
+        System.out.println();
+    }
+
+}
