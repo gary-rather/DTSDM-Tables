@@ -20,7 +20,7 @@ public class TripLegWhTest extends TableTest {
     }
 
     @Test
-    public void test1(){
+    public void test01(){
 
         //check that the unknown record 0 is populated
         //EXPECT: Unspecified data row: Initial load must add the 'Unspecified' row to the table. TRIP_LEG_WID=0; TRIP_WID=0; DCMNT_WID=0;
@@ -73,7 +73,7 @@ public class TripLegWhTest extends TableTest {
     }
 
     @Test
-    public void test2(){
+    public void test02(){
 
         //Check the population of the unique identifier (TRIP_LEG_WH.TRIP_LEG_WID (PK))
 
@@ -178,7 +178,7 @@ public class TripLegWhTest extends TableTest {
     }
 
     @Test
-    public void test3(){
+    public void test03(){
 
         // Check the population of the TRIP_LEG_WH.TRIP_WID column
 
@@ -186,8 +186,8 @@ public class TripLegWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select distinct trip_leg_wh.trip_wid from dtsdm.trip_leg_wh";
-        String sql2 = "select distinct dcmnt_wh.trip_wid from dtsdm.dcmnt_wh";
+        String sql1 = "select count(distinct trip_leg_wh.trip_wid) from dtsdm.trip_leg_wh";
+        String sql2 = "select count(distinct dcmnt_wh.trip_wid) from dtsdm.dcmnt_wh";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -210,7 +210,7 @@ public class TripLegWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        comparisonCount++;
+                        comparisonCount = rs.getInt(1);
                     }
                 }
             }
@@ -226,7 +226,7 @@ public class TripLegWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        testCount++;
+                        testCount = rs.getInt(1);
                     }
                 }
             }
@@ -253,7 +253,7 @@ public class TripLegWhTest extends TableTest {
     }
 
     @Test
-    public void test4(){
+    public void test04(){
 
         // Check the population of the TRIP_LEG_WH.DCMNT_WID column
 
@@ -261,9 +261,9 @@ public class TripLegWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select distinct trip_leg_wh.dcmnt_wid from dtsdm.trip_leg_wh";
+        String sql1 = "select count(distinct trip_leg_wh.dcmnt_wid) from dtsdm.trip_leg_wh";
 
-        String sql2 = "select distinct dcmnt_wh.dcmnt_wid " +
+        String sql2 = "select count(distinct dcmnt_wh.dcmnt_wid) " +
                         "from dtsdm.dcmnt_wh d, dtsdm.trip_leg_wh t \n" +
                         "where d.trip_wid = t.trip_wid";
 
@@ -288,7 +288,7 @@ public class TripLegWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        comparisonCount++;
+                        comparisonCount  = rs.getInt(1);
                     }
                 }
             }
@@ -304,7 +304,7 @@ public class TripLegWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        testCount++;
+                        testCount  = rs.getInt(1);
                     }
                 }
             }
@@ -331,7 +331,7 @@ public class TripLegWhTest extends TableTest {
     }
 
     @Test
-    public void test5(){
+    public void test05(){
 
         // Check overall data population for TRIP_LEG_WH
 
@@ -342,9 +342,9 @@ public class TripLegWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select * from DTSDM.TRIP_LEG_WH";
+        String sql1 = "select count(*) from DTSDM.TRIP_LEG_WH";
 
-        String sql2 = "select distinct U##VCHNUM, U##DOCTYPE, U##SSN, ADJ_LEVEL, LEG \n" +
+        String sql2 = "select count(distinct U##VCHNUM, U##DOCTYPE, U##SSN, ADJ_LEVEL, LEG )\n" +
                         "from FRED.ITINRY where U##LINE_TYPE in ('D', 'T', 'E') " +
                         "and (DEP_ARR like 'A%' or DEP_ARR like 'D%') and TRIPNUM = 1";
 
@@ -369,7 +369,7 @@ public class TripLegWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        comparisonCount++;
+                        comparisonCount  = rs.getInt(1);
                     }
                 }
             }
@@ -385,7 +385,7 @@ public class TripLegWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        testCount++;
+                        testCount  = rs.getInt(1);
                     }
                 }
             }
@@ -412,7 +412,7 @@ public class TripLegWhTest extends TableTest {
     }
 
     @Test
-    public void test6(){
+    public void test06(){
 
         // Check overall data population for TRIP_LEG_WH
 
@@ -420,7 +420,7 @@ public class TripLegWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select * from DTSDM.TRIP_LEG_WH";
+        String sql1 = "select count(*) from DTSDM.TRIP_LEG_WH";
 
         String sql2 = "select distinct TRIP_LEG_WH.CURR_SW, count(*)\n" +
                         "from DTSDM. TRIP_LEG_WH group by TRIP_LEG_WH.CURR_SW";
@@ -446,7 +446,7 @@ public class TripLegWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        comparisonCount++;
+                        comparisonCount = rs.getInt(1);
                     }
                 }
             }
@@ -486,6 +486,81 @@ public class TripLegWhTest extends TableTest {
         System.out.println("Finish TripLegWhTest.test6");
         System.out.println();
 
+    }
+
+    @Test
+    /**
+      * --TRIP_LEG_WH ROW COUNT
+      */
+
+    public void test07() {
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
+        String sql1 = "select src.src_cnt - trgt.trgt_cnt rcd_cnt_discrepancy\n" +
+                "from \n" +
+                "    (\n" +
+                "        select count(*) src_cnt\n" +
+                "        from\n" +
+                "            (\n" +
+                "        \n" +
+                "                select distinct \n" +
+                "                u##vchnum,\n" +
+                "                u##ssn,\n" +
+                "                u##doctype,\n" +
+                "                adj_level, \n" +
+                "                leg\n" +
+                "                from dtsdm_src_stg.itinry\n" +
+                "                where u##line_type in ('D', 'T', 'E')\n" +
+                "                and tripnum = 1\n" +
+                "            )\n" +
+                "        ) src,\n" +
+                "    (\n" +
+                "        select count(trip_leg_wid) trgt_cnt\n" +
+                "        from dtsdm.trip_leg_wh\n" +
+                "        where trip_leg_wid != 0\n" +
+                "    ) trgt\n";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+
+
+        wr.logSql(theSql);
+
+        int number = 0;
+
+        System.out.println("Starting "+ this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName() + " sql1" );
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        number = rs.getInt(1);
+
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<>();
+        ResultObject ro1 = new ResultObject((0 == number),"(0 == number)");
+        roList.add(ro1);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test TripLegWh 0 == " + number);
+        assertEquals(0, number);
+
+        System.out.println("Finish " +  this.getClass().getSimpleName() + ".test07");
+        System.out.println();
     }
 
 }
