@@ -19,7 +19,7 @@ public class VndrWhTest extends TableTest {
 
 
     @Test
-    public void test1() {
+    public void test01() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -68,7 +68,7 @@ public class VndrWhTest extends TableTest {
     /**
      *Check the population of the VNDR_WH.VNDR_WID  (PK) column.
      */
-    public void test2() {
+    public void test02() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -118,7 +118,7 @@ public class VndrWhTest extends TableTest {
 
         System.out.println("Starting VndrWhTest.test2,sql2");
         try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
                 // ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
@@ -135,7 +135,7 @@ public class VndrWhTest extends TableTest {
 
         System.out.println("Starting VndrWhTest.test2,sql3");
         try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql3)) {
                 // ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
@@ -158,7 +158,9 @@ public class VndrWhTest extends TableTest {
         roList.add(ro2);
 
         wr.logTestResults(roList);
-
+        System.out.println("VndrWhTest.test2 totalCount  " +  totalCount );
+        System.out.println("VndrWhTest.test2 distinctCount  " +  distinctCount );
+        System.out.println("VndrWhTest.test2 dupeCount  " +  dupeCount );
         System.out.println("VndrWhTest.test2 distinctCount == totalCount " + (distinctCount == totalCount) );
         assertEquals(distinctCount , totalCount);
 
@@ -171,7 +173,7 @@ public class VndrWhTest extends TableTest {
     /**
      * Check the population of the VNDR_WH.VNDR_NAME columns’
      */
-    public void test3() {
+    public void test03() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -278,7 +280,7 @@ public class VndrWhTest extends TableTest {
     /**
      * Check the population of the VNDR_WH.VNDR_TYPE_WID column.
      */
-    public void test4() {
+    public void test04() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -310,7 +312,7 @@ public class VndrWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        destCount = rs.getInt(1);
+                        destCount = rs.getInt(2);
 
                     }
                 }
@@ -360,7 +362,7 @@ public class VndrWhTest extends TableTest {
      * Check the values of the VNDR_WH.AGNCY_DESCR column
      */
     @Ignore
-    public void test5() {
+    public void test05() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -475,7 +477,7 @@ public class VndrWhTest extends TableTest {
     /**
      * Check the population of the VNDR_WH.CURR_SW column
      */
-    public void test6() {
+    public void test06() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -538,7 +540,7 @@ public class VndrWhTest extends TableTest {
      * Check the population of the VNDR_WH.EFF_START_DT column
      */
     @Ignore
-    public void test7() {
+    public void test07() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -622,7 +624,7 @@ public class VndrWhTest extends TableTest {
      * Check the population of the VNDR_WH.UPDATE_DATE column
      */
     @Ignore
-    public void test8() {
+    public void test08() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -699,6 +701,89 @@ public class VndrWhTest extends TableTest {
         System.out.println("Test Eight    runningCount = " + runningCount);
         assertEquals(count, runningCount);
 
+    }
+
+    @Test
+    /**
+     * --VNDR_WH  ROW COUNT Althea
+     */
+    public void test09() {
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
+        String sql1 = "--VNDR_WH  ROW COUNT\n" +
+                "select src.src_cnt - trgt.trgt_cnt rcd_cnt_discrepancy\n" +
+                "from\n" +
+                "    (\n" +
+                "        select count(*) src_cnt\n" +
+                "        from\n" +
+                "            (\n" +
+                "                select distinct vendor\n" +
+                "                from dtsdm_src_stg.ticksub\n" +
+                "                union\n" +
+                "                select distinct vendor\n" +
+                "                from dtsdm_src_stg.itinry\n" +
+                "                union\n" +
+                "                select distinct exp_vendor\n" +
+                "                from dtsdm_src_stg.lodge\n" +
+                "                union\n" +
+                "                select distinct ldg_vendor\n" +
+                "                from dtsdm_src_stg.lodge\n" +
+                "                union\n" +
+                "                select distinct mie_vendor\n" +
+                "                from dtsdm_src_stg.lodge\n" +
+                "                union\n" +
+                "                select distinct cto\n" +
+                "                from dtsdm_src_stg.pnrtouch\n" +
+                "            )\n" +
+                "        where vendor != ' '\n" +
+                "        )src,\n" +
+                "        (\n" +
+                "            select count(*) trgt_cnt\n" +
+                "            from dtsdm.vndr_wh\n" +
+                "            where vndr_wid != 0\n" +
+                "        ) trgt";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+
+
+        wr.logSql(theSql);
+
+        int number = 0;
+
+        System.out.println("Starting "+ this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName() + " sql1" );
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        number = rs.getInt(1);
+
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<>();
+        ResultObject ro1 = new ResultObject((0 == number),"(0 == number)");
+        roList.add(ro1);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test VndrWh 0 == " + number);
+        assertEquals(0, number);
+
+        System.out.println("Finish " +  this.getClass().getSimpleName() + ".test09");
+        System.out.println();
     }
 
 }
