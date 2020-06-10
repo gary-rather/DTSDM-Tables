@@ -553,5 +553,73 @@ public class TripWhTest extends TableTest {
         System.out.println("Finish Trip_wh.test8");
     }
 
+    @Test
+    /**
+     * --TRIP_WH ROW COUNT
+     */
+    public void test09() {
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+
+
+        String sql1 = "select src.src_cnt - trgt.trgt_cnt as rcd_cnt_discrepancy\n" +
+                "from\n" +
+                "    (\n" +
+                "        select count(*) src_cnt\n" +
+                "        from\n" +
+                "            (\n" +
+                "                select distinct\n" +
+                "                dcmnt_base_name,\n" +
+                "                src_ssn\n" +
+                "                from dcmnt_wh\n" +
+                "                where adjstmt_lvl = 0\n" +
+                "                and dcmnt_actv_ind = 'Y'\n" +
+                "                and dcmnt_wid != 0\n" +
+                "            )\n" +
+                "        ) src,\n" +
+                "    (\n" +
+                "        select count(trip_wid) trgt_cnt\n" +
+                "        from trip_wh\n" +
+                "        where trip_wid != 0\n" +
+                "    ) trgt";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<>();
+        SqlObject sqlObj1 = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sqlObj1);
+        wr.logSql(theSql);
+
+        int number = 0;
+
+        System.out.println("Starting TripWhTest.test09,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        number = rs.getInt(1);
+
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<>();
+        ResultObject ro1 = new ResultObject((0 == number),"(0 == number)");
+        roList.add(ro1);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test DebtWh   0 == " + number);
+        assertEquals(0, number);
+
+        System.out.println("Finish TripWhTest.test09");
+        System.out.println();
+    }
 
 }
