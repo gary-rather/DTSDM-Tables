@@ -182,7 +182,7 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select distinct dc.dcmnt_wid from dtsdm.dcmnt_wh dc, fred.pm_debt pd \n" +
+        String sql1 = "select distinct dc.dcmnt_wid from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.pm_debt pd \n" +
                         "where dc.dcmnt_name = pd.u##vchnum and dc.src_ssn = pd.u##ssn \n" +
                         "and dc.src_doctype = pd.u##doctype and dc. adjstmt_lvl = pd.adj_level";
 
@@ -190,7 +190,7 @@ public class DebtSmryWhTest extends TableTest {
 
         String sql3 = "Select distinct ds.dcmnt_wid from dtsdm.debt_smry_wh ds \n" +
                         "where ds.dcmnt_wid not in (Select distinct dc.dcmnt_wid \n" +
-                                                    "from dtsdm.dcmnt_wh dc, fred.pm_debt pd \n" +
+                                                    "from dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.pm_debt pd \n" +
                                                     "where dc.dcmnt_name = pd.u##vchnum and dc.src_ssn = pd.u##ssn \n" +
                                                     "and dc.src_doctype = pd.u##doctype and dc. adjstmt_lvl = pd.adj_level)";
 
@@ -447,7 +447,7 @@ public class DebtSmryWhTest extends TableTest {
         String sql1 = "select count(*) from\n" +
                         "(\n" +
                         "select distinct pd.orig_debt_date, count(*) \n" +
-                        "from fred.pm_debt pd group by pd.orig_debt_date \n" +
+                        "from DTSDM_SRC_STG.pm_debt pd group by pd.orig_debt_date \n" +
                         "--having count(*) > 1 \n" +
                         ")";
 
@@ -460,7 +460,7 @@ public class DebtSmryWhTest extends TableTest {
 
         String sql3 = "Select distinct ds.debt_incrd_dt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.debt_incrd_dt not in \n" +
-                        "(select distinct pd.orig_debt_date from fred.pm_debt pd)";
+                        "(select distinct pd.orig_debt_date from DTSDM_SRC_STG.pm_debt pd)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -566,12 +566,12 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select pd.orig_debt_amt from fred.pm_debt pd";
+        String sql1 = "select pd.orig_debt_amt from DTSDM_SRC_STG.pm_debt pd";
         String sql2 = "select ds.debt_orig_amt from dtsdm.debt_smry_wh ds";
 
         String sql3 = "select ds.debt_orig_amt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.debt_orig_amt not in \n" +
-                        "(select pd.orig_debt_amt from fred.pm_debt pd)";
+                        "(select pd.orig_debt_amt from DTSDM_SRC_STG.pm_debt pd)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -672,12 +672,12 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select pd.pm_collect_timer from fred.pm_debt pd";
+        String sql1 = "select pd.pm_collect_timer from DTSDM_SRC_STG.pm_debt pd";
         String sql2 = "select ds.collect_tmr_txt from dtsdm.debt_smry_wh ds";
 
         String sql3 = "select ds.collect_tmr_txt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.collect_tmr_txt not in \n" +
-                        "(select pd.pm_collect_timer from fred.pm_debt pd)";
+                        "(select pd.pm_collect_timer from DTSDM_SRC_STG.pm_debt pd)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -777,12 +777,12 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select pdh.status from fred.pm_debt_hist pdh";
+        String sql1 = "select pdh.status from DTSDM_SRC_STG.pm_debt_hist pdh";
         String sql2 = "select ds.lst_debt_trns_status_txt from dtsdm.debt_smry_wh ds";
 
         String sql3 = "select ds.lst_debt_trns_status_txt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.lst_debt_trns_status_txt not in \n" +
-                        "(select pdh.status from fred.pm_debt_hist pdh)";
+                        "(select pdh.status from DTSDM_SRC_STG.pm_debt_hist pdh)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -882,12 +882,12 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select pdh.trans_amt from fred.pm_debt_hist pdh";
+        String sql1 = "select pdh.trans_amt from DTSDM_SRC_STG.pm_debt_hist pdh";
         String sql2 = "select ds.lst_debt_trns_amt from dtsdm.debt_smry_wh ds";
 
         String sql3 = "select ds.lst_debt_trns_amt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.lst_debt_trns_amt not in \n" +
-                        "(select pdh.trans_amt from fred.pm_debt_hist pdh)";
+                        "(select pdh.trans_amt from DTSDM_SRC_STG.pm_debt_hist pdh)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -987,12 +987,12 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select pdh.seq_date from fred.pm_debt_hist pdh";
+        String sql1 = "select pdh.seq_date from DTSDM_SRC_STG.pm_debt_hist pdh";
         String sql2 = "select ds.lst_debt_trns_dt from dtsdm.debt_smry_wh ds";
 
         String sql3 = "select ds.lst_debt_trns_dt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.lst_debt_trns_dt not in \n" +
-                        "(select pdh.seq_date from fred.pm_debt_hist pdh)";
+                        "(select pdh.seq_date from DTSDM_SRC_STG.pm_debt_hist pdh)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -1092,12 +1092,12 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select pdh.curr_debt_bal from fred.pm_debt_hist pdh";
+        String sql1 = "select pdh.curr_debt_bal from DTSDM_SRC_STG.pm_debt_hist pdh";
         String sql2 = "select ds.curr_due_amt from dtsdm.debt_smry_wh ds";
 
         String sql3 = "select ds.curr_due_amt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.curr_due_amt not in \n" +
-                        "(select pdh.curr_debt_bal from fred.pm_debt_hist pdh)";
+                        "(select pdh.curr_debt_bal from DTSDM_SRC_STG.pm_debt_hist pdh)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -1198,12 +1198,12 @@ public class DebtSmryWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select pd.pm_collect_timer from fred.pm_debt pd";
+        String sql1 = "select pd.pm_collect_timer from DTSDM_SRC_STG.pm_debt pd";
         String sql2 = "select ds.collect_tmr_dt from dtsdm.debt_smry_wh ds";
 
         String sql3 = "Select ds.collect_tmr_dt from dtsdm.debt_smry_wh ds \n" +
                         "where ds.collect_tmr_dt not in \n" +
-                        "(select pd.pm_collect_timer from fred.pm_debt pd)";
+                        "(select pd.pm_collect_timer from DTSDM_SRC_STG.pm_debt pd)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();

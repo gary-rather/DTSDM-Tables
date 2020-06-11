@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -30,9 +31,20 @@ public abstract class TableTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("Connection Should open " );
         this.conn = con;
     }
+    @After
+    public void closeConnection(){
 
+        try {
+            if (this.conn  != null) {
+                this.conn.close();
+                this.conn = null;
+            }
+        } catch (Exception e){}
+        System.out.println("Connecion Should NOT be  open " );
+    }
 
     @BeforeClass
     public static void openResults() {
@@ -42,6 +54,8 @@ public abstract class TableTest {
 
     @AfterClass
     public static void closeResults() {
+
+
         wr.closePage();
         wr.printWriter.flush();
         wr.printWriter.close();
