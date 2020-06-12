@@ -138,31 +138,33 @@ public class AgncyOrgWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql = "select count (distinct  ao.agncy_org_wid) DISTINCT_COUNT from dtsdm.agncy_org_wh ao";
+        String sql1 = "select count(*) from (\n" +
+                "select distinct DPRTMNT_AGNCY_SHRT_CD,AGNCY_SHRT_CD,ORG_CD, count (*)\n" +
+                "from AGNCY_ORG_WH\n" +
+                "group by DPRTMNT_AGNCY_SHRT_CD,AGNCY_SHRT_CD,ORG_CD\n" +
+                "having count(*) > 1\n" +
+                "\n" +
+                ")";
 
-        String sql1 = "Select  count(*) total_count From dtsdm.agncy_org_wh ao " ;
 
         // Output the Sql to be executed
         ArrayList<SqlObject> sqlList = new ArrayList<>();
-        SqlObject sqlObj = new SqlObject("sql",sql);
+        SqlObject sqlObj = new SqlObject("sql",sql1);
         sqlList.add(sqlObj);
-        SqlObject sqlObj1 = new SqlObject("sql1",sql1);
-        sqlList.add(sqlObj1);
-        wr.logSql(sqlList);
+         wr.logSql(sqlList);
 
 
 
-        int distinctCount = 0;
-        int totalCount = 0;
+        int dupeCount = 0;
 
         System.out.println("Starting AgncyOrgWhTest.test2,sql");
         try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql)) {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
                 //ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery()) {
                     //System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        distinctCount = rs.getInt("DISTINCT_COUNT");
+                        dupeCount = rs.getInt(1);
                     }
                 }
             }
@@ -170,31 +172,17 @@ public class AgncyOrgWhTest extends TableTest {
             e.printStackTrace();
         }
         
-        System.out.println("Starting AgncyOrgWhTest.test2,sql1");
-        try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
-                //ps.setInt(1, userId);
-                try (ResultSet rs = ps.executeQuery()) {
-                    //System.out.println("Size of results = " + rs.getInt(1));
-                    while (rs.next()) {
-                        totalCount = rs.getInt("total_count");
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
 
         // Log the results before
         ArrayList<ResultObject> roList = new ArrayList<>();
-        ResultObject ro1 = new ResultObject((distinctCount == totalCount),"(distinctCount == totalCount)");
+        ResultObject ro1 = new ResultObject((0 == dupeCount),"(0 == dupeCount)");
         roList.add(ro1);
         wr.logTestResults(roList);
 
-        assertEquals(distinctCount, totalCount);
+        System.out.println("test1 0= " + dupeCount + " 0  = " + dupeCount);
+        assertEquals(0, dupeCount);
 
-        System.out.println("test1 distinctCount= " + distinctCount + " total count = " + totalCount);
         
         System.out.println("Finish AgncyOrgWhTest.test2");
         System.out.println();

@@ -76,11 +76,15 @@ public class OrgAccntWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "SELECT ORG_ACCNT_WID FROM DTSDM.ORG_ACCNT_WH \n" +
-                        "GROUP BY ORG_ACCNT_WID HAVING COUNT(*) > 1";
+        String sql1 = "select count(*) from \n" +
+                "(\n" +
+                "select distinct FULL_ORG_CD,ACCNT_LABEL, count (*)\n" +
+                "from ORG_ACCNT_WH\n" +
+                "group by FULL_ORG_CD,ACCNT_LABEL\n" +
+                "having count(*) > 1\n" +
+                "\n" +
+                ")";
 
-        String sql2 = "select count (distinct ORG_ACCNT_WH.ORG_ACCNT_WID) from DTSDM.ORG_ACCNT_WH";
-        String sql3 = "select count(*) from DTSDM.ORG_ACCNT_WH";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -88,16 +92,8 @@ public class OrgAccntWhTest extends TableTest {
         SqlObject sql1Obj = new SqlObject("sql1", sql1.replaceAll("\n", "\n<br>"));
         theSql.add(sql1Obj);
 
-        SqlObject sql2Obj = new SqlObject("sql2", sql2.replaceAll("\n", "\n<br>"));
-        theSql.add(sql2Obj);
-
-        SqlObject sql3Obj = new SqlObject("sql3", sql3.replaceAll("\n", "\n<br>"));
-        theSql.add(sql3Obj);
-
         wr.logSql(theSql);
 
-        int count = 0;
-        int distinctCount = 0;
         int duplicateCount = 0;
 
         System.out.println("Starting OrgAccntWhTest.test2,sql1");
@@ -116,54 +112,15 @@ public class OrgAccntWhTest extends TableTest {
             e.printStackTrace();
         }
 
-        System.out.println("Starting OrgAccntWhTest.test2,sql2");
-        try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
-                // ps.setInt(1, userId);
-                try (ResultSet rs = ps.executeQuery()) {
-                    // System.out.println("Size of results = " + rs.getInt(1));
-                    while (rs.next()) {
-                        distinctCount = rs.getInt(1);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("OrgAccntWh.test2 sql2 failed");
-            e.printStackTrace();
-        }
-
-        System.out.println("Starting OrgAccntWhTest.test2,sql3");
-        try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql3)) {
-                // ps.setInt(1, userId);
-                try (ResultSet rs = ps.executeQuery();) {
-                    // System.out.println("Size of results = " + rs.getInt(1));
-                    while (rs.next()) {
-                        count = rs.getInt(1);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("OrgAccntWh.test2 sql3 failed");
-            e.printStackTrace();
-        }
 
         // Log the results before
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
 
-        ResultObject ro1 = new ResultObject((distinctCount == count), "(distinctCount == count)");
+        ResultObject ro1 = new ResultObject((0 == duplicateCount), "(0 == duplicateCount)");
         roList.add(ro1);
-
-        ResultObject ro2 = new ResultObject((duplicateCount == 0), "(duplicateCount == 0)");
-        roList.add(ro2);
-
         wr.logTestResults(roList);
 
-        System.out.println("Test 2: Count = " + count);
-        System.out.println("Test 2: Distinct Count = " + distinctCount);
         System.out.println("Test 2: Duplicate Count =  " + duplicateCount);
-
-        assertEquals(count, distinctCount);
         assertEquals(0, duplicateCount);
 
         System.out.println("Finish OrgAccntWhTest.test2");

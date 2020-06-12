@@ -11,6 +11,15 @@ public abstract class TableTest {
     Connection conn = null;
     static WriteResults wr = null;
 
+    /**
+     * In Oracle to check number of sessions for grath
+     * select count(*) from
+     * (
+     * SELECT sid, serial#, status, osuser ,seconds_in_wait
+     * FROM v$session
+     * where osuser = 'grath'
+     * );
+     */
     @Before
     public void getConnection() {
         Connection con = null;
@@ -43,7 +52,6 @@ public abstract class TableTest {
                 this.conn = null;
             }
         } catch (Exception e){}
-        System.out.println("Connecion Should NOT be  open " );
     }
 
     @BeforeClass

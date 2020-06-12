@@ -78,8 +78,11 @@ public class AgncyWhTest extends TableTest {
 
 
 		// Select count distinct rows
-		String sql1 = "Select distinct (AGNCY_WH.AGNCY_WID), count (*) \n" + "from DTSDM.AGNCY_WH \n"
-				+ "group by AGNCY_WH.AGNCY_WID \n" + "having count(*) > 1 \n";
+		String sql1 = "select count(*) from " +
+				"(" +
+				"   Select distinct (AGNCY_WH.AGNCY_WID), count (*) \n" + "from DTSDM.AGNCY_WH \n"
+				+ "group by AGNCY_WH.AGNCY_WID \n" + "having count(*) > 1 " +
+				")\n";
 
 		// log the Sql
 		ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -113,8 +116,11 @@ public class AgncyWhTest extends TableTest {
 		roList.add(ro1);
 		wr.logTestResults(roList);
 
+		System.out.println("Agncy_WH   dupe wid =  " + dupeCount);
 		assertEquals(0, dupeCount);
-		System.out.println("Agncy_WH   ddupe wid =  " + dupeCount);
+
+		System.out.println("Finish " +  this.getClass().getSimpleName() + ".test01");
+		System.out.println();
 	}
 
 	@Test

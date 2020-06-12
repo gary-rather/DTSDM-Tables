@@ -77,12 +77,12 @@ public class CbaAccntWhTest extends TableTest {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
-        String sql1 = "select distinct cba_accnt_wid, count(*) from dtsdm.cba_accnt_wh\n" +
-                        "group by cba_accnt_wid having count(*) > 1";
+        String sql1 = "select count(*) from" +
+                "(" +
+                "select distinct cba_accnt_wid, count(*) from dtsdm.cba_accnt_wh\n" +
+                        "group by cba_accnt_wid having count(*) > 1" +
+                ")";
 
-        String sql2 = "select distinct count(CBA_ACCNT_WID) from DTSDM.CBA_ACCNT_WH";
-
-        String sql3 = "select count(*) from DTSDM.CBA_ACCNT_WH";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -90,53 +90,14 @@ public class CbaAccntWhTest extends TableTest {
         SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
         theSql.add(sql1Obj);
 
-        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
-        theSql.add(sql2Obj);
-
-        SqlObject sql3Obj = new SqlObject("sql3",sql3.replaceAll("\n","\n<br>"));
-        theSql.add(sql3Obj);
 
         wr.logSql(theSql);
 
         int count = 0;
-        int distinctCount = 0;
-        int duplicateCount = 0;
 
         System.out.println("Starting CbaAccntWhTest.test2,sql1");
         try {
             try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
-                // ps.setInt(1, userId);
-                try (ResultSet rs = ps.executeQuery();) {
-                    // System.out.println("Size of results = " + rs.getInt(1));
-                    while (rs.next()) {
-                        duplicateCount = rs.getInt(1);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("CbaAccntWh.test2 sql1 failed");
-            e.printStackTrace();
-        }
-
-        System.out.println("Starting CbaAccntWhTest.test2,sql2");
-        try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
-                // ps.setInt(1, userId);
-                try (ResultSet rs = ps.executeQuery()) {
-                    // System.out.println("Size of results = " + rs.getInt(1));
-                    while (rs.next()) {
-                        distinctCount = rs.getInt(1);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("CbaAccntWh.test2 sql2 failed");
-            e.printStackTrace();
-        }
-
-        System.out.println("Starting CbaAccntWhTest.test2,sql3");
-        try {
-            try (PreparedStatement ps = this.conn.prepareStatement(sql3)) {
                 // ps.setInt(1, userId);
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
@@ -146,27 +107,21 @@ public class CbaAccntWhTest extends TableTest {
                 }
             }
         } catch (SQLException e) {
-            System.out.println("CbaAccntWh.test2 sql3 failed");
+            System.out.println("CbaAccntWh.test2 sql1 failed");
             e.printStackTrace();
         }
+
 
         // Log the results before
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
 
-        ResultObject ro1 = new ResultObject((distinctCount == count),"(distinctCount == count)");
+        ResultObject ro1 = new ResultObject((0 == count),"(0 == count)");
         roList.add(ro1);
-
-        ResultObject ro2 = new ResultObject((duplicateCount == 0),"(duplicateCount == 0)");
-        roList.add(ro2);
 
         wr.logTestResults(roList);
 
         System.out.println("Test 2: Count = " + count);
-        System.out.println("Test 2: Distinct Count = " + distinctCount);
-        assertEquals(count, distinctCount);
-
-        assertEquals(0, duplicateCount);
-        System.out.println("Test 2: Duplicate Count =  " + duplicateCount);
+        assertEquals(0, count);
 
         System.out.println("Finish CbaAccntWhTest.test2");
         System.out.println();
