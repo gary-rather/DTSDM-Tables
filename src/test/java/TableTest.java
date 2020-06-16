@@ -26,16 +26,12 @@ public abstract class TableTest {
         try {
             Conf config = new Conf();
 
-            Properties props = new Properties();
-            props.put("myConnectionURL", config.getMyConnectionURL());
-            props.put("user", config.getUser());
-            props.put("password", config.getPassword());
-            System.out.println("myConnectionURL " + props.getProperty("myConnectionURL"));
-            System.out.println("user " + props.getProperty("user"));
+            System.out.println("myConnectionURL " + config.getProps().getProperty("myConnectionURL"));
+            System.out.println("user " + config.getProps().getProperty("user"));
             //System.out.println("password" + props.getProperty("password"));
 
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            con = DriverManager.getConnection(props.getProperty("myConnectionURL"), props);
+            con = DriverManager.getConnection(config.getProps().getProperty("myConnectionURL"), config.getProps());
             System.out.println("Connection Successful");
         } catch (Exception e) {
             e.printStackTrace();
