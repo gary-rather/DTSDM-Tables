@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@Ignore
 public class DcmntOtherAuthWhTest extends TableTest {
 
     @BeforeClass

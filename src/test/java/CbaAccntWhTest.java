@@ -140,7 +140,7 @@ public class CbaAccntWhTest extends TableTest {
         String sql1 = "select distinct agncy_wid from dtsdm.cba_accnt_wh";
 
         String sql2 = "select distinct a.agncy_wid f\n" +
-                        "from dtsdm.agncy_wh a, fred.cba_account fca\n" +
+                        "from dtsdm.agncy_wh a, DTSDM_SRC_STG.cba_account fca\n" +
                         "where a.agncy_descr = fca.agency_code";
 
         // log the Sql
@@ -216,11 +216,11 @@ public class CbaAccntWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
         String sql1 = "select distinct ca.cba_accnt_num from dtsdm.cba_accnt_wh ca";
-        String sql2 = "select distinct fca.cba_acct_no from fred.cba_account fca";
+        String sql2 = "select distinct fca.cba_acct_no from DTSDM_SRC_STG.cba_account fca";
 
         String sql3 = "select distinct ca.cba_accnt_num from dtsdm.cba_accnt_wh ca\n" +
                         "where ca.cba_accnt_num not in\n" +
-                        "(select distinct fca.cba_acct_no from fred.cba_account fca)";
+                        "(select distinct fca.cba_acct_no from DTSDM_SRC_STG.cba_account fca)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -298,7 +298,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logTestResults(roList);
 
         System.out.println("Test 4: Count From DTSDM.CBA_ACCNT_WH = " + dtsdmCount);
-        System.out.println("Test 4: Count From FRED.CBA_ACCOUNT = " + fredCount);
+        System.out.println("Test 4: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + fredCount);
         System.out.println("Test 4: Discrepancy Count = " + diffCount);
 
         assertEquals(0, diffCount);
@@ -318,11 +318,11 @@ public class CbaAccntWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
         String sql1 = "select distinct ca.cba_acct_label from dtsdm.cba_accnt_wh ca";
-        String sql2 = "select distinct fca.acct_label from fred.cba_account fca";
+        String sql2 = "select distinct fca.acct_label from DTSDM_SRC_STG.cba_account fca";
 
         String sql3 = "select distinct ca.cba_acct_label from dtsdm.cba_accnt_wh ca\n" +
                         "where ca.cba_acct_label not in\n" +
-                        "(select distinct fca.acct_label from fred.cba_account fca)";
+                        "(select distinct fca.acct_label from DTSDM_SRC_STG.cba_account fca)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -399,7 +399,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logTestResults(roList);
 
         System.out.println("Test 5: Count From DTSDM.CBA_ACCNT_WH = " + dtsdmCount);
-        System.out.println("Test 5: Count From FRED.CBA_ACCOUNT = " + fredCount);
+        System.out.println("Test 5: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + fredCount);
         System.out.println("Test 5: Discrepancy Count = " + diffCount);
 
         assertEquals(0, diffCount);
@@ -419,11 +419,11 @@ public class CbaAccntWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
 
         String sql1 = "select distinct ca.cba_accnt_status_cd from dtsdm.cba_accnt_wh ca";
-        String sql2 = "Select distinct fca.acct_status from fred.cba_account fca";
+        String sql2 = "Select distinct fca.acct_status from DTSDM_SRC_STG.cba_account fca";
 
         String sql3 = "select distinct ca.cba_accnt_status_cd from dtsdm.cba_accnt_wh ca\n" +
                         "where ca.cba_accnt_status_cd not in\n" +
-                        "(select distinct fca.acct_status from fred.cba_account fca)";
+                        "(select distinct fca.acct_status from DTSDM_SRC_STG.cba_account fca)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -500,7 +500,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logTestResults(roList);
 
         System.out.println("Test 6: Count From DTSDM.CBA_ACCNT_WH = " + dtsdmCount);
-        System.out.println("Test 6: Count From FRED.CBA_ACCOUNT = " + fredCount);
+        System.out.println("Test 6: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + fredCount);
         System.out.println("Test 6: Discrepancy Count = " + diffCount);
 
         assertEquals(0, diffCount);

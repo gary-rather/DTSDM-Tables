@@ -194,7 +194,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "\n" +
                         "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
                         "\t\t\t dtsdm.type_consoldtd_rfrnc_wh tcr, \n" +
-                        "\t\t\t fred.lodge l, fred.acctotals at \n" +
+                        "\t\t\t DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals at \n" +
                         "\n" +
                         "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
                         "\t and dc.dcmnt_type_wid = tcr.type_wid \n" +
@@ -292,7 +292,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "\t\t\t oa.org_accnt_wid as test_org_accnt_wid \n" +
                         "\n" +
                         "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
-                        "\t\t\t dtsdm.org_accnt_wh oa, fred.acctotals a \n" +
+                        "\t\t\t dtsdm.org_accnt_wh oa, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
                         "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
                         "\t and a.acclabel = oa.accnt_label \n" +
@@ -381,7 +381,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "( \n" +
                         "\t select es.dcmnt_wid as etl_dcmnt_wid, dc.dcmnt_wid as test_dcmnt_wid \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, fred.acctsex ats \n" +
+                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.acctsex ats \n" +
                         "\n" +
                         "\t where es.src_vchnum = dc.dcmnt_name \n" +
                         "\t and es.src_ssn = dc.src_ssn \n" +
@@ -473,7 +473,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "( \n" +
                         "select es.sdn as etl_sdn, ats.acc2 as test_sdn \n" +
                         "\n" +
-                        "from dtsdm.expns_smry_wh es, fred.acctsex ats \n" +
+                        "from dtsdm.expns_smry_wh es, DTSDM_SRC_STG.acctsex ats \n" +
                         "\n" +
                         "where es.src_vchnum = ats.u##vchnum \n" +
                         "and es.src_ssn = ats.u##ssn \n" +
@@ -566,7 +566,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "\t select es.nonreimb_cost_amt as etl_nonreimb_cost_amt, \n" +
                         "\t\t\t a.noreimb_cost as test_nonreimb_cost_amt \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, fred.acctotals a \n" +
+                        "\t from dtsdm.expns_smry_wh es, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
                         "\t where es.src_vchnum = a.u##vchnum \n" +
                         "\t and es.src_doctype = a.u##doctype \n" +
@@ -666,7 +666,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "( \n" +
                         "\t select es.src_vchnum as etl_src_vchnum, l.u##vchnum as test_src_vchnum \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, fred.lodge l, fred.acctotals a \n" +
+                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
                         "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
                         "\t and dc.dcmnt_name = l.u##vchnum \n" +
@@ -733,7 +733,7 @@ public class ExpnsSmryWhTest extends TableTest {
                 "( \n" +
                 "\t select es.src_doctype as etl_src_doctype, l.u##doctype as test_src_doctype \n" +
                 "\n" +
-                "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, fred.lodge l, fred.acctotals at \n" +
+                "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals at \n" +
                 "\n" +
                 "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
                 "\t and dc.dcmnt_name = l.u##vchnum \n" +
@@ -800,7 +800,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "( \n" +
                         "\t select es.src_ssn as etl_src_doctype, l.u##ssn as test_src_doctype \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, fred.lodge l, fred.acctotals a \n" +
+                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
                         "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
                         "\t and dc.dcmnt_name = l.u##vchnum \n" +
@@ -871,7 +871,7 @@ public class ExpnsSmryWhTest extends TableTest {
                         "\t\t\t a.u##sublabel as test_src_expense_type \n" +
                         "\n" +
                         "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
-                        "\t\t\t fred.lodge l, fred.acctotals a \n" +
+                        "\t\t\t DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
                         "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
                         "\t and dc.dcmnt_name = l.u##vchnum \n" +

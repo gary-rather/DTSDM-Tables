@@ -191,7 +191,7 @@ public class TcktAuditFailWhTest extends TableTest {
                         "\t\t\t B.TICKET_WID AS ETL_TICKET_WID \n" +
                         "\n" +
                         "\t FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
-                        "\t\t\t DTSDM.TICKET_WH B, FRED.AUDITDTL C \n" +
+                        "\t\t\t DTSDM.TICKET_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
                         "\n" +
                         "\t WHERE A.TICKET_WID = B.TICKET_WID \n" +
                         "\t AND B.SRC_VCHNUM = C.U##VCHNUM \n" +
@@ -282,7 +282,7 @@ public class TcktAuditFailWhTest extends TableTest {
                         "\t\t\t B.REASON_WID AS ETL_REASON_WID \n" +
                         "\n" +
                         "\t FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
-                        "\t\t\t DTSDM.REASON_RFRNC_WH B, FRED.AUDITDTL C \n" +
+                        "\t\t\t DTSDM.REASON_RFRNC_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
                         "\n" +
                         "\t WHERE B.REASON_WID = A.REASON_WID \n" +
                         "\t AND A.JUSTIFCTN_TXT = C.JUSTIFY \n" +
@@ -373,7 +373,7 @@ public class TcktAuditFailWhTest extends TableTest {
                         "\t\t\t C.JUSTIFY AS ETL_JUSTIFY \n" +
                         "\n" +
                         "\t FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
-                        "\t\t\t DTSDM.REASON_RFRNC_WH B, FRED.AUDITDTL C \n" +
+                        "\t\t\t DTSDM.REASON_RFRNC_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
                         "\n" +
                         "\t WHERE B.REASON_WID = A.REASON_WID \n" +
                         "\t AND A.JUSTIFCTN_TXT = C.JUSTIFY \n" +

@@ -180,7 +180,7 @@ public class ReasonRfrncWhTest extends TableTest{
         String sql = "select count(*) from" +
                         "( \n" +
                         "SELECT A.REASON_CD, B.U##CODE \n" +
-                        "FROM DTSDM.REASON_RFRNC_WH A, FRED.REASONCODE B \n" +
+                        "FROM DTSDM.REASON_RFRNC_WH A, DTSDM_SRC_STG.REASONCODE B \n" +
                         "WHERE A.REASON_CD != B.U##CODE \n" +
                         "AND A.REASON_DESCR = B.REASON_DESC \n" +
                         ")";
@@ -239,7 +239,7 @@ public class ReasonRfrncWhTest extends TableTest{
         String sql = "select count(*) from" +
                         "( \n" +
                         "SELECT DISTINCT A.REASON_DESCR, B.REASON_DESC \n" +
-                        "FROM DTSDM.REASON_RFRNC_WH A, FRED.REASONCODE B \n" +
+                        "FROM DTSDM.REASON_RFRNC_WH A, DTSDM_SRC_STG.REASONCODE B \n" +
                         "WHERE A.REASON_CD = B.U##CODE \n" +
                         "AND A.REASON_DESCR != B.REASON_DESC \n" +
                         ")";

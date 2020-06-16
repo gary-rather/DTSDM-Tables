@@ -384,10 +384,10 @@ public class PersonAttribHistWhTest  extends TableTest {
                 "from DTSDM.person_attrib_hist_wh a  \n";
 
         String sql2 = "select distinct u##ssn\n" +
-                "from fred.person  \n";
+                "from DTSDM_SRC_STG.person  \n";
 
         String sql3 = "select distinct u##ssn\n" +
-                "from fred.person \n" +
+                "from DTSDM_SRC_STG.person \n" +
                 "minus\n" +
                 "select distinct a.ssn_full\n" +
                 "from DTSDM.person_attrib_hist_wh a   ";

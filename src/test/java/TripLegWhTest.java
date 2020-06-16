@@ -336,7 +336,7 @@ public class TripLegWhTest extends TableTest {
         // Check overall data population for TRIP_LEG_WH
 
         // Business rule: * Table contains one row per distinct combination of
-        //                  U##VCHNUM, U##DOCTYPE, U##SSN, ADJ_LEVEL, LEG in FRED.INTINRY *
+        //                  U##VCHNUM, U##DOCTYPE, U##SSN, ADJ_LEVEL, LEG in DTSDM_SRC_STG.INTINRY *
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -345,7 +345,7 @@ public class TripLegWhTest extends TableTest {
         String sql1 = "select count(*) from DTSDM.TRIP_LEG_WH";
 
         String sql2 = "select count(distinct U##VCHNUM, U##DOCTYPE, U##SSN, ADJ_LEVEL, LEG )\n" +
-                        "from FRED.ITINRY where U##LINE_TYPE in ('D', 'T', 'E') " +
+                        "from DTSDM_SRC_STG.ITINRY where U##LINE_TYPE in ('D', 'T', 'E') " +
                         "and (DEP_ARR like 'A%' or DEP_ARR like 'D%') and TRIPNUM = 1";
 
         // log the Sql

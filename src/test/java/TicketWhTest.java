@@ -190,7 +190,7 @@ public class TicketWhTest extends TableTest {
                         "\t\t\t tl.trip_leg_wid as test_trip_leg_wid \n" +
                         "\n" +
                         "\t from dtsdm.dcmnt_wh dc, dtsdm.trip_leg_wh tl, \n" +
-                        "\t\t\t fred.ticksub ts, dtsdm.ticket_wh t \n" +
+                        "\t\t\t DTSDM_SRC_STG.ticksub ts, dtsdm.ticket_wh t \n" +
                         "\n" +
                         "\t where dc.dcmnt_wid = tl.dcmnt_wid \n" +
                         "\t and dc.dcmnt_name = ts.u##vchnum \n" +
@@ -257,8 +257,8 @@ public class TicketWhTest extends TableTest {
                         "\t select t.cba_accnt_wid as etl_cba_accnt_wid, \n" +
                         "\t\t\t ca.cba_accnt_wid as test_cba_accnt_num, c.ticknum \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.cbatick c, dtsdm.cba_accnt_wh ca, \n" +
-                        "\t\t\t fred.itinry i, dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.cbatick c, dtsdm.cba_accnt_wh ca, \n" +
+                        "\t\t\t DTSDM_SRC_STG.itinry i, dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where c.ticknum = i.ticknum \n" +
                         "\t and c.cba_acct_no = ca.cba_accnt_num \n" +
@@ -328,8 +328,8 @@ public class TicketWhTest extends TableTest {
                         "\t select t.cto_vndr_wid as etl_cto_vndr_wid, \n" +
                         "\t\t\t v.vndr_wid as test_cto_vndr_wid, tc.ticknum\n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.pnrtouch p, \n" +
-                        "\t dtsdm.vndr_wh v, fred.ticket tc \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.pnrtouch p, \n" +
+                        "\t dtsdm.vndr_wh v, DTSDM_SRC_STG.ticket tc \n" +
                         "\n" +
                         "\t where p.cto = v.vndr_name \n" +
                         "\t and p.u##vchnum = tc.u##vchnum \n" +
@@ -398,7 +398,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.rsvtn_type_wid as etl_rsvtn_type_wid, \n" +
                         "\t\t\t tcr.type_wid as test_rsvtn_type_wid \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, dtsdm.type_consoldtd_rfrnc_wh tcr, fred.ticksub tc \n" +
+                        "\t from dtsdm.ticket_wh t, dtsdm.type_consoldtd_rfrnc_wh tcr, DTSDM_SRC_STG.ticksub tc \n" +
                         "\t where tc.u##res_type = tcr.type_descr \n" +
                         "\t and t.src_vchnum = tc.u##vchnum \n" +
                         "\t and t.src_snn = tc.u##ssn \n" +
@@ -468,7 +468,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.carrier_code as etl_carrier_code, \n" +
                         "\t\t\t tc.carrier as test_carrier_code \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticksub tc \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub tc \n" +
                         "\n" +
                         "\t where t.src_vchnum = tc.u##vchnum \n" +
                         "\t and t.src_snn = tc.u##ssn \n" +
@@ -532,7 +532,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.tckt_num as etl_tckt_num, \n" +
                         "\t\t\t upper(tc.ticknum) as test_tckt_num \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticksub tc \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub tc \n" +
                         "\n" +
                         "\t where t.src_vchnum = tc.u##vchnum \n" +
                         "\t and t.src_snn = tc.u##ssn \n" +
@@ -596,7 +596,7 @@ public class TicketWhTest extends TableTest {
                         "\t select tw.tckt_dt as etl_tckt_dt, \n" +
                         "\t\t\t tc.ticket_date as test_tckt_dt \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh tw, fred.ticket tc \n" +
+                        "\t from dtsdm.ticket_wh tw, DTSDM_SRC_STG.ticket tc \n" +
                         "\t where tw.src_vchnum = tc.u##vchnum \n" +
                         "\t and tw.src_snn = tc.u##ssn \n" +
                         "\t and tw.src_doctype = tc.u##doctype \n" +
@@ -671,7 +671,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.dprt_airprt_name as etl_dprt_airprt_name, \n" +
                         "\t\t\t ts.dep_airport as test_dprt_airprt_name \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticksub ts, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = ts.u##vchnum \n" +
@@ -740,7 +740,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.arvl_airprt_name as etl_arvl_airprt_name, \n" +
                         "\t\t\t ts.arr_airport as test_arvl_airprt_name \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticksub ts, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = ts.u##vchnum \n" +
@@ -809,7 +809,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.flght_num as etl_flght_num, \n" +
                         "\t\t\t ts.flight as test_flght_num \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticksub ts, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = ts.u##vchnum \n" +
@@ -879,7 +879,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.pnr_locator as etl_pnr_locator, " +
                         "\t\t\t tc.locator as test_pnr_locator\n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticket tc, " +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, " +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc\n" +
                         "\n" +
                         "\t where t.src_vchnum = tc.u##vchnum\n" +
@@ -947,7 +947,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.tckt_cost_amt as etl_tckt_cost_amt, \n" +
                         "\t\t\t tc.cost as test_tckt_cost_amt \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticket tc, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = tc.u##vchnum \n" +
@@ -1015,7 +1015,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.pymt_mode_code as etl_pymt_mode_code, \n" +
                         "\t\t\t ltrim(i.mode_) as test_pymt_mode_code \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.itinry i, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.itinry i, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = i.u##vchnum \n" +
@@ -1084,7 +1084,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.pymt_mthd_descr as etl_pymt_mthd_descr, \n" +
                         "\t\t\t ltrim(i.pay_method) as test_pymt_mthd_descr \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.itinry i, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.itinry i, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = i.u##vchnum \n" +
@@ -1154,7 +1154,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.fema_code as etl_fema_code, \n" +
                         "\t\t\t ts.fema_code as test_fema_code, ts.pd_flag \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticksub ts, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = ts.u##vchnum \n" +
@@ -1223,7 +1223,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.tckt_val_amt as etl_tckt_val_amt, \n" +
                         "\t\t\t tc.tickval as test_tckt_val_amt \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticket tc, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = tc.u##vchnum \n" +
@@ -1300,7 +1300,7 @@ public class TicketWhTest extends TableTest {
                         "(\n" +
                         "\t select t.cncld_flag as etl_cncld_flag, v.u##pnrstatus \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.vchpnr v, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = v.u##vchnum \n" +
@@ -1317,7 +1317,7 @@ public class TicketWhTest extends TableTest {
                         "(\n" +
                         "\t Select t.cncld_flag as etl_cncld_flag, v.u##pnrstatus \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.vchpnr v, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
                         "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = v.u##vchnum \n" +
@@ -1345,8 +1345,8 @@ public class TicketWhTest extends TableTest {
         wr.logSql(theSql);
 
         int comparisonCount = 0; //comes from DCMNT_WH (table being tested)
-        int countCancelledYes = 0; //comes from FRED.VCHPNR table (load being tested) where cancelled flag is 'Y' for yes
-        int countCancelledNo = 0; //comes from FRED.VCHONR table (load being tested) where cancelled flag is 'N' for no
+        int countCancelledYes = 0; //comes from DTSDM_SRC_STG.VCHPNR table (load being tested) where cancelled flag is 'Y' for yes
+        int countCancelledNo = 0; //comes from DTSDM_SRC_STG.VCHONR table (load being tested) where cancelled flag is 'N' for no
 
         System.out.println("Starting TicketWhTest.test23,sql1");
         try {
@@ -1507,7 +1507,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.jstfctn_code as etl_jstfctn_code, \n" +
                         "\t\t\t v.just_code as test_jstfctn_code \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.vchpnr v, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
                         "\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where t.src_vchnum = v.u##vchnum \n" +
@@ -1587,7 +1587,7 @@ public class TicketWhTest extends TableTest {
                 "\t select distinct t.src_vchnum as etl_src_vchnum, \n" +
                 "\t\t\t tc.u##vchnum as test_src_vchnum \n" +
                 "\n" +
-                "\t from dtsdm.ticket_wh t, fred.ticket tc, dtsdm.dcmnt_wh dc \n" +
+                "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
                 "\n" +
                 "\t where dc.dcmnt_name = tc.u##vchnum \n" +
                 "\t and dc.src_ssn = tc.u##ssn \n" +
@@ -1654,7 +1654,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.src_doctype as etl_src_doctype, \n" +
                         "\t\t\t tc.u##doctype as test_src_doctype \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticket tc, dtsdm.dcmnt_wh dc \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = tc.u##vchnum \n" +
                         "\t and dc.src_ssn = tc.u##ssn \n" +
@@ -1720,7 +1720,7 @@ public class TicketWhTest extends TableTest {
                         "\t select distinct t.src_snn as etl_src_ssn, \n" +
                         "\t\t\t tc.u##ssn as test_src_ssn \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticket tc, dtsdm.dcmnt_wh dc \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
                         "\t where dc.dcmnt_name = tc.u##vchnum \n" +
                         "\t and dc.src_ssn = tc.u##ssn \n" +
@@ -1786,7 +1786,7 @@ public class TicketWhTest extends TableTest {
                         "\t select t.src_legnum as etl_src_legnum, \n" +
                         "\t\t\t ts.leg as test_src_legnum \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, fred.ticksub ts, \n" +
+                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
                         "\t\t\t dtsdm.dcmnt_wh dc, dtsdm.trip_leg_wh tl \n" +
                         "\n" +
                         "\t where t.src_vchnum = ts.u##vchnum \n" +

@@ -184,7 +184,7 @@ public class SuborgWhTest extends TableTest{
         String sql1 = "select distinct agncy_wid from suborg_wh where agncy_wid != 0";
 
         String sql2 = "select distinct orglist.agency, agncy_wh.agncy_wid\n" +
-                        "from fred.orglist\n" +
+                        "from DTSDM_SRC_STG.orglist\n" +
                         "LEFT OUTER JOIN DTSDM.AGNCY_WH\n" +
                         "ON AGNCY_WH.AGNCY_CD = orglist.AGENCY";
 
@@ -269,7 +269,7 @@ public class SuborgWhTest extends TableTest{
         String sql2 = "Select distinct AGNCY_ORG_WH.AGNCY_ORG_WID,\n" +
                         "AGNCY_ORG_WH.AGNCY_SHRT_CD,\n" +
                         "substr(ORGLIST.U##ORG,2,1)\n" +
-                        "from DTSDM.AGNCY_ORG_WH, FRED.ORGLIST\n" +
+                        "from DTSDM.AGNCY_ORG_WH, DTSDM_SRC_STG.ORGLIST\n" +
                         "where AGNCY_ORG_WH.AGNCY_SHRT_CD = substr(ORGLIST.U##ORG,2,1)\n" +
                         "and substr(ORGLIST.U##ORG, 1,2) like 'D%'\n" +
                         "and substr(ORGLIST.U##ORG, 2,1) != 'D'\n" +
@@ -355,7 +355,7 @@ public class SuborgWhTest extends TableTest{
         String sql2 = "select distinct SRVC_WH.SRVC_WID,\n" +
                         "SRVC_WH.SRVC_NAME, SITE_TO_ORG_MAPPING.SERVICE\n" +
                         "from DTSDM.SRVC_WH,\n" +
-                        "FRED. SITE_TO_ORG_MAPPING\n" +
+                        "DTSDM_SRC_STG. SITE_TO_ORG_MAPPING\n" +
                         "where SRVC_WH.SRVC_NAME = SITE_TO_ORG_MAPPING.SERVICE\n" +
                         "order by SRVC_WH.SRVC_WID";
 
@@ -438,20 +438,20 @@ public class SuborgWhTest extends TableTest{
 
         String sql2 = "select DUTY_STN_WH.DUTY_STN_WID,\n" +
                         "DUTY_STN_WH.DUTY_STN_NAME, ORGLIST.STATION\n" +
-                        "from DTSDM. DUTY_STN_WH, FRED.ORGLIST\n" +
+                        "from DTSDM. DUTY_STN_WH, DTSDM_SRC_STG.ORGLIST\n" +
                         "where DUTY_STN_WH.DUTY_STN_NAME = ORGLIST.STATION\n" +
                         "and ORGLIST.STATION is not NULL";
 
         String sql3 = "select distinct ORGLIST.STATION,\n" +
                         "count(ORGLIST.SITE_ID)\n" +
-                        "from FRED.ORGLIST\n" +
+                        "from DTSDM_SRC_STG.ORGLIST\n" +
                         "where ORGLIST.STATION is not null\n" +
                         "group by ORGLIST.STATION\n" +
                         "order by ORGLIST.STATION";
 
         String sql4 = "select distinct a.STATION, a.SITE_ID,\n" +
                         "b.SITE_NAME, count(*)\n" +
-                        "from FRED.ORGLIST a, FRED.SITE b\n" +
+                        "from DTSDM_SRC_STG.ORGLIST a, DTSDM_SRC_STG.SITE b\n" +
                         "where a.SITE_ID = b.SITE_ID\n" +
                         "group by a.STATION, a.SITE_ID, b.SITE_NAME\n" +
                         "order by a.STATION";
@@ -585,7 +585,7 @@ public class SuborgWhTest extends TableTest{
                         "when substr(ORGLIST.\"U##ORG\",0,2) in ('DN', 'DD', 'DM', 'DJ') then substr(ORGLIST.\"U##ORG\",3,2)\n" +
                         "else NULL\n" +
                         "end AS AGNCY_ORG_CD\n" +
-                        "FROM FRED.ORGLIST\n" +
+                        "FROM DTSDM_SRC_STG.ORGLIST\n" +
                         "where substr(ORGLIST.\"U##ORG\",0,2) in('DA','DF','DN', 'DD', 'DM', 'DJ')";
 
         // log the Sql
@@ -675,7 +675,7 @@ public class SuborgWhTest extends TableTest{
                         "then substr(ORGLIST.U##ORG,5)\n" +
                         "else substr(ORGLIST.U##ORG,3)\n" +
                         "end AS SUBORG_CD\n" +
-                        "from FRED.ORGLIST";
+                        "from DTSDM_SRC_STG.ORGLIST";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -784,7 +784,7 @@ public class SuborgWhTest extends TableTest{
                         "group by SUBORG_WH.FULL_ORG_CD";
 
         String sql2 = "select distinct ORGLIST.U##ORG, count (*)\n" +
-                        "from FRED.ORGLIST\n" +
+                        "from DTSDM_SRC_STG.ORGLIST\n" +
                         "group by ORGLIST.U##ORG";
 
         // log the Sql

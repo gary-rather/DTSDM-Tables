@@ -187,12 +187,12 @@ public class VndrWhTest extends TableTest {
                 "order by VNDR_WH.VNDR_NAME \n";
 
         String sql2 = "select distinct PNRTOUCH.CTO\n" +
-                "from FRED.PNRTOUCH\n" +
+                "from DTSDM_SRC_STG.PNRTOUCH\n" +
                 "inner join TICKSUB\n" +
                 "on CTO = VENDOR\n";
 
         String sql3 = "select distinct PNRTOUCH.CTO, count(*)\n" +
-                "from FRED.PNRTOUCH\n" +
+                "from DTSDM_SRC_STG.PNRTOUCH\n" +
                 "group by PNRTOUCH.CTO\n";
 
         // log the Sql

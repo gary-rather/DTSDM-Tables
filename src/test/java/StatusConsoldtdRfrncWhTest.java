@@ -143,7 +143,7 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     @Test
     /**
      * Check to ensure that all distinct DCMNT records are being populated.
-     * -- EXPECT count of [Select count(distinct(ds.cur_status)) from FRED.DOCSTAT ds;]
+     * -- EXPECT count of [Select count(distinct(ds.cur_status)) from DTSDM_SRC_STG.DOCSTAT ds;]
      */
     public void test3() {
         // Log the Class and method

@@ -188,7 +188,7 @@ public class LocatnWhTest extends TableTest {
         String sql2 = "select count(*) from\n" +
                         "(SELECT DISTINCT upper(replace (ITINRY.LOCATION ,', ',',')) AS LOCATION,\n" +
                         "nvl(ITINRY. U##LOCST,'') AS U##LOCST, nvl(ITINRY. U##LOCATE,'') AS U##LOCATE\n" +
-                        "FROM FRED.ITINRY ITINRY WHERE trim(ITINRY.LOCATION) is not null)";
+                        "FROM DTSDM_SRC_STG.ITINRY ITINRY WHERE trim(ITINRY.LOCATION) is not null)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();

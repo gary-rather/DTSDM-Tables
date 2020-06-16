@@ -190,7 +190,7 @@ public class TripLeaveWhTest extends TableTest {
                 "\t\t\t B.TRIP_WID AS ETL_TRIP_WID \n" +
                 "\n" +
                 "\t FROM DTSDM.TRIP_LEAVE_WH A, \n" +
-                "\t\t\t DTSDM.DCMNT_WH B, FRED.TLEAVE C \n" +
+                "\t\t\t DTSDM.DCMNT_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
                 "\n" +
                 "\t WHERE A.TRIP_WID = B.TRIP_WID \n" +
                 "\t AND B.DCMNT_NAME = C.U##VCHNUM \n" +
@@ -282,7 +282,7 @@ public class TripLeaveWhTest extends TableTest {
                 "\t\t\t B.DCMNT_WID AS ETL_DCMNT_WID \n" +
                 "\n" +
                 "\t FROM DTSDM.TRIP_LEAVE_WH A, \n" +
-                "\t\t\t DTSDM.DCMNT_WH B, FRED.TLEAVE C \n" +
+                "\t\t\t DTSDM.DCMNT_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
                 "\n" +
                 "\t WHERE A.TRIP_WID = B.TRIP_WID \n" +
                 "\t AND B.DCMNT_NAME = C.U##VCHNUM \n" +
@@ -373,7 +373,7 @@ public class TripLeaveWhTest extends TableTest {
                 "\t\t\t A.TRIP_LEG_WID AS TEST_TRIP_LEG_WID, \n" +
                 "\t\t\t B.TRIP_LEG_WID AS ETL_TRIP_LEG_WID \n" +
                 "\n" +
-                "\t FROM DTSDM.TRIP_LEAVE_WH A, DTSDM.TRIP_LEG_WH B, FRED.TLEAVE C \n" +
+                "\t FROM DTSDM.TRIP_LEAVE_WH A, DTSDM.TRIP_LEG_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
                 "\n" +
                 "\t WHERE A.TRIP_LEG_WID = B.TRIP_LEG_WID \n" +
                 "\t AND C.LVDATE BETWEEN B.LEG_DPRT_DT AND B.LEG_ARRV_DT \n" +
@@ -462,7 +462,7 @@ public class TripLeaveWhTest extends TableTest {
                 "\t\t\t B.TYPE_WID AS ETL_LV_TYPE_WID \n" +
                 "\n" +
                 "\t FROM DTSDM.TRIP_LEAVE_WH A, \n" +
-                "\t\t\t DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, FRED.TLEAVE C \n" +
+                "\t\t\t DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
                 "\t WHERE A.LV_TYPE_WID = B.TYPE_WID \n" +
                 "\t AND B.TYPE_CD = C.LVTYPE \n" +
                 ")";
@@ -557,7 +557,7 @@ public class TripLeaveWhTest extends TableTest {
                 "( \n" +
                 "SELECT DISTINCT A.TRIP_LEAVE_WID, A.LV_STRT_DT, B.LVDATE \n" +
                 "\n" +
-                "FROM DTSDM.TRIP_LEAVE_WH A, FRED.TLEAVE B, FRED.TLEAVE C, FRED.STATE D \n" +
+                "FROM DTSDM.TRIP_LEAVE_WH A, DTSDM_SRC_STG.TLEAVE B, DTSDM_SRC_STG.TLEAVE C, DTSDM_SRC_STG.STATE D \n" +
                 "\n" +
                 "WHERE A.LV_STRT_DT != B.LVDATE \n" +
                 "AND A.LV_END_DT = C.LVDATE \n" +
@@ -620,7 +620,7 @@ public class TripLeaveWhTest extends TableTest {
                 "( \n" +
                 "SELECT DISTINCT A.TRIP_LEAVE_WID, A.LV_END_DT, C.LVDATE \n" +
                 "\n" +
-                "FROM DTSDM.TRIP_LEAVE_WH A, FRED.TLEAVE B, FRED.TLEAVE C, FRED.STATE D \n" +
+                "FROM DTSDM.TRIP_LEAVE_WH A, DTSDM_SRC_STG.TLEAVE B, DTSDM_SRC_STG.TLEAVE C, DTSDM_SRC_STG.STATE D \n" +
                 "\n" +
                 "WHERE A.LV_STRT_DT = B.LVDATE \n" +
                 "AND A.LV_END_DT != C.LVDATE \n" +
@@ -683,7 +683,7 @@ public class TripLeaveWhTest extends TableTest {
                 "( \n" +
                 "SELECT DISTINCT A.TRIP_LEAVE_WID, A.OCONUS_FLAG, D.CONUS \n" +
                 "\n" +
-                "FROM DTSDM.TRIP_LEAVE_WH A, FRED.TLEAVE B, FRED.TLEAVE C, FRED.STATE D \n" +
+                "FROM DTSDM.TRIP_LEAVE_WH A, DTSDM_SRC_STG.TLEAVE B, DTSDM_SRC_STG.TLEAVE C, DTSDM_SRC_STG.STATE D \n" +
                 "\n" +
                 "WHERE A.LV_STRT_DT = B.LVDATE \n" +
                 "AND A.LV_END_DT = C.LVDATE \n" +
@@ -746,7 +746,7 @@ public class TripLeaveWhTest extends TableTest {
                 "( \n" +
                 "SELECT DISTINCT A.TRIP_LEAVE_WID, A.TOT_LV_HOURS, B.LVHOUR \n" +
                 "\n" +
-                "FROM DTSDM.TRIP_LEAVE_WH A, FRED.TLEAVE B, FRED.TLEAVE C, FRED.STATE D \n" +
+                "FROM DTSDM.TRIP_LEAVE_WH A, DTSDM_SRC_STG.TLEAVE B, DTSDM_SRC_STG.TLEAVE C, DTSDM_SRC_STG.STATE D \n" +
                 "\n" +
                 "WHERE A.LV_STRT_DT != B.LVDATE \n" +
                 "AND A.LV_END_DT = C.LVDATE \n" +

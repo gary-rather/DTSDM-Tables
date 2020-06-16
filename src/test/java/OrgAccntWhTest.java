@@ -142,7 +142,7 @@ public class OrgAccntWhTest extends TableTest {
         String sql2 = "select count(*) from" +
                         "( \n" +
                         "\t SELECT B.SUBORG_WID AS ETL_SUBORG_WID, A.SUBORG_WID AS TEST_SUBORG_WID \n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM.SUBORG_WH B, FRED.ACCOUNT C \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM.SUBORG_WH B, DTSDM_SRC_STG.ACCOUNT C \n" +
                         "\t WHERE A.ACCNT_LABEL = C.ACCLABEL \n" +
                         "\t AND B.SUBORG_WID = A.SUBORG_WID \n" +
                         "\t AND A.FULL_ORG_CD = C.ORG \n" +
@@ -226,7 +226,7 @@ public class OrgAccntWhTest extends TableTest {
         String sql = "select count(*) from" +
                         "( \n" +
                         "\t SELECT B.FULL_ORG_CD AS ETL_SUBORG_WID, A.FULL_ORG_CD AS TEST_SUBORG_WID \n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM.SUBORG_WH B, FRED.ACCOUNT C \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM.SUBORG_WH B, DTSDM_SRC_STG.ACCOUNT C \n" +
                         "\t WHERE A.ACCNT_LABEL = C.ACCLABEL \n" +
                         "\t AND B.SUBORG_WID = A.SUBORG_WID \n" +
                         "\t AND A.FULL_ORG_CD = C.ORG \n" +
@@ -290,7 +290,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL != B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -356,7 +356,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 != B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -422,7 +422,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 != B.ACC2 \n" +
@@ -488,7 +488,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -554,7 +554,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -620,7 +620,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -686,7 +686,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -752,7 +752,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -818,7 +818,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -884,7 +884,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +
@@ -950,7 +950,7 @@ public class OrgAccntWhTest extends TableTest {
                         "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
                         "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
                         "\n" +
-                        "\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT B \n" +
+                        "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
                         "\t AND A.ACC1 = B.ACC1 AND A.ACC2 = B.ACC2 \n" +

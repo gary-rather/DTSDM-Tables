@@ -193,7 +193,7 @@ public class LegPrptyStayWhTest extends TableTest {
                 "FROM \n" +
                 "  ((DTSDM.TRIP_LEG_WH TRIP_LEG_WH  INNER JOIN  DTSDM.DCMNT_WH DCMNT_WH  \n" +
                 "    ON  DCMNT_WH.DCMNT_WID = TRIP_LEG_WH.DCMNT_WID\n" +
-                "     )  INNER JOIN  FRED.TICKSUB TICKSUB  \n" +
+                "     )  INNER JOIN  DTSDM_SRC_STG.TICKSUB TICKSUB  \n" +
                 "    ON  TICKSUB.U##VCHNUM = DCMNT_WH.DCMNT_NAME and \n" +
                 "TICKSUB.U##DOCTYPE= DCMNT_WH.SRC_DOCTYPE and \n" +
                 "TICKSUB.ADJ_LEVEL = DCMNT_WH.ADJSTMT_LVL and \n" +
