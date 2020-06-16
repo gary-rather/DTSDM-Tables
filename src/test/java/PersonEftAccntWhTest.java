@@ -16,7 +16,7 @@ public class PersonEftAccntWhTest extends TableTest {
 
     @BeforeClass
     public static void openResults() {
-        wr = new WriteResults("OrgAccntWhTest.html");
+        wr = new WriteResults("PersonEftAccntWhTest.html");
         wr.pageHeader();
     }
 

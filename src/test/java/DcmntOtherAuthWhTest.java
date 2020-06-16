@@ -16,7 +16,7 @@ public class DcmntOtherAuthWhTest extends TableTest {
 
     @BeforeClass
     public  static void openResults(){
-        wr = new WriteResults("ATwoTestWhTest.html");
+        wr = new WriteResults("DcmntOtherAuthWhTest.html");
         wr.pageHeader();
     }
 
@@ -60,7 +60,7 @@ public class DcmntOtherAuthWhTest extends TableTest {
         roList.add(ro1);
         wr.logTestResults(roList);
 
-        System.out.println("Test ATwoTestWhTest  Row 0 = " + number);
+        System.out.println("Test DcmntOtherAuthWhTest  Row 0 = " + number);
         assertEquals(1, number);
 
         System.out.println("Finish " +  this.getClass().getSimpleName() + ".test01");
@@ -114,7 +114,7 @@ public class DcmntOtherAuthWhTest extends TableTest {
 
         wr.logTestResults(roList);
 
-        System.out.println("Test DebtWh  dupeCount= " + dupeCount);
+        System.out.println("Test DcmntOtherAuthWhTest  dupeCount= " + dupeCount);
         assertEquals(0, dupeCount);
 
         System.out.println("Finish " +  this.getClass().getSimpleName() + ".test02");

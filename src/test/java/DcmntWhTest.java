@@ -16,7 +16,7 @@ public class DcmntWhTest extends TableTest {
 
     @BeforeClass
     public static void openResults(){
-        wr = new WriteResults("TripLegWhTest.html");
+        wr = new WriteResults("DcmntWhTest.html");
         wr.pageHeader();
     }
 
@@ -3420,6 +3420,7 @@ public class DcmntWhTest extends TableTest {
     }
     
     @Test
+    @Ignore
     public void test76(){
 
         // Check the population of the DCMNT_WH.CURR_DCMNT_STATUS_PRSN_WID column
@@ -3427,6 +3428,7 @@ public class DcmntWhTest extends TableTest {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        wr.printYellowDiv("Column Does Not Exist");
 
         String sql = "select count(*) from \n" +
                         "(\n" +

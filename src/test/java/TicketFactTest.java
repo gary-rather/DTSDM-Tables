@@ -16,7 +16,7 @@ public class TicketFactTest extends TableTest {
 
     @BeforeClass
     public  static void openResults(){
-        wr = new WriteResults("ATwoTestWhTest.html");
+        wr = new WriteResults("TicketFactTest.html");
         wr.pageHeader();
     }
 

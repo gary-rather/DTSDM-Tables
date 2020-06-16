@@ -15,7 +15,7 @@ public class LocatnWhTest extends TableTest {
 
     @BeforeClass
     public static void openResults(){
-        wr = new WriteResults("TripLegWhTest.html");
+        wr = new WriteResults("LocatnWhTest.html");
         wr.pageHeader();
     }
 

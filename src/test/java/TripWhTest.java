@@ -16,7 +16,7 @@ public class TripWhTest extends TableTest {
 
     @BeforeClass
     public static void openResults() {
-        wr = new WriteResults("TripWh.html");
+        wr = new WriteResults("TripWhTest.html");
         wr.pageHeader();
     }
 
