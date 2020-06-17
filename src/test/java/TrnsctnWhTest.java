@@ -187,7 +187,7 @@ public class TrnsctnWhTest extends TableTest {
                         "\t\t\t A.DCMNT_WID AS TEST_DOC_WID, \n" +
                         "\t\t\t B.DCMNT_WID AS ETL_DOC_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.DCMNT_WH B, FRED.PM_DOC C\n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.DCMNT_WH B, DTSDM_SRC_STG.PM_DOC C\n" +
                         "\n" +
                         "\t WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
                         "\t AND B.DCMNT_NAME = C.U##VCHNUM \n" +
@@ -273,7 +273,7 @@ public class TrnsctnWhTest extends TableTest {
                         "( \n" +
                         "\t SELECT A.TRNSCTN_WID, A.PREV_VCHR_NAME, C.PRIOR_VCHNUM \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.DCMNT_WH B, FRED.DOCSTAT C \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.DCMNT_WH B, DTSDM_SRC_STG.DOCSTAT C \n" +
                         "\n" +
                         "\t WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
                         "\t AND B.PREV_DCMNT_NAME = C.PRIOR_VCHNUM \n" +
@@ -343,7 +343,7 @@ public class TrnsctnWhTest extends TableTest {
                         "( \n" +
                         "\t SELECT A.TRNSCTN_WID, A.TRNSCTN_DCMNT_TYPE_WID, B.TYPE_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, FRED.PM_DOC C \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, DTSDM_SRC_STG.PM_DOC C \n" +
                         "\n" +
                         "\t WHERE A.TRNSCTN_DCMNT_TYPE_WID = B.TYPE_WID \n" +
                         "\t AND B.TYPE_DESCR = C.PM_DOCTYPE \n" +
@@ -428,7 +428,7 @@ public class TrnsctnWhTest extends TableTest {
                         "( \n" +
                         "\t SELECT A.TRNSCTN_WID, A.TRNSCTN_TYPE_WID, B.TYPE_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, FRED.PM_DOC C \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, DTSDM_SRC_STG.PM_DOC C \n" +
                         "\n" +
                         "\t WHERE A.TRNSCTN_TYPE_WID = B.TYPE_WID \n" +
                         "\t AND B.TYPE_DESCR = C.PM_DOCTYPE \n" +
@@ -514,7 +514,7 @@ public class TrnsctnWhTest extends TableTest {
                         "( \n" +
                         "\t SELECT A.TRNSCTN_WID, A.ORG_ACCNT_WID, B.ORG_ACCNT_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.ORG_ACCNT_WH B, FRED.PM_LEDGER C \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM.ORG_ACCNT_WH B, DTSDM_SRC_STG.PM_LEDGER C \n" +
                         "\n" +
                         "\t WHERE A.ORG_ACCNT_WID = B.ORG_ACCNT_WID \n" +
                         "\t AND B.ACCNT_LABEL = C.ACCLABEL \n" +
@@ -610,7 +610,7 @@ public class TrnsctnWhTest extends TableTest {
         String sql2 = "select count(*) from" +
                         "( \n" +
                         "\t SELECT DISTINCT A.TRNSCTN_WID, A.TRNSCTN_AMT, B.TOTAL_COST \n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, FRED.PM_DOC B \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM_SRC_STG.PM_DOC B \n" +
                         "\t WHERE A.TRNSCTN_AMT = B.TOTAL_COST \n" +
                         ")";
 
@@ -693,7 +693,7 @@ public class TrnsctnWhTest extends TableTest {
         String sql2 = "select count(*) from" +
                         "( \n" +
                         "\t SELECT DISTINCT A.TRNSCTN_WID, A.TRNSCTN_SEQ_NUM, B.U##TASEQ \n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, FRED.PM_DOC B \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM_SRC_STG.PM_DOC B \n" +
                         "\t WHERE A.TRNSCTN_SEQ_NUM = B.U##TASEQ \n" +
                         ")";
 
@@ -776,7 +776,7 @@ public class TrnsctnWhTest extends TableTest {
         String sql2 = "select count(*) from" +
                         "( \n" +
                         "\t SELECT DISTINCT A.TRNSCTN_WID, A.ACCNT_STATUS_CODE, B.ACCT_STATUS \n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, FRED.PM_DOC B \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM_SRC_STG.PM_DOC B \n" +
                         "\t WHERE A.ACCNT_STATUS_CODE = B.ACCT_STATUS \n" +
                         ")";
 
@@ -859,7 +859,7 @@ public class TrnsctnWhTest extends TableTest {
         String sql2 = "select count(*) from" +
                         "( \n" +
                         "\t SELECT DISTINCT A.TRNSCTN_WID, A.ACCNTG_SYS_NAME, B.ACCTG_SYSTEM_NAME \n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, FRED.PM_DOC B \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM_SRC_STG.PM_DOC B \n" +
                         "\t WHERE A.ACCNTG_SYS_NAME = B.ACCTG_SYSTEM_NAME \n" +
                         ")";
 
@@ -949,7 +949,7 @@ public class TrnsctnWhTest extends TableTest {
         String sql2 = "select count(*) from" +
                         "( \n" +
                         "\t SELECT DISTINCT A.TRNSCTN_WID, A.LST_UPDT_DT, B.UPDATE_DATE \n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, FRED.PM_DOC B \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM_SRC_STG.PM_DOC B \n" +
                         "\t WHERE A.LST_UPDT_DT = B.UPDATE_DATE \n" +
                         ")";
 
@@ -1032,7 +1032,7 @@ public class TrnsctnWhTest extends TableTest {
         String sql2 = "select count(*) from" +
                         "( \n" +
                         "\t SELECT DISTINCT A.TRNSCTN_WID, A.SETTLMENT_TYPE_DESCR, B.SETTLEMENT_TYPE \n" +
-                        "\t FROM DTSDM.TRNSCTN_WH A, FRED.PM_DOC B \n" +
+                        "\t FROM DTSDM.TRNSCTN_WH A, DTSDM_SRC_STG.PM_DOC B \n" +
                         "\t WHERE A.SETTLMENT_TYPE_DESCR = B.SETTLEMENT_TYPE \n" +
                         ")";
 

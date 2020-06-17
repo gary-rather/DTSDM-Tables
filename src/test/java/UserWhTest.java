@@ -23,6 +23,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test01() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -68,6 +69,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test02() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -159,6 +161,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test03() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -250,6 +253,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test04() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -342,6 +346,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test05() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -408,6 +413,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test06() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -474,7 +480,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
-
+    @Ignore
     public void test07() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -608,7 +614,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
-
+    @Ignore
     public void test09() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -675,6 +681,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test10() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -741,6 +748,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test11() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -807,6 +815,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test12() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -873,7 +882,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
-
+    @Ignore
     public void test13() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -940,6 +949,7 @@ public class UserWhTest extends TableTest {
     @Test
     /*
      */
+    @Ignore
     public void test14() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());

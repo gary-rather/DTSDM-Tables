@@ -274,9 +274,9 @@ public class TripWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         wr.printYellowDiv("CHECK SQL AND COUNTS - Incorrect field in DB");
 
-        String sql1 = "Select distinct VNDR_WH.VNDR_TYPE_WID, count (*)\n" +
+        String sql1 = "Select distinct VNDR_WH.VNCR_TYPE_WID, count (*)\n" +
                 "From DTSDM.VNDR_WH\n" +
-                "Group by VNDR_WH.VNDR_TYPE_WID\n";
+                "Group by VNDR_WH.VNCR_TYPE_WID\n";
 
 
         // log the Sql
@@ -395,7 +395,7 @@ public class TripWhTest extends TableTest {
 
         String sql1 = "Select distinct VNDR_WH.CURR_SW, count(*)\n" +
                 "From DTSDM.VNDR_WH\n" +
-                "Group by VNDR_WH.CURR_SW;";
+                "Group by VNDR_WH.CURR_SW";
 
 
         // log the Sql

@@ -34,7 +34,7 @@ public class TripFactTest extends TableTest {
                 "select distinct TRIP_WID, count(*)\n" +
                 "from DTSDM_BI.TRIP_FACT\n" +
                 "group by TRIP_WID \n" +
-                "having count(*) > 1\nn" +
+                "having count(*) > 1 \n" +
                 ")";
 
         // log the Sql

@@ -79,8 +79,7 @@ public class AccntBdgtLabelWhTest extends TableTest {
                 "from ACCNT_BDGT_LABEL_WH\n" +
                 "group by src_budget_ledger_id\n" +
                 "having count(*) > 1\n" +
-                ")\n" +
-                ";";
+                ")\n" ;
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();

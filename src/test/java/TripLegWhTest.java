@@ -263,7 +263,7 @@ public class TripLegWhTest extends TableTest {
 
         String sql1 = "select count(distinct trip_leg_wh.dcmnt_wid) from dtsdm.trip_leg_wh";
 
-        String sql2 = "select count(distinct dcmnt_wh.dcmnt_wid) " +
+        String sql2 = "select count(distinct d.dcmnt_wid) " +
                         "from dtsdm.dcmnt_wh d, dtsdm.trip_leg_wh t \n" +
                         "where d.trip_wid = t.trip_wid";
 
@@ -344,9 +344,14 @@ public class TripLegWhTest extends TableTest {
 
         String sql1 = "select count(*) from DTSDM.TRIP_LEG_WH";
 
-        String sql2 = "select count(distinct U##VCHNUM, U##DOCTYPE, U##SSN, ADJ_LEVEL, LEG )\n" +
-                        "from DTSDM_SRC_STG.ITINRY where U##LINE_TYPE in ('D', 'T', 'E') " +
-                        "and (DEP_ARR like 'A%' or DEP_ARR like 'D%') and TRIPNUM = 1";
+        String sql2 = "select count(*) from\r\n" + 
+        		"( \n" + 
+        		"select distinct U##VCHNUM, U##DOCTYPE, U##SSN, ADJ_LEVEL, LEG \n" + 
+        		"from DTSDM_SRC_STG.ITINRY \n" + 
+        		"where U##LINE_TYPE in ('D', 'T', 'E') \n" + 
+        		"and (DEP_ARR like 'A%' or DEP_ARR like 'D%') \n" + 
+        		"and TRIPNUM = 1 \n" + 
+        		")";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
