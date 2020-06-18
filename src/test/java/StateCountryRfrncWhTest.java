@@ -22,7 +22,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test1() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "Select count(*) " +
                 "from DTSDM.STATE_COUNTRY_RFRNC_WH " +
@@ -66,7 +70,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test2() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select count distinct rows
         String sql1 = "Select count (distinct STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_WID) from DTSDM. STATE_COUNTRY_RFRNC_WH";
@@ -134,7 +142,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test3() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select distinct country codes
         String sql1 = "Select count(distinct STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_CD ) \n" +
@@ -246,7 +258,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test4() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         // Select distinct country codes
@@ -359,7 +375,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     public void test5() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         // Select distinct country codes
@@ -421,7 +441,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     public void test6() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select distinct country codes
         String sql1 = "Select distinct STATE_COUNTRY_RFRNC_WH.CURR_SW, count(*) as table_rows_cnt \n" +
@@ -476,7 +500,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     public void test7() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select distinct EFF_START_DT
         String sql1 = "Select count (*) \n" +
@@ -560,7 +588,11 @@ public class StateCountryRfrncWhTest extends TableTest {
     public void test8() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select distinct EFF_START_DT
         String sql1 = "Select count (*) \n" +

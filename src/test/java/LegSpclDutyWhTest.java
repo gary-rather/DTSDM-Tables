@@ -24,7 +24,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test01() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql = "Select count(*) from DTSDM. LEG_SPCL_DUTY_WH where LEG_SPCL_DUTY_WH. LEG_SPCL_DUTY_WID = 0";
@@ -70,7 +74,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test02() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "Select count (distinct LEG_SPCL_DUTY_WH.LEG_SPCL_DUTY_WID) \n" +
@@ -167,7 +175,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test03() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -256,7 +268,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test04() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -345,7 +361,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test05() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -434,7 +454,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test06() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -523,7 +547,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test07() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -612,7 +640,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test08() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -701,7 +733,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test09() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -790,7 +826,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test10() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -881,7 +921,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test11() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -970,7 +1014,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test12() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -1059,7 +1107,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test13() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -1148,7 +1200,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test14() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -1237,7 +1293,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test15() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -1326,7 +1386,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test16() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -1415,7 +1479,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test17() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -1504,7 +1572,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test18() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";
@@ -1593,7 +1665,11 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test19() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "";

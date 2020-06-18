@@ -32,7 +32,11 @@ public class TripLegWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql = "select * from DTSDM.TRIP_LEG_WH where TRIP_LEG_WH.TRIP_LEG_WID = 0";
 
@@ -79,7 +83,11 @@ public class TripLegWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select distinct TRIP_LEG_WH.TRIP_LEG_WID, count(*) from DTSDM. TRIP_LEG_WH\n" +
                         "group by TRIP_LEG_WH.TRIP_LEG_WID having count(*) > 1";
@@ -184,7 +192,11 @@ public class TripLegWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select count(distinct trip_leg_wh.trip_wid) from dtsdm.trip_leg_wh";
         String sql2 = "select count(distinct dcmnt_wh.trip_wid) from dtsdm.dcmnt_wh";
@@ -259,7 +271,11 @@ public class TripLegWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select count(distinct trip_leg_wh.dcmnt_wid) from dtsdm.trip_leg_wh";
 
@@ -340,7 +356,11 @@ public class TripLegWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select count(*) from DTSDM.TRIP_LEG_WH";
 
@@ -423,7 +443,11 @@ public class TripLegWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select count(*) from DTSDM.TRIP_LEG_WH";
 
@@ -501,7 +525,11 @@ public class TripLegWhTest extends TableTest {
     public void test07() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
         String sql1 = "select src.src_cnt - trgt.trgt_cnt rcd_cnt_discrepancy\n" +

@@ -27,7 +27,11 @@ public class LocatnWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql = "select * from DTSDM.LOCATN_WH where LOCATN_WH.LOCATN_WID = 0";
 
@@ -74,7 +78,11 @@ public class LocatnWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select distinct LOCATN_WH. LOCATN_WID, count(*) from DTSDM.LOCATN_WH\n" +
                         "group by LOCATN_WH. LOCATN_WID having count(*) > 1";
@@ -178,7 +186,11 @@ public class LocatnWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select count(*) from\n" +
                         "(select distinct LOCATN_WH.STATE_COUNTRY_WID,\n" +
@@ -262,7 +274,11 @@ public class LocatnWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select * from DTSDM.LOCATN_WH";
 
@@ -339,7 +355,11 @@ public class LocatnWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select * from DTSDM.LOCATN_WH";
 
@@ -416,7 +436,11 @@ public class LocatnWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "select * from DTSDM.LOCATN_WH";
 

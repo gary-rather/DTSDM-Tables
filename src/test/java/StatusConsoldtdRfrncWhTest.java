@@ -27,7 +27,11 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test1() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         String sql1 = "Select count(*) from DTSDM.STATUS_CONSOLDTD_RFRNC_WH where STATUS_WID=0";
 
@@ -75,7 +79,11 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test2() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select count distinct rows
         String sql1 = "Select distinct count(STATUS_WID) from DTSDM.STATUS_CONSOLDTD_RFRNC_WH";
@@ -148,7 +156,11 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test3() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select distinct country codes
         String sql1 = "Select count(distinct(ds.cur_status)) from DTSDM_SRC_STG.DOCSTAT ds";
@@ -255,7 +267,11 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test4() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
         // Select distinct country codes
         String sql1 = "select * from STATUS_CONSOLDTD_RFRNC_WH where RCD_TYPE_CD = 'DEBT_TRNS'";

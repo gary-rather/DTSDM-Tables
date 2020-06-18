@@ -50,12 +50,29 @@ public class WriteResults {
         printWriter.println(sb.toString());
     }
 
-
     public void printDiv(String text) {
         printWriter.println("<div id=\"divtitle\">" + text + "</div>");
+
     }
+    public void printDiv(String text,String condition, String reason) {
+        printWriter.println("<div id=\"divtitle\">" + text + "</div>");
+
+        printWriter.println("<div class=\"container\">");
+        printWriter.print("<div class=\"Left\" id=\"divcondition\"> Condition: " + condition + "</div>");
+        printWriter.println("<div class=\"Right\" id=\"divcondition\"> Reason: " + reason + "</div>");
+        printWriter.println("</div>");
+    }
+
     public void printComment(String text) {
         printWriter.println("<div id=\"divcomment\">" + text + "</div>");
+    }
+
+    public void printReason(String reason) {
+        printWriter.println("<div id=\"divreason\"> Reason: " + reason + "</div>");
+    }
+
+    public void printCondition(String condition) {
+        printWriter.println("<div id=\"divcondition\">Condition: " + condition + "</div>");
     }
 
     public void printYellowDiv(String text) {

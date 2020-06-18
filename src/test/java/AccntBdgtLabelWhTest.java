@@ -25,8 +25,10 @@ public class AccntBdgtLabelWhTest extends TableTest {
     public void test01() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+                String reason = " ReplaceReasonText";
 
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
         String sql = "select count(*) from ACCNT_BDGT_LABEL_WH where ACCNT_BDGT_LABEL_WID = 0";
 
@@ -71,7 +73,10 @@ public class AccntBdgtLabelWhTest extends TableTest {
     public void test02() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " one";
+        String reason = " two";
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition,reason);
+
 
 
         String sql1 = "select count(*) from (\n" +

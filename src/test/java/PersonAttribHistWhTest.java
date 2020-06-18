@@ -27,7 +27,11 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test1() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
         wr.printComment("Check that the \"unknown\" record 0 is populated.");
 
         String sql1 = "Select count(*) from DTSDM.PERSON_ATTRIB_HIST_WH \n" +
@@ -73,7 +77,11 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test2() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
         wr.printComment("Check that the \"unknown\" record 0 is populated.");
 
         String sql1 = "Select count (distinct PERSON_ATTRIB_HIST_WH.PERSON_ATTRIB_WID)\n" +
@@ -140,7 +148,11 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test3() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
         wr.printComment("Check that the \"unknown\" record 0 is populated.");
 
         String sql1 = "select distinct PERSON_WID\n" +
@@ -210,7 +222,11 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test4() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
         wr.printComment("Check that the \"unknown\" record 0 is populated.");
 
         String sql1 = "select distinct a.agncy_org_wid\n" +
@@ -292,7 +308,11 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test5() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
         wr.printComment("Check that the \"unknown\" record 0 is populated.");
 
         String sql1 = "select distinct a.suborg_wid\n" +
@@ -377,7 +397,11 @@ public class PersonAttribHistWhTest  extends TableTest {
     @Ignore
     public void test6() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
         wr.printComment("Check that the \"unknown\" record 0 is populated.");
 
         String sql1 = "select distinct a.ssn_full\n" +

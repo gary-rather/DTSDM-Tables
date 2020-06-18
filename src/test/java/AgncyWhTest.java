@@ -22,7 +22,11 @@ public class AgncyWhTest extends TableTest {
 	public void test1() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = " Check that the \"unknown\" record 0 is populated.";
+                String reason = " Business rule: Initial load must add  unspecified data row.  Provides the ability to traverse through the AGNCY_WH table when no value is matched.";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		String sql = "Select count(*) \n" + "from DTSDM.AGNCY_WH \n" + " where AGNCY_WH. AGNCY_WID = 0 \n";
@@ -74,7 +78,11 @@ public class AgncyWhTest extends TableTest {
 	public void test2() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = " Check to ensure that all values in AGNCY_WID field are unique and taken from the external source file.";
+                String reason = " Business rule: ID to be provided by external source file; no sequence generator required\n";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		// Select count distinct rows
@@ -132,7 +140,11 @@ public class AgncyWhTest extends TableTest {
 	public void test3() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = " Check to ensure that DPRTMNT_WID is populated correctly.";
+                String reason = " Business rule: n/a";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		// Select distinct country codes
@@ -191,7 +203,11 @@ public class AgncyWhTest extends TableTest {
 	public void test4() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = " Check to ensure that AGNCY_WH.AGNCY_CD field populated correctly. ";
+                String reason = " Business rule: straight pull";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		// Select distinct country codes
@@ -313,7 +329,11 @@ public class AgncyWhTest extends TableTest {
 	public void test5() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = "Check to ensure that AGNCY_WH.AGNCY_DESCR field. ";
+                String reason = " Business rule: straight pullt";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		// Select distinct country codes
@@ -430,7 +450,11 @@ public class AgncyWhTest extends TableTest {
 	public void test6() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = " Check the population of the AGNCY_WH.CURR_SW column.";
+                String reason = " Business rules: Indicates whether the record is the current record for the agency.  value = 1 if current, 0 if not currect";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		// Select distinct country codes
@@ -491,7 +515,11 @@ public class AgncyWhTest extends TableTest {
 	public void test7() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = " Check the population of the AGNCY_WH.EFF_START_DT column.";
+                String reason = " Business rules: Default EFF_STRT_DT = sysdate. ";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		// Select distinct EFF_START_DT
@@ -568,7 +596,11 @@ public class AgncyWhTest extends TableTest {
 	public void test8() {
 		// Log the Class and method
 		System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-		wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+		        String condition = " Check the population of the AGNCY_WH.EFF_END_DT column.";
+                String reason = " Business rules: It should be 01-JAN-00   ";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
 
 
 		// Select distinct EFF_START_DT
