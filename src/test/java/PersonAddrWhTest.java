@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-
 public class PersonAddrWhTest extends TableTest {
 
     @BeforeClass
@@ -23,6 +22,8 @@ public class PersonAddrWhTest extends TableTest {
 
     @Test
     public void test01() {
+
+        // Check that the unknown record 0 is populated
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -73,6 +74,8 @@ public class PersonAddrWhTest extends TableTest {
 
     @Test
     public void test02() {
+
+        // Check the population of the unique identifier (PERSON_ADDR_WH.PERSON_ADDR_WID (PK) column)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -217,7 +220,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test04_Mail(){
 
-        // Check the population of the PERSON_ADDR_WH.ADDR1 column (for mailing address)
+        // Check the population of the PERSON_ADDR_WH.ADDR1 column (for mailing addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -305,7 +308,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test05_Mail(){
 
-        // Check the population of the PERSON_ADDR_WH.ADDR2 column (for mailing address)
+        // Check the population of the PERSON_ADDR_WH.ADDR2 column (for mailing addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -393,7 +396,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test06_Mail(){
 
-        // Check the population of the PERSON_ADDR_WH.CITY_NAME column (for mailing address)
+        // Check the population of the PERSON_ADDR_WH.CITY_NAME column (for mailing addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -481,7 +484,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test07_Mail(){
 
-        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_CD column (for mailing address)
+        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_CD column (for mailing addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -497,10 +500,10 @@ public class PersonAddrWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.PERSON_ADDR_WID, A.STATE_COUNTRY_CD, C.STATE \n" +
+                        "\t SELECT A.PERSON_ADDR_WID, A.STATE_COUNTRY_CD, B.STATE_COUNTRY_CD \n" +
                         "\t FROM DTSDM.PERSON_ADDR_WH A, DTSDM.STATE_COUNTRY_RFRNC_WH B, FRED.TPERSON C \n" +
                         "\t WHERE A.STATE_COUNTRY_WID = B.STATE_COUNTRY_WID \n" +
-                        "\t WHERE A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
+                        "\t AND A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
                         "\t AND B.STATE_COUNTRY_CD = C.STATE \n" +
                         "\t AND A.ADDR_TYPE_DESCR = 'MAILING' \n" +
                         ")";
@@ -571,7 +574,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test08_Mail(){
 
-        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_WID column (for mailing address)
+        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_WID column (for mailing addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -590,7 +593,7 @@ public class PersonAddrWhTest extends TableTest {
                         "\t SELECT A.PERSON_ADDR_WID, A.STATE_COUNTRY_WID, B.STATE_COUNTRY_WID\n" +
                         "\t FROM DTSDM.PERSON_ADDR_WH A, DTSDM.STATE_COUNTRY_RFRNC_WH B, FRED.TPERSON C\n" +
                         "\t WHERE A.STATE_COUNTRY_WID = B.STATE_COUNTRY_WID\n" +
-                        "\t WHERE A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
+                        "\t AND A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
                         "\t AND B.STATE_COUNTRY_CD = C.STATE \n" +
                         "\t AND A.ADDR_TYPE_DESCR = 'MAILING' \n" +
                         ")";
@@ -661,7 +664,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test09_Mail(){
 
-        // Check the population of the PERSON_ADDR_WH.ZIP_CODE column (for mailing address)
+        // Check the population of the PERSON_ADDR_WH.ZIP_CODE column (for mailing addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -749,7 +752,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test10_Mail(){
 
-        // Check the population of the PERSON_ADDR_WH.STATE_TYPE_CD column (for mailing address)
+        // Check the population of the PERSON_ADDR_WH.STATE_TYPE_CD column (for mailing addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -837,7 +840,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test04_Resd(){
 
-        // Check the population of the PERSON_ADDR_WH.ADDR1 column (for residential address)
+        // Check the population of the PERSON_ADDR_WH.ADDR1 column (for residential addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -853,9 +856,9 @@ public class PersonAddrWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.ADDR1, B.RES_ADDRESS1 \n" +
+                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.ADDR1, B.RES_ADDR1 \n" +
                         "\t FROM DTSDM.PERSON_ADDR_WH A, FRED.TPERSON B \n" +
-                        "\t WHERE A.ADDR1 = B.RES_ADDRESS1 \n" +
+                        "\t WHERE A.ADDR1 = B.RES_ADDR1 \n" +
                         "\t AND A.ADDR_TYPE_DESCR = 'RESIDENTIAL' \n" +
                         ")";
 
@@ -925,7 +928,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test05_Resd(){
 
-        // Check the population of the PERSON_ADDR_WH.ADDR2 column (for residential address)
+        // Check the population of the PERSON_ADDR_WH.ADDR2 column (for residential addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -941,9 +944,9 @@ public class PersonAddrWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.ADDR2, B.RES_ADDRESS2 \n" +
+                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.ADDR2, B.RES_ADDR2 \n" +
                         "\t FROM DTSDM.PERSON_ADDR_WH A, FRED.TPERSON B \n" +
-                        "\t WHERE A.ADDR2 = B.RES_ADDRESS2 \n" +
+                        "\t WHERE A.ADDR2 = B.RES_ADDR2 \n" +
                         "\t AND A.ADDR_TYPE_DESCR = 'RESIDENTIAL' \n" +
                         ")";
 
@@ -1013,7 +1016,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test06_Resd(){
 
-        // Check the population of the PERSON_ADDR_WH.CITY_NAME column (for residential address)
+        // Check the population of the PERSON_ADDR_WH.CITY_NAME column (for residential addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -1101,7 +1104,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test07_Resd(){
 
-        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_CD column (for residential address)
+        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_CD column (for residential addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -1120,7 +1123,7 @@ public class PersonAddrWhTest extends TableTest {
                         "\t SELECT A.PERSON_ADDR_WID, A.STATE_COUNTRY_CD, C.RSTATE \n" +
                         "\t FROM DTSDM.PERSON_ADDR_WH A, DTSDM.STATE_COUNTRY_RFRNC_WH B, FRED.TPERSON C \n" +
                         "\t WHERE A.STATE_COUNTRY_WID = B.STATE_COUNTRY_WID \n" +
-                        "\t WHERE A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
+                        "\t AND A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
                         "\t AND B.STATE_COUNTRY_CD = C.RSTATE \n" +
                         "\t AND A.ADDR_TYPE_DESCR = 'RESIDENTIAL' \n" +
                         ")";
@@ -1191,7 +1194,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test08_Resd(){
 
-        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_WID column (for residential address)
+        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_WID column (for residential addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -1210,7 +1213,7 @@ public class PersonAddrWhTest extends TableTest {
                         "\t SELECT A.PERSON_ADDR_WID, A.STATE_COUNTRY_WID, B.STATE_COUNTRY_WID\n" +
                         "\t FROM DTSDM.PERSON_ADDR_WH A, DTSDM.STATE_COUNTRY_RFRNC_WH B, FRED.TPERSON C\n" +
                         "\t WHERE A.STATE_COUNTRY_WID = B.STATE_COUNTRY_WID\n" +
-                        "\t WHERE A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
+                        "\t AND A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
                         "\t AND B.STATE_COUNTRY_CD = C.RSTATE \n" +
                         "\t AND A.ADDR_TYPE_DESCR = 'RESIDENTIAL' \n" +
                         ")";
@@ -1281,7 +1284,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test09_Resd(){
 
-        // Check the population of the PERSON_ADDR_WH.ZIP_CODE column (for residential address)
+        // Check the population of the PERSON_ADDR_WH.ZIP_CODE column (for residential addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -1369,7 +1372,7 @@ public class PersonAddrWhTest extends TableTest {
     @Test
     public void test10_Resd(){
 
-        // Check the population of the PERSON_ADDR_WH.RES_STATE_TYPE_CD column (for residential address)
+        // Check the population of the PERSON_ADDR_WH.RES_STATE_TYPE_CD column (for residential addresses)
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -1451,6 +1454,632 @@ public class PersonAddrWhTest extends TableTest {
 
         System.out.println("Finish PersonAddrWhTest.test10_Resd");
         System.out.println();
+
+    }
+
+    @Test
+    public void test04_Offc(){
+
+        // Check the population of the PERSON_ADDR_WH.ADDR1 column (for duty station/office addresses)
+
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
+
+        String sql1 = "select * from DTSDM.PERSON_ADDR_WH A \n" +
+                        "where A.PERSON_ADDR_WID != 0 \n" +
+                        "and A.ADDR_TYPE_DESCR = 'OFFICE'";
+
+        String sql2 = "select count(*) from \n" +
+                        "( \n" +
+                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.ADDR1, B.OFF_ADDR1 \n" +
+                        "\t FROM DTSDM.PERSON_ADDR_WH A, FRED.TPERSON B \n" +
+                        "\t WHERE A.ADDR1 = B.OFF_ADDR1 \n" +
+                        "\t AND A.ADDR_TYPE_DESCR = 'OFFICE' \n" +
+                        ")";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+        SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sql1Obj);
+
+        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sql2Obj);
+
+        wr.logSql(theSql);
+
+        int comparisonCount = 0;
+        int testCount = 0;
+
+        System.out.println("Starting PersonAddrWhTest.test04_Offc,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        comparisonCount++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test04_Offc sql1 failed");
+            e.printStackTrace();
+        }
+
+        System.out.println("Starting PersonAddrWhTest.test04_Offc,sql2");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        testCount = rs.getInt("count(*)");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test04_Offc sql2 failed");
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro = new ResultObject((testCount == comparisonCount),"(testCount == comparisonCount)");
+        roList.add(ro);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test04_Offc: Test Count = " + testCount);
+        System.out.println("Test04_Offc: Comparison Count = " + comparisonCount);
+        assertEquals(comparisonCount,testCount);
+
+        System.out.println("Finish PersonAddrWhTest.test04_Offc");
+        System.out.println();
+
+    }
+
+    @Test
+    public void test05_Offc(){
+
+        // Check the population of the PERSON_ADDR_WH.ADDR2 column (for duty station/office addresses)
+
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
+
+        String sql1 = "select * from DTSDM.PERSON_ADDR_WH A \n" +
+                        "where A.PERSON_ADDR_WID != 0 \n" +
+                        "and A.ADDR_TYPE_DESCR = 'OFFICE' \n";
+
+        String sql2 = "select count(*) from \n" +
+                        "( \n" +
+                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.ADDR2, B.OFF_ADDR2 \n" +
+                        "\t FROM DTSDM.PERSON_ADDR_WH A, FRED.TPERSON B \n" +
+                        "\t WHERE A.ADDR2 = B.OFF_ADDR2 \n" +
+                        "\t AND A.ADDR_TYPE_DESCR = 'OFFICE' \n" +
+                        ")";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+        SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sql1Obj);
+
+        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sql2Obj);
+
+        wr.logSql(theSql);
+
+        int comparisonCount = 0;
+        int testCount = 0;
+
+        System.out.println("Starting PersonAddrWhTest.test05_Offc,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        comparisonCount++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test05_Offc sql1 failed");
+            e.printStackTrace();
+        }
+
+        System.out.println("Starting PersonAddrWhTest.test05_Offc,sql2");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        testCount = rs.getInt("count(*)");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test05_Offc sql2 failed");
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro = new ResultObject((testCount == comparisonCount),"(testCount == comparisonCount)");
+        roList.add(ro);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test05_Offc: Test Count = " + testCount);
+        System.out.println("Test05_Offc: Comparison Count = " + comparisonCount);
+        assertEquals(comparisonCount,testCount);
+
+        System.out.println("Finish PersonAddrWhTest.test05_Offc");
+        System.out.println();
+
+    }
+
+    @Test
+    public void test06_Offc(){
+
+        // Check the population of the PERSON_ADDR_WH.CITY_NAME column (for duty station/office addresses)
+
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
+
+        String sql1 = "select * from DTSDM.PERSON_ADDR_WH A \n" +
+                        "where A.PERSON_ADDR_WID != 0 \n" +
+                        "and A.ADDR_TYPE_DESCR = 'OFFICE'";
+
+        String sql2 = "select count(*) from \n" +
+                        "( \n" +
+                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.CITY_NAME, B.OFF_CITY \n" +
+                        "\t FROM DTSDM.PERSON_ADDR_WH A, FRED.TPERSON B \n" +
+                        "\t WHERE A.CITY_NAME = B.OFF_CITY \n" +
+                        "\t AND A.ADDR_TYPE_DESCR = 'OFFICE' \n" +
+                        ")";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+        SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sql1Obj);
+
+        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sql2Obj);
+
+        wr.logSql(theSql);
+
+        int comparisonCount = 0;
+        int testCount = 0;
+
+        System.out.println("Starting PersonAddrWhTest.test06_Offc,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        comparisonCount++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test06_Offc sql1 failed");
+            e.printStackTrace();
+        }
+
+        System.out.println("Starting PersonAddrWhTest.test06_Offc,sql2");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        testCount = rs.getInt("count(*)");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test06_Offc sql2 failed");
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro = new ResultObject((testCount == comparisonCount),"(testCount == comparisonCount)");
+        roList.add(ro);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test06_Offc: Test Count = " + testCount);
+        System.out.println("Test06_Offc: Comparison Count = " + comparisonCount);
+        assertEquals(comparisonCount,testCount);
+
+        System.out.println("Finish PersonAddrWhTest.test06_Offc");
+        System.out.println();
+
+    }
+
+    @Test
+    public void test07_Offc(){
+
+        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_CD column (for duty station/office addresses)
+
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
+
+        String sql1 = "select * from DTSDM.PERSON_ADDR_WH A \n" +
+                        "where A.PERSON_ADDR_WID != 0 \n" +
+                        "and A.ADDR_TYPE_DESCR = 'OFFICE'";
+
+        String sql2 = "select count(*) from \n" +
+                        "( \n" +
+                        "\t SELECT A.PERSON_ADDR_WID, A.STATE_COUNTRY_CD, C.OFF_STATE \n" +
+                        "\t FROM DTSDM.PERSON_ADDR_WH A, DTSDM.STATE_COUNTRY_RFRNC_WH B, FRED.TPERSON C \n" +
+                        "\t WHERE A.STATE_COUNTRY_WID = B.STATE_COUNTRY_WID \n" +
+                        "\t AND A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
+                        "\t AND B.STATE_COUNTRY_CD = C.OFF_STATE \n" +
+                        "\t AND A.ADDR_TYPE_DESCR = 'OFFICE' \n" +
+                        ")";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+        SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sql1Obj);
+
+        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sql2Obj);
+
+        wr.logSql(theSql);
+
+        int comparisonCount = 0;
+        int testCount = 0;
+
+        System.out.println("Starting PersonAddrWhTest.test07_Offc,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        comparisonCount++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test07_Offc sql1 failed");
+            e.printStackTrace();
+        }
+
+        System.out.println("Starting PersonAddrWhTest.test07_Offc,sql2");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        testCount = rs.getInt("count(*)");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test07_Offc sql2 failed");
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro = new ResultObject((testCount == comparisonCount),"(testCount == comparisonCount)");
+        roList.add(ro);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test07_Offc: Test Count = " + testCount);
+        System.out.println("Test07_Offc: Comparison Count = " + comparisonCount);
+        assertEquals(comparisonCount,testCount);
+
+        System.out.println("Finish PersonAddrWhTest.test07_Offc");
+        System.out.println();
+
+    }
+
+    @Test
+    public void test08_Offc(){
+
+        // Check the population of the PERSON_ADDR_WH.STATE_COUNTRY_WID column (for duty station/office addresses)
+
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
+
+        String sql1 = "select * from DTSDM.PERSON_ADDR_WH A \n" +
+                        "where A.PERSON_ADDR_WID != 0 \n" +
+                        "and A.ADDR_TYPE_DESCR = 'OFFICE'";
+
+        String sql2 = "select count(*) from \n" +
+                        "( \n" +
+                        "\t SELECT A.PERSON_ADDR_WID, A.STATE_COUNTRY_WID, B.STATE_COUNTRY_WID\n" +
+                        "\t FROM DTSDM.PERSON_ADDR_WH A, DTSDM.STATE_COUNTRY_RFRNC_WH B, FRED.TPERSON C\n" +
+                        "\t WHERE A.STATE_COUNTRY_WID = B.STATE_COUNTRY_WID\n" +
+                        "\t AND A.STATE_COUNTRY_CD = B.STATE_COUNTRY_CD" +
+                        "\t AND B.STATE_COUNTRY_CD = C.OFF_STATE \n" +
+                        "\t AND A.ADDR_TYPE_DESCR = 'OFFICE' \n" +
+                        ")";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+        SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sql1Obj);
+
+        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sql2Obj);
+
+        wr.logSql(theSql);
+
+        int comparisonCount = 0;
+        int testCount = 0;
+
+        System.out.println("Starting PersonAddrWhTest.test08_Offc,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        comparisonCount++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test08_Offc sql1 failed");
+            e.printStackTrace();
+        }
+
+        System.out.println("Starting PersonAddrWhTest.test08_Offc,sql2");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        testCount = rs.getInt("count(*)");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test08_Offc sql2 failed");
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro = new ResultObject((testCount == comparisonCount),"(testCount == comparisonCount)");
+        roList.add(ro);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test08_Offc: Test Count = " + testCount);
+        System.out.println("Test08_Offc: Comparison Count = " + comparisonCount);
+        assertEquals(comparisonCount,testCount);
+
+        System.out.println("Finish PersonAddrWhTest.test08_Offc");
+        System.out.println();
+
+    }
+
+    @Test
+    public void test09_Offc(){
+
+        // Check the population of the PERSON_ADDR_WH.ZIP_CODE column (for duty station/office addresses)
+
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
+
+        String sql1 = "select * from DTSDM.PERSON_ADDR_WH A \n" +
+                        "where A.PERSON_ADDR_WID != 0 \n" +
+                        "and A.ADDR_TYPE_DESCR = 'OFFICE'";
+
+        String sql2 = "select count(*) from \n" +
+                        "( \n" +
+                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.ZIP_CODE, B.OFF_ZIP \n" +
+                        "\t FROM DTSDM.PERSON_ADDR_WH A, FRED.TPERSON B \n" +
+                        "\t WHERE A.ZIP_CODE = B.OFF_ZIP \n" +
+                        "\t AND A.ADDR_TYPE_DESCR = 'OFFICE' \n" +
+                        ")";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+        SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sql1Obj);
+
+        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sql2Obj);
+
+        wr.logSql(theSql);
+
+        int comparisonCount = 0;
+        int testCount = 0;
+
+        System.out.println("Starting PersonAddrWhTest.test09_Offc,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        comparisonCount++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test09_Offc sql1 failed");
+            e.printStackTrace();
+        }
+
+        System.out.println("Starting PersonAddrWhTest.test09_Offc,sql2");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        testCount = rs.getInt("count(*)");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test09_Offc sql2 failed");
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro = new ResultObject((testCount == comparisonCount),"(testCount == comparisonCount)");
+        roList.add(ro);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test09_Offc: Test Count = " + testCount);
+        System.out.println("Test09_Offc: Comparison Count = " + comparisonCount);
+        assertEquals(comparisonCount,testCount);
+
+        System.out.println("Finish PersonAddrWhTest.test09_Offc");
+        System.out.println();
+
+    }
+
+    @Test
+    public void test10_Offc(){
+
+        // Check the population of the PERSON_ADDR_WH.RES_STATE_TYPE_CD column (for duty station/office address)
+
+        // Log the Class and method
+        System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
+
+
+        String sql1 = "select * from DTSDM.PERSON_ADDR_WH A \n" +
+                        "where A.PERSON_ADDR_WID != 0 \n" +
+                        "and A.ADDR_TYPE_DESCR = 'OFFICE'";
+
+        String sql2 = "select count(*) from \n" +
+                        "( \n" +
+                        "\t SELECT DISTINCT A.PERSON_ADDR_WID, A.STATE_TYPE_CD, B.OFF_STATE_TYPE \n" +
+                        "\t FROM DTSDM.PERSON_ADDR_WH A, FRED.TPERSON B \n" +
+                        "\t WHERE A.STATE_TYPE_CD = B.OFF_STATE_TYPE \n" +
+                        "\t AND A.ADDR_TYPE_DESCR = 'OFFICE' \n" +
+                        ")";
+
+        // log the Sql
+        ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
+
+        SqlObject sql1Obj = new SqlObject("sql1",sql1.replaceAll("\n","\n<br>"));
+        theSql.add(sql1Obj);
+
+        SqlObject sql2Obj = new SqlObject("sql2",sql2.replaceAll("\n","\n<br>"));
+        theSql.add(sql2Obj);
+
+        wr.logSql(theSql);
+
+        int comparisonCount = 0;
+        int testCount = 0;
+
+        System.out.println("Starting PersonAddrWhTest.test10_Offc,sql1");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql1)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        comparisonCount++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test10_Offc sql1 failed");
+            e.printStackTrace();
+        }
+
+        System.out.println("Starting PersonAddrWhTest.test10_Offc,sql2");
+        try {
+            try (PreparedStatement ps = this.conn.prepareStatement(sql2)) {
+                // ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery();) {
+                    // System.out.println("Size of results = " + rs.getInt(1));
+                    while (rs.next()) {
+                        testCount = rs.getInt("count(*)");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("PersonAddrWh.test10_Offc sql2 failed");
+            e.printStackTrace();
+        }
+
+        // Log the results before
+        ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
+
+        ResultObject ro = new ResultObject((testCount == comparisonCount),"(testCount == comparisonCount)");
+        roList.add(ro);
+
+        wr.logTestResults(roList);
+
+        System.out.println("Test10_Offc: Test Count = " + testCount);
+        System.out.println("Test10_Offc: Comparison Count = " + comparisonCount);
+        assertEquals(comparisonCount,testCount);
+
+        System.out.println("Finish PersonAddrWhTest.test10_Offc");
+        System.out.println();
+
+    }
+
+    @Ignore
+    @Test
+    public void test11(){
 
     }
 
