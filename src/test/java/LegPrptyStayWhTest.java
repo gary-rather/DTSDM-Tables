@@ -25,8 +25,8 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test01() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"unknown\" record 0 is populated";
+        String reason = " Initial load must add  unspecified data row.  Provides the ability to traverse through the DTSDM. LEG_PRPTY_STAY_WH  table when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -75,8 +75,8 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test02() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.LEG_PRPTY_STAY_WID (PK) column";
+        String reason = " Sequential ID (PK)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -182,8 +182,8 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test03() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.TRIP_LEG_WID and LEG_PRPTY_STAY_WH.VNDR_WID columns";
+        String reason = " FK to TRIP_LEG; Lookup TRIP_LEG_WID  in TRIP_LEG_DW & related tables using U##VCHNUM, U##DOCTYPE, U##SSN, LEG ; FK to VNDR; lookup TICKSUB.VENDOR in VENDOR_WH. VENDOR_NAME to get VENDOR_WID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -283,7 +283,7 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test04() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.RSVTN_TYPE_WID";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -377,7 +377,7 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test05() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.BED_TYPE_TXT";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -471,7 +471,7 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test06() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.MEMBR_NBR";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -565,7 +565,7 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test07() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.ROOM_TYPE_TXT ";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -659,7 +659,7 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test08() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH. GENDER_CODE";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -753,7 +753,7 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test09() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.HOTEL_PHONE_NBR";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -846,8 +846,8 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test10() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.CURR_SW column";
+        String reason = " Indicates whether the record is the current record for the agency.  value = 1 if current, 0 if not currect";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -926,8 +926,8 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test11() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.EFF_START_DT column";
+        String reason = " Default EFF_STRT_DT = sysdate";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1022,8 +1022,8 @@ public class LegPrptyStayWhTest extends TableTest {
     public void test12() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_PRPTY_STAY_WH.EFF_END_DT column";
+        String reason = " It should be 01-JAN-00";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

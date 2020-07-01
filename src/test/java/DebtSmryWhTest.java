@@ -28,8 +28,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check if the unknown record 0 is populated";
+        String reason = " Provides the ability to traverse through the DEBT_SMRY_WH when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -80,8 +80,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique identifier DEBT_SMRY_WH.DEBT_SMRY_WID (PK) column";
+        String reason = " Sequential ID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -188,8 +188,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.DCMNT_WID column";
+        String reason = " Lookup PM_DEBT.VCHNUM, U##DOCTYPE, U##SSN in VCHR_WH & related WH tables to get VHCR_WID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -302,8 +302,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.RCRD_TYPE_CD column";
+        String reason = " Value = \"DT\" for all records";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -382,8 +382,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.RCRD_TYPE_DESCR column";
+        String reason = " Value = \"DTS Trip Debt\" for all records";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -462,8 +462,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.DEBT_INCRD_DT column";
+        String reason = "  straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -588,8 +588,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.DEBT_ORIG_AMT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -698,8 +698,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = "  Check the population of the DEBT_SMRY_WH.COLLECT_TMR_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -807,7 +807,7 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the DEBT_SMRY_WH.LST_DEBT_TRNS_STATUS_TXT column";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -916,7 +916,7 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the DEBT_SMRY_WH.LST_DEBT_TRNS_AMT column";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -1025,7 +1025,7 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the DEBT_SMRY_WH.LST_DEBT_TRNS_DT column";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -1134,7 +1134,7 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the DEBT_SMRY_WH.CURR_DUE_AMT column";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -1244,8 +1244,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.SRC_ID column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1353,8 +1353,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.CURR_SW column";
+        String reason = " Indicates whether the record is the current record for the agency.  value = 1 if current, 0 if not current";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1434,8 +1434,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.EFF_START_DT column";
+        String reason = " Default EFF_STRT_DT = sysdate";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1515,8 +1515,8 @@ public class DebtSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DEBT_SMRY_WH.EFF_END_DT column";
+        String reason = "  It should be 01-JAN-00";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

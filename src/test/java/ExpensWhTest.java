@@ -25,8 +25,8 @@ public class ExpensWhTest extends TableTest {
     public void test01() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique ID";
+        String reason = " Sequential ID (unique identifier for this record)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -75,8 +75,8 @@ public class ExpensWhTest extends TableTest {
     public void test02() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check to ensure that all columns values are being populated correctly for data sourced from the LODGE table";
+        String reason = " Check the column values are populated correctly for the data sourced from LODGE table";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

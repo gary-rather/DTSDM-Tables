@@ -22,8 +22,8 @@ public class VndrWhTest extends TableTest {
     public void test01() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"unknown\" record 0 is populated";
+        String reason = " Provides the ability to traverse through the VNDR_WH when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -75,8 +75,8 @@ public class VndrWhTest extends TableTest {
     public void test02() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the VNDR_WH.VNDR_WID  (PK) column";
+        String reason = " Unique identifier of the record. Sequential ID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -184,8 +184,8 @@ public class VndrWhTest extends TableTest {
     public void test03() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the VNDR_WH.VNDR_NAME column";
+        String reason = " Get distinct vendor name/vendor address";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -295,8 +295,8 @@ public class VndrWhTest extends TableTest {
     public void test04() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the VNDR_WH.VNDR_TYPE_WID column";
+        String reason = " Look up TYPE_WID in TYPE_CONSOLDTD_RFRNC_WH. For vendors sourced from TICKSUB, get ID for record having type code 'PRPTY', or Property. For vendors sourced from VCHPNR, get ID for record having  type 'CTO'";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -381,8 +381,8 @@ public class VndrWhTest extends TableTest {
     public void test05() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the values of the VNDR_WH.AGNCY_DESCR column";
+        String reason = " No business rules for this column! But looks like this column represents the sum(CTO_FEE) for CTO’s in FRED.PNRTOUCH";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -500,8 +500,8 @@ public class VndrWhTest extends TableTest {
     public void test06() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the VNDR_WH.CURR_SW column";
+        String reason = " Indicates whether the record is the current record for the agency.  value = 1 if current, 0 if not current";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -567,8 +567,8 @@ public class VndrWhTest extends TableTest {
     public void test07() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the VNDR_WH.EFF_START_DT column";
+        String reason = " Default EFF_STRT_DT = sysdate";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -655,7 +655,7 @@ public class VndrWhTest extends TableTest {
     public void test08() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the VNDR_WH.UPDATE_DATE column";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -742,8 +742,8 @@ public class VndrWhTest extends TableTest {
     public void test09() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " VNDR_WH  ROW COUNT";
+        String reason = " VNDR_WH  ROW COUNT";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

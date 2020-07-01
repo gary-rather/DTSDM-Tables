@@ -26,7 +26,7 @@ public class AccntBdgtLabelWhTest extends TableTest {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         String condition = " ReplaceConditionText";
-                String reason = " ReplaceReasonText";
+        String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

@@ -79,8 +79,8 @@ public class CbaAccntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the CBA_ACCNT_WH.CBA_ACCNT_WID column PK";
+        String reason = " Sequential ID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -143,8 +143,8 @@ public class CbaAccntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the CBA_ACCNT_WH.AGNCY_WID column";
+        String reason = " Look up CBA_ACCOUNT.AGENCY_CODE in AGNCY_WH.AGENCY_DESCR to get AGNCY_WID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -225,8 +225,8 @@ public class CbaAccntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the CBA_ACCNT_WH.CBA_ACCNT_NUM column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -331,8 +331,8 @@ public class CbaAccntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the CBA_ACCNT_WH.CBA_ACCT_LABEL column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -436,8 +436,8 @@ public class CbaAccntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the CBA_ACCNT_WH.CBA_ACCNT_STATUS_CD column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -541,8 +541,8 @@ public class CbaAccntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the CBA_ACCNT_WH.CURR_SW column";
+        String reason = " Indicates whether the record is the current record for the agency.Value = 1 if current, 0 if not current";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

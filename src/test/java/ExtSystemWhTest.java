@@ -28,8 +28,8 @@ public class ExtSystemWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"unknown\" record 0 is populated";
+        String reason = " Initial load must add  unspecified data row. Provides the ability to traverse through the DTSDM.EXT_SYSTEM_WH table when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -79,8 +79,8 @@ public class ExtSystemWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique identifier EXT_SYSTEM_WH.EXT_SYSTEM_WID (PK) column";
+        String reason = " Sequential ID (PK)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -187,8 +187,8 @@ public class ExtSystemWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXT_SYSTEM_WH.EXT_SYSTEM_CD column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -284,8 +284,8 @@ public class ExtSystemWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXT_SYSTEM_WH.EXT_SYSTEM_TYPE_CD column";
+        String reason = " Custom Values:* Value = 'PS' for partner system records  * Value = 'ERP' for ERP systems";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -351,8 +351,8 @@ public class ExtSystemWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXT_SYSTEM_WH.EXT_SYSTEM_TYPE_DESCR column";
+        String reason = " Custom Values:* Value = 'PARTNER_SYSTEM' for parner system records * Value = 'ERP SYSTEM' for ERP systems";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -418,8 +418,8 @@ public class ExtSystemWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXT_SYSTEM_WH.SUBORG_WID column";
+        String reason = " * Look up PARTNER_SYSTEM.DTS_ORG value in SUBORG_WH.FULL_ORG_CD * 0 for ERP System";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -505,8 +505,8 @@ public class ExtSystemWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXT_SYSTEM_WH.SRC_ID column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

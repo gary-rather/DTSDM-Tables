@@ -33,8 +33,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"unknown\" record 0 is populated";
+        String reason = " Initial load must add  unspecified data row.  Provides the ability to traverse through the DTSDM. DCMNT_WH  table when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -84,8 +84,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.DCMNT_WID  PK column";
+        String reason = " Sequential ID PK";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -149,8 +149,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the overall population of the DCMNT_WH table";
+        String reason = " One row per unique document number and adjustment level";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -231,8 +231,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.TRIP_WID column";
+        String reason = " Populate in ETL workflow that populates TRIP_WH table; authorization data used to build trip data, so write back the TRIP_WID as part of populating the TRIP_WH table";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -310,8 +310,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.PERSON_WID column";
+        String reason = " The latest PERSON_WID associated with the adjustment level. Update value if change is found to person data (new PERSON row is created), for adj_level 0 only; do not update if new person data is found and adj_level != 0, and do not update if return date is in the past";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -389,8 +389,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.PERSON_ATTRIB_WID column";
+        String reason = " Compare values in all columns of PERSON_ATTRIB_HIST_WH to the source columns in FRED.VOUCHER and get the ID of the matching row";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -475,8 +475,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.DCMNT_TYPE_WID column";
+        String reason = " FK to the TYPE_CONSOLDTD_RFRNC_WH table. Derive by looking up DOCSTAT.U##DOCTYPE";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -560,8 +560,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.AO_PERSON_WID column";
+        String reason = " FK to PERSON_WH table. Derive by looking up DOCSTAT.APPROVE_SSN";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -643,8 +643,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.DELEGT_PERSON_WID column";
+        String reason = " FK to PERSON table. Derive by looking up VCHSTAT.DELEGATE_SSN";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -727,8 +727,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.NXT_RTNG_OFCL_WID column";
+        String reason = " FK to PERSON table. Derive by looking up VCHSTAT.U##NEXT_SSN";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -810,8 +810,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.AGNCY_WID column";
+        String reason = " FK to AGNCY_WH. Derive by looking up VOUCHER.U##ORG in SUBORG_WH, then looking up AGNCY_WID in AGNCY_ORG_WH via AGNCY_ORG_WID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -895,8 +895,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.SUBORG_WID column";
+        String reason = " FK to SUBORG_WH; lookup ID on ORG = FULL_ORG_CD";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -978,8 +978,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.SUBORG_WID column";
+        String reason = " Lookup ID in STATUS_CONSOLDTD_RFRNC";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1063,8 +1063,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.CURR_DCMNT_STATUS_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1130,8 +1130,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.NXT_DCMNT_STATUS_WID column";
+        String reason = " Lookup ID in STATUS_CONSOLDTD_RFRNC";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1221,8 +1221,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.DCMNT_NAME column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1302,8 +1302,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.DCMNT_BASE_NAME column";
+        String reason = " Get substring up to the underscore followed by voucher type indicator and authorization number, i.e. _A01";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1386,8 +1386,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.ADJSTMT_LVL column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1488,8 +1488,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.TRIP_PURPOSE_DESCR column";
+        String reason = " RETDATE - DEPDATE plus 1 day; get for specified adjustment level";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1555,8 +1555,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.TRIP_TDY_DAYS_CNT column";
+        String reason = " straight pull; get purpose for specified adjustment level";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1622,8 +1622,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.TRIP_CP_CR_AMT column";
+        String reason = " Get the sum of TCOST values where INTINRY.MODE IN('CP', 'CR') AND U##LINE_TYPE = 'X' AND ADJ_LEVEL = 0;  get for specified adjustment level";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1693,8 +1693,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.TRIP_CPC_CRC_AMT column";
+        String reason = " Get the sum of TCOST values where INTINRY.MODE IN('CP-C', 'CR-C') AND U##LINE_TYPE = 'X' AND ADJ_LEVEL = 0;  get for specified adjustment level";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1767,8 +1767,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.ADJSTR_PERSON_WID column";
+        String reason = " FK to PERSON table. Derive by looking up VCHADJ.SSN. No incremental updates";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1837,8 +1837,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.ADJSTMT_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1906,8 +1906,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.SGND_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1975,8 +1975,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.APPRVD_DT column";
+        String reason = " Last approved date where d.approve_ssn not in 'AUTO', 'CTO','PROCESSED', DOCSTAT joins to VOUCHER on VCHNUM and ADJ_LEVEL";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2046,8 +2046,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.CREATE_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2115,8 +2115,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.CNCLD_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2232,8 +2232,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.ADVNC_RJCT_DATE column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2302,8 +2302,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.CLAIM_AMT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2401,8 +2401,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.TOT_ENTRD_AMT column";
+        String reason = " Sum of all ENTERED_AMT values for all records in INTINRY for the document and adjustment level";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2501,8 +2501,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.PREV_DCMNT_NAME column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2570,8 +2570,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.SRC_ORIG_CREATE_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2639,8 +2639,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.SRC_LAST_UPDT_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2708,8 +2708,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.FRST_TCKT_ISSUED_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2777,8 +2777,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.SGND_PERSON_WID column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2846,8 +2846,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.AUDIT_FAIL_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2916,8 +2916,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.CTO_SUBMT_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -2986,8 +2986,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.VCHR_SUBMT_DT column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -3056,8 +3056,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.TRIP_NUM column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -3126,8 +3126,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.DCMNT_REF column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -3195,8 +3195,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.SRC_PROGRESS_RECID column";
+        String reason = " straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -3264,8 +3264,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.DCMNT_CTGRY column";
+        String reason = " static value = 'TDY'";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -3346,8 +3346,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.AMENDMENT_FLAG column";
+        String reason = " When TRANS_TYPE = 'AMENDMENT' then 'Y'";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -3494,8 +3494,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.CURR_SW column";
+        String reason = " Indicates whether the record is the current record for the agency.  value = 1 if current, 0 if not current";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -3607,8 +3607,8 @@ public class DcmntWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the DCMNT_WH.CURR_DCMNT_STATUS_PRSN_WID column";
+        String reason = " Get value for the most recent status record for the document. Lookup SSN in DTSDM.PERSON_WH";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

@@ -26,8 +26,8 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " check that the unknown record 0 is populated";
+        String reason = " Initial load must add  unspecified data row. Provides the ability to traverse through the DTSDM.HTL_TAX_EXMPT_WH table when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -77,8 +77,8 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique identifier (HTL_TAX_EXMPT_WH.HTL_TAX_EXMPT_WID (PK))";
+        String reason = " Sequential ID (PK)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -185,8 +185,8 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the HTL_TAX_EXMPT_WH.STATE_COUNTRY_CD column";
+        String reason = "  (straight pull)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -270,8 +270,8 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the HTL_TAX_EXMPT_WH.STATE_COUNTRY_WID column";
+        String reason = " Join HTL_TAX_EXMPT_LOCATION.STATE_CODE to STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_CD Default value = 0";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -363,8 +363,8 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the HTL_TAX_EXMPT_WH.TAX_EXMPT_CD column";
+        String reason = " HTL_TAX_EXMPT_LOCATION.STATE_CODE joins to STATE.STCODE";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -456,8 +456,8 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the HTL_TAX_EXMPT_WH.HTL_TAX_EXP_DT column";
+        String reason = " (straight pull)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -541,8 +541,8 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the HTL_TAX_EXMPT_WH.HTL_TAX_EXP_SRC_ID column";
+        String reason = " (straight pull)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

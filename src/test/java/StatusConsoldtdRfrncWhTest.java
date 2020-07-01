@@ -27,8 +27,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test1() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"unknown\" record 0 is populated";
+        String reason = " Provides the ability to traverse through the STATUS_CONSOLDTD_RFRNC_WH when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -79,8 +79,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test2() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique ID";
+        String reason = " Unique identifier of the record";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -156,8 +156,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test3() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check to ensure that all distinct DCMNT records are being populated";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -267,8 +267,8 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
     public void test4() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check to ensure that all distinct DEBT_TRNS records are being populated";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

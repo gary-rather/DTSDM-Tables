@@ -22,8 +22,8 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test1() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"UNKNOWN\" record 0 is populated";
+        String reason = " Provides the ability to traverse through the STATE_COUNTRY_RFRNC_WH when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -70,8 +70,8 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test2() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_WID  (PK) column";
+        String reason = " Unique identifier of the record. Sequential number (PK)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -142,8 +142,8 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test3() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_CD columns";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -258,8 +258,8 @@ public class StateCountryRfrncWhTest extends TableTest {
     @Test
     public void test4() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the STATE_COUNTRY_RFRNC_WH.STATE_COUNTRY_NAME column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -375,8 +375,8 @@ public class StateCountryRfrncWhTest extends TableTest {
     public void test5() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the STATE_COUNTRY_RFRNC_WH.CONUS_IND, STATE_COUNTRY_RFRNC_WH.HTL_TAX_EXMPT_CD, STATE_COUNTRY_RFRNC_WH.HTL_TAX_EXMPT_EXP_DT columns";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -441,8 +441,8 @@ public class StateCountryRfrncWhTest extends TableTest {
     public void test6() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the STATE_COUNTRY_RFRNC_WH.CURR_SW column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -500,8 +500,8 @@ public class StateCountryRfrncWhTest extends TableTest {
     public void test7() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the STATE_COUNTRY_RFRNC_WH.EFF_START_DT column";
+        String reason = "  See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

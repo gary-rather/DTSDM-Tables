@@ -32,8 +32,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the unknown record 0 is populated";
+        String reason = " Initial load must add  unspecified data row.  Provides the ability to traverse through the DTSDM. TICKET_WH  table when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -83,8 +83,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique identifier (EXPNS_SMRY_WH.EXPNS_SMRY_WID (PK) column)";
+        String reason = " Sequential ID (PK)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -191,8 +191,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.EXPNS_TYPE_WID column";
+        String reason = " Look up value in TYPE_CONSOLDTD_RFRNC_WH to get ID * Sublabel describes the type of expense, i.e. lodging, airfare (Com. Carr%), rental car, m&ie, etc. * Include only the following types: 'Hotel Tax', 'LODGING', 'COM. CARR.-I', 'RENTAL CAR', 'Gas%', M&IE', 'OTHER' * Transform values to UPPER * Records for Hotel Tax and Gas expenses are sourced from FRED.LODGE; others sourced from ACCTOTALS";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -294,8 +294,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.ORG_ACCNT_WID column";
+        String reason = " FK to ORG_ACCNT_WH";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -389,8 +389,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.DCMNT_WID column";
+        String reason = " Match ACCTSEX.U##VCHNUM and doc type; adj_level = 0";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -485,7 +485,7 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.SDN column";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -583,8 +583,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.NOREIMB_COST_AMT column";
+        String reason = " NOREIMB_COST";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -688,8 +688,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.SRC_VCHNUM column";
+        String reason = " Straight pull ";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -759,8 +759,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.SRC_DOCTYPE column";
+        String reason = " Straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -830,8 +830,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.SRC_SSN column";
+        String reason = " Straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -901,8 +901,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.SRC_EXPNS_TYPE column";
+        String reason = " Straight pull";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -998,8 +998,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.CURR_SW column";
+        String reason = " Indicates whether the record is the current record for the agency.  value = 1 if current, 0 if not current";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1079,8 +1079,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.EFF_START_DT column";
+        String reason = " Default EFF_STRT_DT = sysdate";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -1160,8 +1160,8 @@ public class ExpnsSmryWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the EXPNS_SMRY_WH.EFF_END_DT column";
+        String reason = " It should be 01-JAN-00";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

@@ -24,8 +24,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the unknown record 0 is populated";
+        String reason = " Provides the ability to traverse through the SUBORG_WH when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -76,8 +76,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique identifier SUBORG_WH.SUBORG_WID (PK) column";
+        String reason = " Unique identifier of the record";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -187,7 +187,7 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
+        String condition = " Check the population of the SUBORG_WH.AGNCY_WID column";
         String reason = " ReplaceReasonText";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
@@ -270,8 +270,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the SUBORG_WH.AGNCY_ORG_WID column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -361,8 +361,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the SUBORG_WH.SRVC_WID column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -449,8 +449,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the SUBORG_WH.DUTY_STN_WID column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -597,8 +597,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the SUBORG_WH.ORG_CD column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -685,8 +685,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the SUBORG_WH.SUBORG_CD column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -809,8 +809,8 @@ public class SuborgWhTest extends TableTest{
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the SUBORG_WH.FULL_ORG_CD column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

@@ -26,7 +26,10 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
         String sql = "select * from DTSDM.TIME_ZONE_RFRNC_WH A where A.TIME_ZONE_WID = 0";
 
@@ -73,7 +76,10 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
         String sql1 = "select distinct A.TIME_ZONE_WID, count(*) from DTSDM.TIME_ZONE_RFRNC_WH A\n" +
                         "group by A.TIME_ZONE_WID having count(*) > 1";
@@ -177,7 +183,10 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
         String sql1 = "select * from DTSDM.TIME_ZONE_RFRNC_WH where A.TIME_ZONE_WID != 0";
 
@@ -258,7 +267,10 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
         String sql1 = "select * from DTSDM.TIME_ZONE_RFRNC_WH where A.TIME_ZONE_WID != 0";
 
@@ -339,7 +351,10 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
         String sql1 = "select * from DTSDM.TIME_ZONE_RFRNC_WH where A.TIME_ZONE_WID != 0";
 
@@ -420,7 +435,10 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
+        String condition = " ReplaceConditionText";
+        String reason = " ReplaceReasonText";
+
+        wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
         String sql1 = "select * from DTSDM.TIME_ZONE_RFRNC_WH where A.TIME_ZONE_WID != 0";
 

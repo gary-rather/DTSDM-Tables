@@ -24,8 +24,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test01() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"unknown\" record 0 is populated";
+        String reason = " Initial load must add  unspecified data row.  Provides the ability to traverse through the DTSDM. LEG_SPCL_DUTY_WH  table when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -74,8 +74,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test02() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH.LEG_SPCL_DUTY_WID  (PK) column";
+        String reason = " Sequential ID (PK)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -175,8 +175,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test03() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH.TRIP_LEG_WID columns";
+        String reason = " FK to TRIP_LEG_WH; lookup TRIP_LEG_WID using LODGE. LEG, U##VCHNUM, U##DOCTYPE, U##SSN in TRIP_LEG_WH and related tables";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -268,8 +268,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test04() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH.DUTY_CONDTN_TYPE_WID column";
+        String reason = " FK to TYPE_CONSOLDTD_RFRNC_WH; lookup DUTY_COND, U##TYPE values in TYPE_CD to get TYPE_WID";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -361,8 +361,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test05() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH. SPCL_DUTY_STRT_DT column";
+        String reason = " Get TRAVDATE from the first record having the duty condition, when sorted by date (for the start date)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -454,8 +454,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test06() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH. SPCL_DUTY_END_DT column";
+        String reason = " Get TRAVDATE from the last consecutive record having the duty condition, when sorted by date (for the end date)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -547,8 +547,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test07() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH.CURR_SW column";
+        String reason = "  Indicates whether the record is the current record for the agency.  value = 1 if current, 0 if not currect";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -640,8 +640,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test08() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH.EFF_START_DT column";
+        String reason = " Default EFF_STRT_DT = sysdate";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -733,8 +733,8 @@ public class LegSpclDutyWhTest extends TableTest {
     public void test09() {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the LEG_SPCL_DUTY_WH.EFF_END_DT column";
+        String reason = " It should be 01-JAN-00";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

@@ -28,8 +28,8 @@ public class DprtmntWhTest extends TableTest {
      */
     public void test1() {
     	System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the DPRTMNT_WH.DPRTMNT_WID is the same as in the external file";
+        String reason = " ID to be provided by external source file; no sequence generator required";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -78,8 +78,8 @@ public class DprtmntWhTest extends TableTest {
      */
     public void test2() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check to ensure that all values in DPRTMNT_WH.DPRTMNT_CD field are unique and taken from the external source file";
+        String reason = " CD to be provided by external source file";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -151,8 +151,8 @@ public class DprtmntWhTest extends TableTest {
      */
     public void test3() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check to ensure that DPRTMNT_WH.DPRTMNT_DESCR is populated correctly";
+        String reason = "  DESCR to be provided by external source file";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

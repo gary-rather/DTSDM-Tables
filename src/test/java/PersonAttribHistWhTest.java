@@ -27,8 +27,8 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test1() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check that the \"unknown\" record 0 is populated";
+        String reason = " Provides the ability to traverse through the CBA_ACCNT_WH when no value is matched";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -77,8 +77,8 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test2() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the unique ID";
+        String reason = " Unique identifier of the record";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -148,8 +148,8 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test3() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the PERSON_ATTRIB_HIST_WH.PERSON_WID column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -222,8 +222,8 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test4() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the PERSON_ATTRIB_HIST_WH.AGNCY_ORG_WID column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -308,8 +308,8 @@ public class PersonAttribHistWhTest  extends TableTest {
      */
     public void test5() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the PERSON_ATTRIB_HIST_WH.SUBORG_WID column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -397,8 +397,8 @@ public class PersonAttribHistWhTest  extends TableTest {
     @Ignore
     public void test6() {
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
-        String condition = " ReplaceConditionText";
-        String reason = " ReplaceReasonText";
+        String condition = " Check the population of the PERSON_ATTRIB_HIST_WH.SSN_FULL column";
+        String reason = " See 'DTS Data Warehouse Table Definition.xls' document";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
