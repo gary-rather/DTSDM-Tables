@@ -85,13 +85,12 @@ public class OrgAccntWhTest extends TableTest {
 
 
         String sql1 = "select count(*) from \n" +
-                "(\n" +
-                "select distinct FULL_ORG_CD,ACCNT_LABEL, count (*)\n" +
-                "from ORG_ACCNT_WH\n" +
-                "group by FULL_ORG_CD,ACCNT_LABEL\n" +
-                "having count(*) > 1\n" +
-                "\n" +
-                ")";
+                        "(\n" +
+                        "select distinct FULL_ORG_CD,ACCNT_LABEL, count (*) \n" +
+                        "from ORG_ACCNT_WH \n" +
+                        "group by FULL_ORG_CD,ACCNT_LABEL \n" +
+                        "having count(*) > 1 \n" +
+                        ")";
 
 
         // log the Sql
@@ -149,7 +148,7 @@ public class OrgAccntWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
 
-        String sql1 = "select count(*) from DTSDM.ORG_ACCNT_WH";
+        String sql1 = "select count(*) from DTSDM.ORG_ACCNT_WH WHERE ORG_ACCNT_WID != 0";
 
         String sql2 = "select count(*) from" +
                         "( \n" +
@@ -238,10 +237,9 @@ public class OrgAccntWhTest extends TableTest {
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
-
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT B.FULL_ORG_CD AS ETL_SUBORG_WID, A.FULL_ORG_CD AS TEST_SUBORG_WID \n" +
+                        "\t SELECT B.FULL_ORG_CD AS ETL_FULL_ORG_CD, A.FULL_ORG_CD AS TEST_FULL_ORG_CD \n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM.SUBORG_WH B, DTSDM_SRC_STG.ACCOUNT C \n" +
                         "\t WHERE A.ACCNT_LABEL = C.ACCLABEL \n" +
                         "\t AND B.SUBORG_WID = A.SUBORG_WID \n" +
@@ -295,7 +293,7 @@ public class OrgAccntWhTest extends TableTest {
     @Test
     public void test05() {
 
-        // Check the population of the ORG_ACCNT_WH.ACCT_LABEL column
+        // Check the population of the ORG_ACCNT_WH.ACCNT_LABEL column
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -377,8 +375,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC1 AS ETL_ACC1, \n" +
+                        "\t\t\t B.ACC1 AS TEST_ACC1 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -447,8 +446,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC2 AS ETL_ACC2, \n" +
+                        "\t\t\t B.ACC2 AS TEST_ACC2 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -517,8 +517,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC3 AS ETL_ACC3, \n" +
+                        "\t\t\t B.ACC3 AS TEST_ACC3 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -587,8 +588,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC4 AS ETL_ACC4, \n" +
+                        "\t\t\t B.ACC4 AS TEST_ACC4 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -657,9 +659,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
-                        "\n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC5 AS ETL_ACC5, \n" +
+                        "\t\t\t B.ACC5 AS TEST_ACC5 \n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
                         "\t WHERE A.ACCNT_LABEL = B.ACCLABEL \n" +
@@ -727,8 +729,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC6 AS ETL_ACC6, \n" +
+                        "\t\t\t B.ACC6 AS TEST_ACC6 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -797,8 +800,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC7 AS ETL_ACC7, \n" +
+                        "\t\t\t B.ACC7 AS TEST_ACC7 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -867,8 +871,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC8 AS ETL_ACC8, \n" +
+                        "\t\t\t B.ACC8 AS TEST_ACC8 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -937,8 +942,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC9 AS ETL_ACC9, \n" +
+                        "\t\t\t B.ACC9 AS TEST_ACC9 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -1007,8 +1013,9 @@ public class OrgAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.ACCNT_LABEL AS ETL_ACCNT_LABEL, \n" +
-                        "\t\t\t B.ACCLABEL AS TEST_ACCNT_LABEL \n" +
+                        "\t SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t A.ACC10 AS ETL_ACC10, \n" +
+                        "\t\t\t B.ACC10 AS TEST_ACC10 \n" +
                         "\n" +
                         "\t FROM DTSDM.ORG_ACCNT_WH A, DTSDM_SRC_STG.ACCOUNT B \n" +
                         "\n" +
@@ -1065,7 +1072,7 @@ public class OrgAccntWhTest extends TableTest {
     @Test
     public void test16() {
 
-        // Check the population of the ORG_ACCNT_WH.CURR_SW column
+        // Check the population of the ORG_ACCNT_WH.LINE_OF_ACCTNG column
 
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
@@ -1075,8 +1082,19 @@ public class OrgAccntWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
 
-        String sql1 = "select count(*) from DTSDM.ORG_ACCNT_WH";
-        String sql2 = "select ORG_ACCNT_WH.CURR_SW from DTSDM.ORG_ACCNT_WH";
+        String sql1 = "select count(*) from DTSDM.ORG_ACCNT_WH WHERE ORG_ACCNT_WID != 0";
+
+        String sql2 = "select count (*) from (SELECT DISTINCT A.ORG_ACCNT_WID, \n" +
+                        "\t\t\t\t A.LINE_OF_ACCTNG AS TEST_FULL_LOA,\n" +
+                        "\t\t\t\t\t B.ACC1 || ', ' || B.ACC2 || ', ' || B.ACC3 || ', ' || \n" +
+                        "\t\t\t\t\t B.ACC4 || ', ' || B.ACC5 || ', ' || B.ACC6 || ', ' || \n" +
+                        "\t\t\t\t\t B.ACC7 || ', ' || B.ACC8 || ', ' || B.ACC9 || ', ' || \n" +
+                        "\t\t\t\t\t B.ACC10 AS ETL_FULL_LOA\n" +
+                        "\t\t\t FROM DTSDM.ORG_ACCNT_WH A, FRED.ACCOUNT \n" +
+                        "\t\t\t WHERE A.LINE_OF_ACCTNG = B.ACC1 || ', ' || B.ACC2 || ', ' || B.ACC3 \n" +
+                        "\t\t\t\t\t || ', ' || B.ACC4 || ', ' || B.ACC5 || ', ' || B.ACC6 \n" +
+                        "\t\t\t\t\t || ', ' || B.ACC7 || ', ' || B.ACC8 || ', ' || B.ACC9 \n" +
+                        "\t\t\t\t\t || ', ' || B.ACC10)";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
