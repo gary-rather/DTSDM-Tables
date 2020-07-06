@@ -86,7 +86,7 @@ public class PersonAccntAuditWhTest extends TableTest {
         String sql1 = "select count(*) from \n" +
                 "(\n" +
                 "select distinct PERSON_WID,CHNG_DT,UPDT_EFT_ACCNT_NUM,UPDT_EFT_ROUTNG_NUM,UPDT_EFT_TYPE, count (*)\n" +
-                "from PERSON_ACCNT_AUDIT_WH\n" +
+                "from DTSDM.LERSON_ACCNT_AUDIT_WH\n" +
                 "group by PERSON_WID,CHNG_DT,UPDT_EFT_ACCNT_NUM,UPDT_EFT_ROUTNG_NUM,UPDT_EFT_TYPE\n" +
                 "having count(*) > 1\n" +
                 "\n" +

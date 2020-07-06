@@ -857,7 +857,7 @@ public class LegPrptyStayWhTest extends TableTest {
                 "From DTSDM.LEG_PRPTY_STAY_WH\n" +
                 "Group by LEG_PRPTY_STAY_WH.CURR_SW\n";
 
-        String sql2 = "select count(*) from LEG_PRPTY_STAY_WH";
+        String sql2 = "select count(*) from DTSDM.LEG_PRPTY_STAY_WH";
 
 
         // log the Sql

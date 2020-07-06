@@ -253,7 +253,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int dtsdmCount = 0;
-        int fredCount = 0;
+        int DTSDM_SRC_STGCount = 0;
         int diffCount = 0;
 
         System.out.println("Starting CbaAccntWhTest.test4,sql1");
@@ -279,7 +279,7 @@ public class CbaAccntWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        fredCount++;
+                        DTSDM_SRC_STGCount++;
                     }
                 }
             }
@@ -314,7 +314,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logTestResults(roList);
 
         System.out.println("Test 4: Count From DTSDM.CBA_ACCNT_WH = " + dtsdmCount);
-        System.out.println("Test 4: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + fredCount);
+        System.out.println("Test 4: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + DTSDM_SRC_STGCount);
         System.out.println("Test 4: Discrepancy Count = " + diffCount);
 
         assertEquals(0, diffCount);
@@ -359,7 +359,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int dtsdmCount = 0;
-        int fredCount = 0;
+        int DTSDM_SRC_STGCount = 0;
         int diffCount = 0;
 
         System.out.println("Starting CbaAccntWhTest.test5,sql1");
@@ -385,7 +385,7 @@ public class CbaAccntWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        fredCount++;
+                        DTSDM_SRC_STGCount++;
                     }
                 }
             }
@@ -419,7 +419,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logTestResults(roList);
 
         System.out.println("Test 5: Count From DTSDM.CBA_ACCNT_WH = " + dtsdmCount);
-        System.out.println("Test 5: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + fredCount);
+        System.out.println("Test 5: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + DTSDM_SRC_STGCount);
         System.out.println("Test 5: Discrepancy Count = " + diffCount);
 
         assertEquals(0, diffCount);
@@ -464,7 +464,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logSql(theSql);
 
         int dtsdmCount = 0;
-        int fredCount = 0;
+        int DTSDM_SRC_STGCount = 0;
         int diffCount = 0;
 
         System.out.println("Starting CbaAccntWhTest.test6,sql1");
@@ -490,7 +490,7 @@ public class CbaAccntWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        fredCount++;
+                        DTSDM_SRC_STGCount++;
                     }
                 }
             }
@@ -524,7 +524,7 @@ public class CbaAccntWhTest extends TableTest {
         wr.logTestResults(roList);
 
         System.out.println("Test 6: Count From DTSDM.CBA_ACCNT_WH = " + dtsdmCount);
-        System.out.println("Test 6: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + fredCount);
+        System.out.println("Test 6: Count From DTSDM_SRC_STG.CBA_ACCOUNT = " + DTSDM_SRC_STGCount);
         System.out.println("Test 6: Discrepancy Count = " + diffCount);
 
         assertEquals(0, diffCount);
@@ -550,7 +550,7 @@ public class CbaAccntWhTest extends TableTest {
         String sql1 = "select distinct CBA_ACCNT_WH.CURR_SW, count(*)\n" +
                         "from DTSDM.CBA_ACCNT_WH group by CBA_ACCNT_WH.CURR_SW";
 
-        String sql2 = "select count(*)from cba_accnt_wh";
+        String sql2 = "select count(*)from DTSDM.ba_accnt_wh";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();

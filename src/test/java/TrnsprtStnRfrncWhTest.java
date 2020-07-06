@@ -199,11 +199,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_NAME, B.ARR_AIRPORT \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_NAME, B.ARR_AIRPORT \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_NAME = B.ARR_AIRPORT \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_NAME = B.ARR_AIRPORT \n" +
                         ")";
 
         // log the Sql
@@ -287,11 +287,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_CODE, B.ARR_AIR \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_CODE, B.ARR_AIR \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_CODE = B.ARR_AIR \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_CODE = B.ARR_AIR \n" +
                         ")";
 
         // log the Sql
@@ -375,11 +375,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_LATITD, B.ARR_LAT \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_LATITD, B.ARR_LAT \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_LATITD = B.ARR_LAT \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_LATITD = B.ARR_LAT \n" +
                         ")";
 
         // log the Sql
@@ -463,11 +463,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_LONGTD, B.ARR_LONG \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_LONGTD, B.ARR_LONG \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_LONGTD = B.ARR_LONG \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_LONGTD = B.ARR_LONG \n" +
                         ")";
 
         // log the Sql
@@ -551,11 +551,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_NAME, B.DEP_AIRPORT \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_NAME, B.DEP_AIRPORT \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_NAME = B.DEP_AIRPORT \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_NAME = B.DEP_AIRPORT \n" +
                         ")";
 
         // log the Sql
@@ -639,11 +639,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_CODE, B.DEP_AIR \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_CODE, B.DEP_AIR \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_CODE = B.DEP_AIR \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_CODE = B.DEP_AIR \n" +
                         ")";
 
         // log the Sql
@@ -727,11 +727,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_LATITD, B.DEP_LAT \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_LATITD, B.DEP_LAT \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_LATITD = B.DEP_LAT \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_LATITD = B.DEP_LAT \n" +
                         ")";
 
         // log the Sql
@@ -815,11 +815,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
-                        "\t\t\t A.TRNSPRT_STN_LONGTD, B.DEP_LONG \n" +
+                        "  SELECT DISTINCT A.TRNSPRT_STN_RFRNC_WID, \n" +
+                        "    A.TRNSPRT_STN_LONGTD, B.DEP_LONG \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_LONGTD = B.DEP_LONG \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_LONGTD = B.DEP_LONG \n" +
                         ")";
 
         // log the Sql
@@ -903,17 +903,17 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.TRNSPRT_STN_RFRNC_WID, A.TRNSPRT_STN_TYPE_CD, B.U##RES_TYPE\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B\n" +
-                        "\t WHERE A.TRNSPRT_STN_TYPE_CD IN (SELECT \n" +
-                        "\t\t\t\t\t\t\t\t\t CASE\n" +
-                        "\t\t\t\t\t\t\t\t\t\t WHEN B.U##RES_TYPE = 'COMM-RAIL' THEN 'R'\n" +
-                        "\t\t\t\t\t\t\t\t\t\t WHEN B.U##RES_TYPE = 'COMM-CARR' THEN 'A'\n" +
-                        "\t\t\t\t\t\t\t\t\t\t WHEN B.U##RES_TYPE = 'COMM-BUS' THEN 'B'\n" +
-                        "\t\t\t\t\t\t\t\t\t\t WHEN B.U##RES_TYPE = 'COMM-SHIP' THEN 'S'\n" +
-                        "\t\t\t\t\t\t\t\t\t\t ELSE NULL\n" +
-                        "\t\t\t\t\t\t\t\t\t END\n" +
-                        "\t\t\t\t\t\t\t\t FROM FRED.TICKSUB B) \n" +
+                        "  SELECT A.TRNSPRT_STN_RFRNC_WID, A.TRNSPRT_STN_TYPE_CD, B.U##RES_TYPE\n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B\n" +
+                        "  WHERE A.TRNSPRT_STN_TYPE_CD IN (SELECT \n" +
+                        "          CASE\n" +
+                        "           WHEN B.U##RES_TYPE = 'COMM-RAIL' THEN 'R'\n" +
+                        "           WHEN B.U##RES_TYPE = 'COMM-CARR' THEN 'A'\n" +
+                        "           WHEN B.U##RES_TYPE = 'COMM-BUS' THEN 'B'\n" +
+                        "           WHEN B.U##RES_TYPE = 'COMM-SHIP' THEN 'S'\n" +
+                        "           ELSE NULL\n" +
+                        "          END\n" +
+                        "         FROM DTSDM_SRC_STG.TICKSUB B) \n" +
                         ")";
 
         // log the Sql
@@ -997,11 +997,11 @@ public class TrnsprtStnRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.TRNSPRT_STN_RFRNC_WID, " +
-                        "\t\t\t A.TRNSPRT_STN_TYPE_DESCR, B.U##RES_TYPE \n" +
+                        "  SELECT A.TRNSPRT_STN_RFRNC_WID, " +
+                        "    A.TRNSPRT_STN_TYPE_DESCR, B.U##RES_TYPE \n" +
                         "\n" +
-                        "\t FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, FRED.TICKSUB B \n" +
-                        "\t WHERE A.TRNSPRT_STN_TYPE_DESCR = B.U##RES_TYPE \n" +
+                        "  FROM DTSDM.TRNSPRT_STN_RFRNC_WH A, DTSDM_SRC_STG.TICKSUB B \n" +
+                        "  WHERE A.TRNSPRT_STN_TYPE_DESCR = B.U##RES_TYPE \n" +
                         ")";
 
         // log the Sql

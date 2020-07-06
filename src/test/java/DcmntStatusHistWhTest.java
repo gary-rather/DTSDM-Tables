@@ -195,9 +195,9 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.DCMNT_WID, B.DCMNT_WID \n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM.DCMNT_WH B \n" +
-                        "\t WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
+                        "  SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.DCMNT_WID, B.DCMNT_WID \n" +
+                        "  FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM.DCMNT_WH B \n" +
+                        "  WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
                         ")";
 
         // log the Sql
@@ -280,14 +280,14 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_WID, B.STATUS_WID\n" +
+                        " SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_WID, B.STATUS_WID\n" +
                         "\n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A,\n" +
-                        "\t\t\t DTSDM.STATUS_CONSOLDTD_RFRNC_WH B,\n" +
-                        "\t\t\t DTSDM_SRC_STG.VCHSTAT C\n" +
+                        "FROM DTSDM.DCMNT_STATUS_HIST_WH A,\n" +
+                        " DTSDM.STATUS_CONSOLDTD_RFRNC_WH B,\n" +
+                        " DTSDM_SRC_STG.VCHSTAT C\n" +
                         "\n" +
-                        "\t WHERE A.STATUS_WID = B.STATUS_WID\n" +
-                        "\t AND B.STATUS_DESCR = C.U##VSTAT \n" +
+                        " WHERE A.STATUS_WID = B.STATUS_WID\n" +
+                        " AND B.STATUS_DESCR = C.U##VSTAT \n" +
                         ")";
 
         // log the Sql
@@ -370,9 +370,9 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_DT, B.VDATE \n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
-                        "\t WHERE A.STATUS_DT = B.VDATE \n" +
+                        "SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_DT, B.VDATE \n" +
+                        " FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
+                        "WHERE A.STATUS_DT = B.VDATE \n" +
                         ")";
 
         // log the Sql
@@ -455,9 +455,9 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_TIME, B.VTIME \n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
-                        "\t WHERE A.STATUS_TIME = B.VTIME \n" +
+                        " SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_TIME, B.VTIME \n" +
+                        " FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
+                        " WHERE A.STATUS_TIME = B.VTIME \n" +
                         ")";
 
         // log the Sql
@@ -540,9 +540,9 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_UPDTD_BY_NAME, B.NAME \n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
-                        "\t WHERE A.STATUS_UPDTD_BY_NAME = B.NAME \n" +
+                        "  SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_UPDTD_BY_NAME, B.NAME \n" +
+                        "  FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
+                        "  WHERE A.STATUS_UPDTD_BY_NAME = B.NAME \n" +
                         ")";
 
         // log the Sql
@@ -625,9 +625,9 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_RMRKS, B.REMARKS \n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
-                        "\t WHERE A.STATUS_RMRKS = B.REMARKS \n" +
+                        "  SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_RMRKS, B.REMARKS \n" +
+                        "  FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
+                        "  WHERE A.STATUS_RMRKS = B.REMARKS \n" +
                         ")";
 
         // log the Sql
@@ -710,9 +710,9 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_SIGNTR, B.U##SIGNATURE \n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
-                        "\t WHERE A.STATUS_SIGNTR = B.U##SIGNATURE \n" +
+                        "  SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_SIGNTR, B.U##SIGNATURE \n" +
+                        "  FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
+                        "  WHERE A.STATUS_SIGNTR = B.U##SIGNATURE \n" +
                         ")";
 
         // log the Sql
@@ -795,9 +795,9 @@ public class DcmntStatusHistWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_SEQNC_NUM, B.SEQUENCE \n" +
-                        "\t FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
-                        "\t WHERE A.STATUS_SEQNC_NUM = B.SEQUENCE \n" +
+                        "  SELECT DISTINCT A.DCMNT_STATUS_HIST_WID, A.STATUS_SEQNC_NUM, B.SEQUENCE \n" +
+                        "  FROM DTSDM.DCMNT_STATUS_HIST_WH A, DTSDM_SRC_STG.VCHSTAT B \n" +
+                        "  WHERE A.STATUS_SEQNC_NUM = B.SEQUENCE \n" +
                         ")";
 
         // log the Sql

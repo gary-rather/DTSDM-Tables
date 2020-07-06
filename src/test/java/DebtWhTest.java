@@ -1388,7 +1388,7 @@ public class DebtWhTest extends TableTest {
         String sql1 = "select distinct DEBT_WH.RCRD_TYPE_CD , count(*)\n" +
                 "from DTSDM.DEBT_WH\n" +
                 "group by DEBT_WH.RCRD_TYPE_CD ";
-        String sql2 = "select count(*) from DEBT_WH";
+        String sql2 = "select count(*) from DTSDM.BT_WH";
         String sql3 = "";
 
         // log the Sql
@@ -1462,7 +1462,7 @@ public class DebtWhTest extends TableTest {
 
 
 
-        String sql1 = "select count(*) from DEBT_WH";
+        String sql1 = "select count(*) from DTSDM.BT_WH";
 
         String sql2 = "select distinct  DEBT_WH.RCRD_TYPE_DESCR , count(*)\n" +
                 "from DTSDM.DEBT_WH\n" +
@@ -1738,7 +1738,7 @@ public class DebtWhTest extends TableTest {
         String sql1 = "Select distinct DEBT_WH.CURR_SW, count(*)\n" +
                 "From DTSDM. DEBT_WH\n" +
                 "Group by DEBT_WH.CURR_SW\n";
-        String sql2 = "select count(*) from DEBT_WH";
+        String sql2 = "select count(*) from DTSDM.BT_WH";
         String sql3 = "";
 
         // log the Sql

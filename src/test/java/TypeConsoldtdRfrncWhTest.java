@@ -219,7 +219,7 @@ public class TypeConsoldtdRfrncWhTest extends TableTest {
                 "FROM DTSDM_SRC_STG.DOCSTAT DOCSTAT";
 
         String sql3 = "select *  \n" +
-                "from TYPE_CONSOLDTD_RFRNC_WH \n" +
+                "from DTSDM.LYPE_CONSOLDTD_RFRNC_WH \n" +
                 "where RCD_TYPE_CD = 'DCMNT'  \n";
 
         // log the Sql

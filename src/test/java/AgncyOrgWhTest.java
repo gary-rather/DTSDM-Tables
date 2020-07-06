@@ -148,7 +148,7 @@ public class AgncyOrgWhTest extends TableTest {
 
         String sql1 = "select count(*) from (\n" +
                 "select distinct DPRTMNT_AGNCY_SHRT_CD,AGNCY_SHRT_CD,ORG_CD, count (*)\n" +
-                "from AGNCY_ORG_WH\n" +
+                "from dtsdm.AGNCY_ORG_WH\n" +
                 "group by DPRTMNT_AGNCY_SHRT_CD,AGNCY_SHRT_CD,ORG_CD\n" +
                 "having count(*) > 1\n" +
                 "\n" +

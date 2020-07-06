@@ -198,19 +198,19 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "(\n" +
-                        "\t select distinct t.trip_leg_wid as etl_trip_leg_wid, \n" +
-                        "\t\t\t tl.trip_leg_wid as test_trip_leg_wid \n" +
+                        "  select distinct t.trip_leg_wid as etl_trip_leg_wid, \n" +
+                        "    tl.trip_leg_wid as test_trip_leg_wid \n" +
                         "\n" +
-                        "\t from dtsdm.dcmnt_wh dc, dtsdm.trip_leg_wh tl, \n" +
-                        "\t\t\t DTSDM_SRC_STG.ticksub ts, dtsdm.ticket_wh t \n" +
+                        "  from dtsdm.dcmnt_wh dc, dtsdm.trip_leg_wh tl, \n" +
+                        "    DTSDM_SRC_STG.ticksub ts, dtsdm.ticket_wh t \n" +
                         "\n" +
-                        "\t where dc.dcmnt_wid = tl.dcmnt_wid \n" +
-                        "\t and dc.dcmnt_name = ts.u##vchnum \n" +
-                        "\t and tl.leg_num = ts.leg\n" +
-                        "\t and dc.adjstmt_lvl = ts.adj_level \n" +
-                        "\t and ts.u##doctype = dc.src_doctype \n" +
-                        "\t and ts.u##ssn = dc.src_ssn \n" +
-                        "\t and t.trip_leg_wid = tl.trip_leg_wid \n" +
+                        "  where dc.dcmnt_wid = tl.dcmnt_wid \n" +
+                        "  and dc.dcmnt_name = ts.u##vchnum \n" +
+                        "  and tl.leg_num = ts.leg\n" +
+                        "  and dc.adjstmt_lvl = ts.adj_level \n" +
+                        "  and ts.u##doctype = dc.src_doctype \n" +
+                        "  and ts.u##ssn = dc.src_ssn \n" +
+                        "  and t.trip_leg_wid = tl.trip_leg_wid \n" +
                         ")";
 
         // log the Sql
@@ -270,22 +270,22 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.cba_accnt_wid as etl_cba_accnt_wid, \n" +
-                        "\t\t\t ca.cba_accnt_wid as test_cba_accnt_num, c.ticknum \n" +
+                        "  select t.cba_accnt_wid as etl_cba_accnt_wid, \n" +
+                        "    ca.cba_accnt_wid as test_cba_accnt_num, c.ticknum \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.cbatick c, dtsdm.cba_accnt_wh ca, \n" +
-                        "\t\t\t DTSDM_SRC_STG.itinry i, dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.cbatick c, dtsdm.cba_accnt_wh ca, \n" +
+                        "    DTSDM_SRC_STG.itinry i, dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where c.ticknum = i.ticknum \n" +
-                        "\t and c.cba_acct_no = ca.cba_accnt_num \n" +
-                        "\t and t.src_vchnum = i.u##vchnum \n" +
-                        "\t and t.src_snn = i.u##ssn \n" +
-                        "\t and t.src_doctype = i.u##doctype \n" +
-                        "\t and t.src_legnum = i.leg \n" +
-                        "\t and t.trip_leg_wid = tl.trip_leg_wid \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and dc.adjstmt_lvl = i.adj_level \n" +
-                        "\t and t.cba_accnt_wid != ca.cba_accnt_wid \n" +
+                        "  where c.ticknum = i.ticknum \n" +
+                        "  and c.cba_acct_no = ca.cba_accnt_num \n" +
+                        "  and t.src_vchnum = i.u##vchnum \n" +
+                        "  and t.src_snn = i.u##ssn \n" +
+                        "  and t.src_doctype = i.u##doctype \n" +
+                        "  and t.src_legnum = i.leg \n" +
+                        "  and t.trip_leg_wid = tl.trip_leg_wid \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and dc.adjstmt_lvl = i.adj_level \n" +
+                        "  and t.cba_accnt_wid != ca.cba_accnt_wid \n" +
                         ")";
 
         // log the Sql
@@ -345,21 +345,21 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "(\n" +
-                        "\t select t.cto_vndr_wid as etl_cto_vndr_wid, \n" +
-                        "\t\t\t v.vndr_wid as test_cto_vndr_wid, tc.ticknum\n" +
+                        "  select t.cto_vndr_wid as etl_cto_vndr_wid, \n" +
+                        "    v.vndr_wid as test_cto_vndr_wid, tc.ticknum\n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.pnrtouch p, \n" +
-                        "\t dtsdm.vndr_wh v, DTSDM_SRC_STG.ticket tc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.pnrtouch p, \n" +
+                        "  dtsdm.vndr_wh v, DTSDM_SRC_STG.ticket tc \n" +
                         "\n" +
-                        "\t where p.cto = v.vndr_name \n" +
-                        "\t and p.u##vchnum = tc.u##vchnum \n" +
-                        "\t and upper(p.ssn) = tc.u##ssn \n" +
-                        "\t and p.u##doctype = tc.u##doctype \n" +
-                        "\t and p.adj_level = tc.adj_level \n" +
-                        "\t and t.src_vchnum = p.u##vchnum \n" +
-                        "\t and t.src_snn = upper(p.ssn) \n" +
-                        "\t and t.src_doctype = p.u##doctype \n" +
-                        "\t and t.cto_vndr_wid != v.vndr_wid \n" +
+                        "  where p.cto = v.vndr_name \n" +
+                        "  and p.u##vchnum = tc.u##vchnum \n" +
+                        "  and upper(p.ssn) = tc.u##ssn \n" +
+                        "  and p.u##doctype = tc.u##doctype \n" +
+                        "  and p.adj_level = tc.adj_level \n" +
+                        "  and t.src_vchnum = p.u##vchnum \n" +
+                        "  and t.src_snn = upper(p.ssn) \n" +
+                        "  and t.src_doctype = p.u##doctype \n" +
+                        "  and t.cto_vndr_wid != v.vndr_wid \n" +
                         ")";
 
         // log the Sql
@@ -419,15 +419,15 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "(\n" +
-                        "\t select t.rsvtn_type_wid as etl_rsvtn_type_wid, \n" +
-                        "\t\t\t tcr.type_wid as test_rsvtn_type_wid \n" +
+                        "  select t.rsvtn_type_wid as etl_rsvtn_type_wid, \n" +
+                        "    tcr.type_wid as test_rsvtn_type_wid \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, dtsdm.type_consoldtd_rfrnc_wh tcr, DTSDM_SRC_STG.ticksub tc \n" +
-                        "\t where tc.u##res_type = tcr.type_descr \n" +
-                        "\t and t.src_vchnum = tc.u##vchnum \n" +
-                        "\t and t.src_snn = tc.u##ssn \n" +
-                        "\t and t.src_doctype = tc.u##doctype \n" +
-                        "\t and t.rsvtn_type_wid != tcr.type_wid \n" +
+                        "  from dtsdm.ticket_wh t, dtsdm.type_consoldtd_rfrnc_wh tcr, DTSDM_SRC_STG.ticksub tc \n" +
+                        "  where tc.u##res_type = tcr.type_descr \n" +
+                        "  and t.src_vchnum = tc.u##vchnum \n" +
+                        "  and t.src_snn = tc.u##ssn \n" +
+                        "  and t.src_doctype = tc.u##doctype \n" +
+                        "  and t.rsvtn_type_wid != tcr.type_wid \n" +
                         ")";
 
         // log the Sql
@@ -493,15 +493,15 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "(\n" +
-                        "\t select t.carrier_code as etl_carrier_code, \n" +
-                        "\t\t\t tc.carrier as test_carrier_code \n" +
+                        "  select t.carrier_code as etl_carrier_code, \n" +
+                        "    tc.carrier as test_carrier_code \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub tc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub tc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = tc.u##vchnum \n" +
-                        "\t and t.src_snn = tc.u##ssn \n" +
-                        "\t and t.src_doctype = tc.u##doctype \n" +
-                        "\t and t.carrier_code != tc.carrier \n" +
+                        "  where t.src_vchnum = tc.u##vchnum \n" +
+                        "  and t.src_snn = tc.u##ssn \n" +
+                        "  and t.src_doctype = tc.u##doctype \n" +
+                        "  and t.carrier_code != tc.carrier \n" +
                         ")";
 
         // log the Sql
@@ -561,15 +561,15 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "(\n" +
-                        "\t select t.tckt_num as etl_tckt_num, \n" +
-                        "\t\t\t upper(tc.ticknum) as test_tckt_num \n" +
+                        "  select t.tckt_num as etl_tckt_num, \n" +
+                        "    upper(tc.ticknum) as test_tckt_num \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub tc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub tc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = tc.u##vchnum \n" +
-                        "\t and t.src_snn = tc.u##ssn \n" +
-                        "\t and t.src_doctype = tc.u##doctype \n" +
-                        "\t and t.tckt_num != upper(tc.ticknum) \n" +
+                        "  where t.src_vchnum = tc.u##vchnum \n" +
+                        "  and t.src_snn = tc.u##ssn \n" +
+                        "  and t.src_doctype = tc.u##doctype \n" +
+                        "  and t.tckt_num != upper(tc.ticknum) \n" +
                         ")";
 
         // log the Sql
@@ -629,14 +629,14 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select tw.tckt_dt as etl_tckt_dt, \n" +
-                        "\t\t\t tc.ticket_date as test_tckt_dt \n" +
+                        "  select tw.tckt_dt as etl_tckt_dt, \n" +
+                        "    tc.ticket_date as test_tckt_dt \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh tw, DTSDM_SRC_STG.ticket tc \n" +
-                        "\t where tw.src_vchnum = tc.u##vchnum \n" +
-                        "\t and tw.src_snn = tc.u##ssn \n" +
-                        "\t and tw.src_doctype = tc.u##doctype \n" +
-                        "\t and tw.tckt_dt != tc.ticket_date \n" +
+                        "  from dtsdm.ticket_wh tw, DTSDM_SRC_STG.ticket tc \n" +
+                        "  where tw.src_vchnum = tc.u##vchnum \n" +
+                        "  and tw.src_snn = tc.u##ssn \n" +
+                        "  and tw.src_doctype = tc.u##doctype \n" +
+                        "  and tw.tckt_dt != tc.ticket_date \n" +
                         ")";
 
         // log the Sql
@@ -708,20 +708,20 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.dprt_airprt_name as etl_dprt_airprt_name, \n" +
-                        "\t\t\t ts.dep_airport as test_dprt_airprt_name \n" +
+                        "  select t.dprt_airprt_name as etl_dprt_airprt_name, \n" +
+                        "    ts.dep_airport as test_dprt_airprt_name \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = ts.u##vchnum \n" +
-                        "\t and t.src_snn = ts.u##ssn \n" +
-                        "\t and t.src_doctype = ts.u##doctype \n" +
-                        "\t and t.src_legnum = ts.leg \n" +
-                        "\t and t.trip_leg_wid = tl.trip_leg_wid \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and dc.adjstmt_lvl = ts.adj_level \n" +
-                        "\t and t.dprt_airprt_name != ts.dep_airport \n" +
+                        "  where t.src_vchnum = ts.u##vchnum \n" +
+                        "  and t.src_snn = ts.u##ssn \n" +
+                        "  and t.src_doctype = ts.u##doctype \n" +
+                        "  and t.src_legnum = ts.leg \n" +
+                        "  and t.trip_leg_wid = tl.trip_leg_wid \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and dc.adjstmt_lvl = ts.adj_level \n" +
+                        "  and t.dprt_airprt_name != ts.dep_airport \n" +
                         ")";
 
         // log the Sql
@@ -781,20 +781,20 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.arvl_airprt_name as etl_arvl_airprt_name, \n" +
-                        "\t\t\t ts.arr_airport as test_arvl_airprt_name \n" +
+                        "  select t.arvl_airprt_name as etl_arvl_airprt_name, \n" +
+                        "    ts.arr_airport as test_arvl_airprt_name \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = ts.u##vchnum \n" +
-                        "\t and t.src_snn = ts.u##ssn \n" +
-                        "\t and t.src_doctype = ts.u##doctype \n" +
-                        "\t and t.src_legnum = ts.leg \n" +
-                        "\t and t.trip_leg_wid = tl.trip_leg_wid \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and dc.adjstmt_lvl = ts.adj_level \n" +
-                        "\t and t.arvl_airprt_name != ts.dep_airport \n" +
+                        "  where t.src_vchnum = ts.u##vchnum \n" +
+                        "  and t.src_snn = ts.u##ssn \n" +
+                        "  and t.src_doctype = ts.u##doctype \n" +
+                        "  and t.src_legnum = ts.leg \n" +
+                        "  and t.trip_leg_wid = tl.trip_leg_wid \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and dc.adjstmt_lvl = ts.adj_level \n" +
+                        "  and t.arvl_airprt_name != ts.dep_airport \n" +
                         ")";
 
         // log the Sql
@@ -854,21 +854,21 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.flght_num as etl_flght_num, \n" +
-                        "\t\t\t ts.flight as test_flght_num \n" +
+                        "  select t.flght_num as etl_flght_num, \n" +
+                        "    ts.flight as test_flght_num \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = ts.u##vchnum \n" +
-                        "\t and t.src_snn = ts.u##ssn \n" +
-                        "\t and t.src_doctype = ts.u##doctype \n" +
-                        "\t and t.src_legnum = ts.leg \n" +
-                        "\t and t.trip_leg_wid = tl.trip_leg_wid \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = ts.adj_level \n" +
-                        "\t and t.flght_num != ts.flight" +
+                        "  where t.src_vchnum = ts.u##vchnum \n" +
+                        "  and t.src_snn = ts.u##ssn \n" +
+                        "  and t.src_doctype = ts.u##doctype \n" +
+                        "  and t.src_legnum = ts.leg \n" +
+                        "  and t.trip_leg_wid = tl.trip_leg_wid \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = ts.adj_level \n" +
+                        "  and t.flght_num != ts.flight" +
                         ")";
 
         // log the Sql
@@ -928,19 +928,19 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.pnr_locator as etl_pnr_locator, " +
-                        "\t\t\t tc.locator as test_pnr_locator\n" +
+                        "  select t.pnr_locator as etl_pnr_locator, " +
+                        "    tc.locator as test_pnr_locator\n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, " +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc\n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, " +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc\n" +
                         "\n" +
-                        "\t where t.src_vchnum = tc.u##vchnum\n" +
-                        "\t and t.src_snn = tc.u##ssn\n" +
-                        "\t and t.src_doctype = tc.u##doctype\n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid\n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name\n" +
-                        "\t and dc.adjstmt_lvl = tc.adj_level\n" +
-                        "\t and t.pnr_locator != tc.locator" +
+                        "  where t.src_vchnum = tc.u##vchnum\n" +
+                        "  and t.src_snn = tc.u##ssn\n" +
+                        "  and t.src_doctype = tc.u##doctype\n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid\n" +
+                        "  and t.src_vchnum = dc.dcmnt_name\n" +
+                        "  and dc.adjstmt_lvl = tc.adj_level\n" +
+                        "  and t.pnr_locator != tc.locator" +
                         ")";
 
         // log the Sql
@@ -1000,19 +1000,19 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.tckt_cost_amt as etl_tckt_cost_amt, \n" +
-                        "\t\t\t tc.cost as test_tckt_cost_amt \n" +
+                        "  select t.tckt_cost_amt as etl_tckt_cost_amt, \n" +
+                        "    tc.cost as test_tckt_cost_amt \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = tc.u##vchnum \n" +
-                        "\t and t.src_snn = tc.u##ssn \n" +
-                        "\t and t.src_doctype = tc.u##doctype \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = tc.adj_level \n" +
-                        "\t and t.tckt_cost_amt != tc.cost \n" +
+                        "  where t.src_vchnum = tc.u##vchnum \n" +
+                        "  and t.src_snn = tc.u##ssn \n" +
+                        "  and t.src_doctype = tc.u##doctype \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = tc.adj_level \n" +
+                        "  and t.tckt_cost_amt != tc.cost \n" +
                         ")";
 
         // log the Sql
@@ -1072,20 +1072,20 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.pymt_mode_code as etl_pymt_mode_code, \n" +
-                        "\t\t\t ltrim(i.mode_) as test_pymt_mode_code \n" +
+                        "  select t.pymt_mode_code as etl_pymt_mode_code, \n" +
+                        "    ltrim(i.mode_) as test_pymt_mode_code \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.itinry i, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.itinry i, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = i.u##vchnum \n" +
-                        "\t and t.src_snn = i.u##ssn \n" +
-                        "\t and t.src_doctype = i.u##doctype \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = i.adj_level \n" +
-                        "\t and t.pymt_mode_code != ltrim(i.mode_) \n" +
-                        "\t and i.mode_ != ' ' \n" +
+                        "  where t.src_vchnum = i.u##vchnum \n" +
+                        "  and t.src_snn = i.u##ssn \n" +
+                        "  and t.src_doctype = i.u##doctype \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = i.adj_level \n" +
+                        "  and t.pymt_mode_code != ltrim(i.mode_) \n" +
+                        "  and i.mode_ != ' ' \n" +
                         ")";
 
         // log the Sql
@@ -1145,20 +1145,20 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.pymt_mthd_descr as etl_pymt_mthd_descr, \n" +
-                        "\t\t\t ltrim(i.pay_method) as test_pymt_mthd_descr \n" +
+                        "  select t.pymt_mthd_descr as etl_pymt_mthd_descr, \n" +
+                        "    ltrim(i.pay_method) as test_pymt_mthd_descr \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.itinry i, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.itinry i, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = i.u##vchnum \n" +
-                        "\t and t.src_snn = i.u##ssn \n" +
-                        "\t and t.src_doctype = i.u##doctype \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = i.adj_level \n" +
-                        "\t and t.pymt_mthd_descr != i.pay_method \n" +
-                        "\t and ltrim(i.pay_method) != ' ' \n" +
+                        "  where t.src_vchnum = i.u##vchnum \n" +
+                        "  and t.src_snn = i.u##ssn \n" +
+                        "  and t.src_doctype = i.u##doctype \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = i.adj_level \n" +
+                        "  and t.pymt_mthd_descr != i.pay_method \n" +
+                        "  and ltrim(i.pay_method) != ' ' \n" +
                         ")";
 
         // log the Sql
@@ -1219,20 +1219,20 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.fema_code as etl_fema_code, \n" +
-                        "\t\t\t ts.fema_code as test_fema_code, ts.pd_flag \n" +
+                        "  select t.fema_code as etl_fema_code, \n" +
+                        "    ts.fema_code as test_fema_code, ts.pd_flag \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = ts.u##vchnum \n" +
-                        "\t and t.src_snn = ts.u##ssn \n" +
-                        "\t and t.src_doctype = ts.u##doctype \n" +
-                        "\t and t.src_legnum = ts.leg \n" +
-                        "\t and t.trip_leg_wid = tl.trip_leg_wid \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = ts.adj_level \n" +
+                        "  where t.src_vchnum = ts.u##vchnum \n" +
+                        "  and t.src_snn = ts.u##ssn \n" +
+                        "  and t.src_doctype = ts.u##doctype \n" +
+                        "  and t.src_legnum = ts.leg \n" +
+                        "  and t.trip_leg_wid = tl.trip_leg_wid \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = ts.adj_level \n" +
                         ")";
 
         // log the Sql
@@ -1292,20 +1292,20 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.tckt_val_amt as etl_tckt_val_amt, \n" +
-                        "\t\t\t tc.tickval as test_tckt_val_amt \n" +
+                        "  select t.tckt_val_amt as etl_tckt_val_amt, \n" +
+                        "    tc.tickval as test_tckt_val_amt \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = tc.u##vchnum \n" +
-                        "\t and t.src_snn = tc.u##ssn \n" +
-                        "\t and t.src_doctype = tc.u##doctype \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = tc.adj_level \n" +
-                        "\t and t.tckt_val_amt != tc.tickval \n" +
-                        "\t and tc.tickval != 0 \n" +
+                        "  where t.src_vchnum = tc.u##vchnum \n" +
+                        "  and t.src_snn = tc.u##ssn \n" +
+                        "  and t.src_doctype = tc.u##doctype \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = tc.adj_level \n" +
+                        "  and t.tckt_val_amt != tc.tickval \n" +
+                        "  and tc.tickval != 0 \n" +
                         ")";
 
         // log the Sql
@@ -1374,36 +1374,36 @@ public class TicketWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "(\n" +
-                        "\t select t.cncld_flag as etl_cncld_flag, v.u##pnrstatus \n" +
+                        "  select t.cncld_flag as etl_cncld_flag, v.u##pnrstatus \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = v.u##vchnum \n" +
-                        "\t and t.src_snn = v.u##ssn \n" +
-                        "\t and t.src_doctype = v.u##doctype \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = v.adj_level \n" +
-                        "\t and v.u##pnrstatus = 'CANCELLED' \n" +
-                        "\t and t.cncld_flag = 'Y' \n" +
+                        "  where t.src_vchnum = v.u##vchnum \n" +
+                        "  and t.src_snn = v.u##ssn \n" +
+                        "  and t.src_doctype = v.u##doctype \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = v.adj_level \n" +
+                        "  and v.u##pnrstatus = 'CANCELLED' \n" +
+                        "  and t.cncld_flag = 'Y' \n" +
                         ")";
 
         String sql3 = "select count(*) from \n" +
                         "(\n" +
-                        "\t Select t.cncld_flag as etl_cncld_flag, v.u##pnrstatus \n" +
+                        "  Select t.cncld_flag as etl_cncld_flag, v.u##pnrstatus \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
-                        "\t\t\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
+                        "    dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = v.u##vchnum \n" +
-                        "\t and t.src_snn = v.u##ssn \n" +
-                        "\t and t.src_doctype = v.u##doctype \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = v.adj_level \n" +
-                        "\t and v.u##pnrstatus != 'CANCELLED' \n" +
-                        "\t and t.cncld_flag = 'N' \n" +
+                        "  where t.src_vchnum = v.u##vchnum \n" +
+                        "  and t.src_snn = v.u##ssn \n" +
+                        "  and t.src_doctype = v.u##doctype \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = v.adj_level \n" +
+                        "  and v.u##pnrstatus != 'CANCELLED' \n" +
+                        "  and t.cncld_flag = 'N' \n" +
                         ")";
 
         // log the Sql
@@ -1507,7 +1507,7 @@ public class TicketWhTest extends TableTest {
 
 
         String sql1 = "select count(*) from DTSDM.TICKET_WH";
-        String sql2 = "select excptn_flag, tckt_cost_amt, tckt_dt, tckt_num from ticket_wh";
+        String sql2 = "select excptn_flag, tckt_cost_amt, tckt_dt, tckt_num from DTSDM.Licket_wh";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<SqlObject>();
@@ -1588,19 +1588,19 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.jstfctn_code as etl_jstfctn_code, \n" +
-                        "\t\t\t v.just_code as test_jstfctn_code \n" +
+                        "  select t.jstfctn_code as etl_jstfctn_code, \n" +
+                        "    v.just_code as test_jstfctn_code \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
-                        "\t dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.vchpnr v, \n" +
+                        "  dtsdm.trip_leg_wh tl, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where t.src_vchnum = v.u##vchnum \n" +
-                        "\t and t.src_snn = v.u##ssn \n" +
-                        "\t and t.src_doctype = v.u##doctype \n" +
-                        "\t and tl.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and t.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and dc.adjstmt_lvl = v.adj_level \n" +
-                        "\t and t.jstfctn_code != v.just_code \n" +
+                        "  where t.src_vchnum = v.u##vchnum \n" +
+                        "  and t.src_snn = v.u##ssn \n" +
+                        "  and t.src_doctype = v.u##doctype \n" +
+                        "  and tl.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and t.src_vchnum = dc.dcmnt_name \n" +
+                        "  and dc.adjstmt_lvl = v.adj_level \n" +
+                        "  and t.jstfctn_code != v.just_code \n" +
                         ")";
 
         // log the Sql
@@ -1672,18 +1672,18 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                 "( \n" +
-                "\t select distinct t.src_vchnum as etl_src_vchnum, \n" +
-                "\t\t\t tc.u##vchnum as test_src_vchnum \n" +
+                "  select distinct t.src_vchnum as etl_src_vchnum, \n" +
+                "    tc.u##vchnum as test_src_vchnum \n" +
                 "\n" +
-                "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
+                "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
                 "\n" +
-                "\t where dc.dcmnt_name = tc.u##vchnum \n" +
-                "\t and dc.src_ssn = tc.u##ssn \n" +
-                "\t and dc.src_doctype = tc.u##doctype \n" +
-                "\t and dc.adjstmt_lvl = tc.adj_level \n" +
-                "\t and dc.src_ssn = t.src_snn \n" +
-                "\t and dc.src_doctype = t.src_doctype \n" +
-                "\t and t.src_vchnum != tc.u##vchnum \n" +
+                "  where dc.dcmnt_name = tc.u##vchnum \n" +
+                "  and dc.src_ssn = tc.u##ssn \n" +
+                "  and dc.src_doctype = tc.u##doctype \n" +
+                "  and dc.adjstmt_lvl = tc.adj_level \n" +
+                "  and dc.src_ssn = t.src_snn \n" +
+                "  and dc.src_doctype = t.src_doctype \n" +
+                "  and t.src_vchnum != tc.u##vchnum \n" +
                 ")";
 
         // log the Sql
@@ -1743,17 +1743,17 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.src_doctype as etl_src_doctype, \n" +
-                        "\t\t\t tc.u##doctype as test_src_doctype \n" +
+                        "  select t.src_doctype as etl_src_doctype, \n" +
+                        "    tc.u##doctype as test_src_doctype \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where dc.dcmnt_name = tc.u##vchnum \n" +
-                        "\t and dc.src_ssn = tc.u##ssn \n" +
-                        "\t and dc.adjstmt_lvl = tc.adj_level \n" +
-                        "\t and dc.src_ssn = t.src_snn \n" +
-                        "\t and dc.dcmnt_name = t.src_vchnum \n" +
-                        "\t and t.src_doctype != tc.u##doctype \n" +
+                        "  where dc.dcmnt_name = tc.u##vchnum \n" +
+                        "  and dc.src_ssn = tc.u##ssn \n" +
+                        "  and dc.adjstmt_lvl = tc.adj_level \n" +
+                        "  and dc.src_ssn = t.src_snn \n" +
+                        "  and dc.dcmnt_name = t.src_vchnum \n" +
+                        "  and t.src_doctype != tc.u##doctype \n" +
                         ")";
 
         // log the Sql
@@ -1813,17 +1813,17 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select distinct t.src_snn as etl_src_ssn, \n" +
-                        "\t\t\t tc.u##ssn as test_src_ssn \n" +
+                        "  select distinct t.src_snn as etl_src_ssn, \n" +
+                        "    tc.u##ssn as test_src_ssn \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticket tc, dtsdm.dcmnt_wh dc \n" +
                         "\n" +
-                        "\t where dc.dcmnt_name = tc.u##vchnum \n" +
-                        "\t and dc.src_ssn = tc.u##ssn \n" +
-                        "\t and dc.adjstmt_lvl = tc.adj_level \n" +
-                        "\t and dc.src_doctype = tc.u##doctype \n" +
-                        "\t and dc.dcmnt_name = t.src_vchnum \n" +
-                        "\t and dc.src_ssn != t.src_snn \n" +
+                        "  where dc.dcmnt_name = tc.u##vchnum \n" +
+                        "  and dc.src_ssn = tc.u##ssn \n" +
+                        "  and dc.adjstmt_lvl = tc.adj_level \n" +
+                        "  and dc.src_doctype = tc.u##doctype \n" +
+                        "  and dc.dcmnt_name = t.src_vchnum \n" +
+                        "  and dc.src_ssn != t.src_snn \n" +
                         ")";
 
         // log the Sql
@@ -1883,19 +1883,19 @@ public class TicketWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select t.src_legnum as etl_src_legnum, \n" +
-                        "\t\t\t ts.leg as test_src_legnum \n" +
+                        "  select t.src_legnum as etl_src_legnum, \n" +
+                        "    ts.leg as test_src_legnum \n" +
                         "\n" +
-                        "\t from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
-                        "\t\t\t dtsdm.dcmnt_wh dc, dtsdm.trip_leg_wh tl \n" +
+                        "  from dtsdm.ticket_wh t, DTSDM_SRC_STG.ticksub ts, \n" +
+                        "    dtsdm.dcmnt_wh dc, dtsdm.trip_leg_wh tl \n" +
                         "\n" +
-                        "\t where t.src_vchnum = ts.u##vchnum \n" +
-                        "\t and t.src_snn = ts.u##ssn \n" +
-                        "\t and t.src_doctype = ts.u##doctype \n" +
-                        "\t and dc.adjstmt_lvl = ts.adj_level \n" +
-                        "\t and dc.dcmnt_name = t.src_vchnum \n" +
-                        "\t and tl.trip_leg_wid = t.trip_leg_wid \n" +
-                        "\t and t.src_legnum != ts.leg \n" +
+                        "  where t.src_vchnum = ts.u##vchnum \n" +
+                        "  and t.src_snn = ts.u##ssn \n" +
+                        "  and t.src_doctype = ts.u##doctype \n" +
+                        "  and dc.adjstmt_lvl = ts.adj_level \n" +
+                        "  and dc.dcmnt_name = t.src_vchnum \n" +
+                        "  and tl.trip_leg_wid = t.trip_leg_wid \n" +
+                        "  and t.src_legnum != ts.leg \n" +
                         ")";
 
         // log the Sql

@@ -196,9 +196,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.TRIP_LEG_WID, B.TRIP_LEG_WID \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.TRIP_LEG_WH B \n" +
-                        "\t WHERE A.TRIP_LEG_WID = B.TRIP_LEG_WID \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.TRIP_LEG_WID, B.TRIP_LEG_WID \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.TRIP_LEG_WH B \n" +
+                        "  WHERE A.TRIP_LEG_WID = B.TRIP_LEG_WID \n" +
                         ")";
 
         // log the Sql
@@ -287,10 +287,10 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.DCMNT_WID, B.DCMNTORG_ACCNT_WID \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.DCMNT_WH B, FRED.LODGE C \n" +
-                        "\t WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
-                        "\t AND B.DCMNT_NAME = C.U##VCHNUM \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.DCMNT_WID, B.DCMNTORG_ACCNT_WID \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.DCMNT_WH B, DTSDM_SRC_STG.LODGE C \n" +
+                        "  WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
+                        "  AND B.DCMNT_NAME = C.U##VCHNUM \n" +
                         ")";
 
         // log the Sql
@@ -373,11 +373,11 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.ORG_ACCNT_WID, B.ORG_ACCNT_WID \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.ORG_ACCNT_WH B, FRED.LODGE C \n" +
-                        "\t WHERE A.ORG_ACCNT_WID = B.ORG_ACCNT_WID \n" +
-                        "\t AND B.ACCT_LABEL = C.LDG_ACC_LABEL \n" +
-                        "\t AND B.FULL_ORG_CD = C.LDGACCORG \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.ORG_ACCNT_WID, B.ORG_ACCNT_WID \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.ORG_ACCNT_WH B, DTSDM_SRC_STG.LODGE C \n" +
+                        "  WHERE A.ORG_ACCNT_WID = B.ORG_ACCNT_WID \n" +
+                        "  AND B.ACCT_LABEL = C.LDG_ACC_LABEL \n" +
+                        "  AND B.FULL_ORG_CD = C.LDGACCORG \n" +
                         ")";
 
         // log the Sql
@@ -460,9 +460,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.TRVL_DT, B.TRAVDATE \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.TRVL_DT = B.TRAVDATE \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.TRVL_DT, B.TRAVDATE \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.TRVL_DT = B.TRAVDATE \n" +
                         ")";
 
         // log the Sql
@@ -545,9 +545,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.RATE_AMT, B.LDGRATE \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.RATE_AMT = B.LDGRATE \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.RATE_AMT, B.LDGRATE \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.RATE_AMT = B.LDGRATE \n" +
                         ")";
 
         // log the Sql
@@ -630,9 +630,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_RATE_AMT, B.FOR_LDGRATE \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.FOR_RATE_AMT = B.FOR_LDGRATE \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_RATE_AMT, B.FOR_LDGRATE \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.FOR_RATE_AMT = B.FOR_LDGRATE \n" +
                         ")";
 
         // log the Sql
@@ -721,9 +721,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.QTRS_SW, B.QTRS \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.QTRS_SW = B.QTRS \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.QTRS_SW, B.QTRS \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.QTRS_SW = B.QTRS \n" +
                         ")";
 
         // log the Sql
@@ -806,9 +806,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.LDG_COST_AMT, B.LDGCOST \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.LDG_COST_AMT = B.LDGCOST \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.LDG_COST_AMT, B.LDGCOST \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.LDG_COST_AMT = B.LDGCOST \n" +
                         ")";
 
         // log the Sql
@@ -891,9 +891,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_LDG_COST_AMT, B.FOR_LDGCOST \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.FOR_LDG_COST_AMT = B.FOR_LDGCOST \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_LDG_COST_AMT, B.FOR_LDGCOST \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.FOR_LDG_COST_AMT = B.FOR_LDGCOST \n" +
                         ")";
 
         // log the Sql
@@ -976,9 +976,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.ALLWD_LDG_COST_AMT, B.LDG_ALLOWED \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.ALLWD_LDG_COST_AMT = B.LDG_ALLOWED \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.ALLWD_LDG_COST_AMT, B.LDG_ALLOWED \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.ALLWD_LDG_COST_AMT = B.LDG_ALLOWED \n" +
                         ")";
 
         // log the Sql
@@ -1061,9 +1061,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.LDG_SUBCODE, B.LDG_SUBCODE \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.LDG_SUBCODE = B.LDG_SUBCODE \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.LDG_SUBCODE, B.LDG_SUBCODE \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.LDG_SUBCODE = B.LDG_SUBCODE \n" +
                         ")";
 
         // log the Sql
@@ -1146,9 +1146,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                 "( \n" +
-                "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.PAYMNT_MTHD, B.LDG_PAYMETH \n" +
-                "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                "\t WHERE A.PAYMNT_MTHD = B.LDG_PAYMETH \n" +
+                "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.PAYMNT_MTHD, B.LDG_PAYMETH \n" +
+                "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                "  WHERE A.PAYMNT_MTHD = B.LDG_PAYMETH \n" +
                 ")";
 
         // log the Sql
@@ -1231,9 +1231,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.LDG_STATUS_CODE, B.LDG_STAT \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.LDG_STATUS_CODE = B.LDG_STAT \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.LDG_STATUS_CODE, B.LDG_STAT \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.LDG_STATUS_CODE = B.LDG_STAT \n" +
                         ")";
 
         // log the Sql
@@ -1316,10 +1316,10 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.LODGING_EXPNS_WID, A.VNDR_WID, B.VNDR_WID \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.VNDR_WHB, FRED.LODGE C \n" +
-                        "\t WHERE A.VNDR_WID = B.VNDR_WID \n" +
-                        "\t AND B.VNDR_NAME = C.LDG_VENDOR \n" +
+                        "  SELECT A.LODGING_EXPNS_WID, A.VNDR_WID, B.VNDR_WID \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM.VNDR_WHB, DTSDM_SRC_STG.LODGE C \n" +
+                        "  WHERE A.VNDR_WID = B.VNDR_WID \n" +
+                        "  AND B.VNDR_NAME = C.LDG_VENDOR \n" +
                         ")";
 
         // log the Sql
@@ -1402,9 +1402,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.ADV_ALLWD_IND, B.LADV_ALLOWED \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.ADV_ALLWD_IND = B.LADV_ALLOWED \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.ADV_ALLWD_IND, B.LADV_ALLOWED \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.ADV_ALLWD_IND = B.LADV_ALLOWED \n" +
                         ")";
 
         // log the Sql
@@ -1487,9 +1487,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.GELCO_CODE, B.LDG_GELCO_CODE \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.GELCO_CODE = B.LDG_GELCO_CODE \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.GELCO_CODE, B.LDG_GELCO_CODE \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.GELCO_CODE = B.LDG_GELCO_CODE \n" +
                         ")";
 
         // log the Sql
@@ -1572,9 +1572,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.TOTAL_COST_AMT, B.TOTLDGCOST \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.TOTAL_COST_AMT = B.TOTLDGCOST \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.TOTAL_COST_AMT, B.TOTLDGCOST \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.TOTAL_COST_AMT = B.TOTLDGCOST \n" +
                         ")";
 
         // log the Sql
@@ -1657,9 +1657,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.DSTRBTN_MTHD, B.DISTMETH \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.DSTRBTN_MTHD = B.DISTMETH \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.DSTRBTN_MTHD, B.DISTMETH \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.DSTRBTN_MTHD = B.DISTMETH \n" +
                         ")";
 
         // log the Sql
@@ -1742,9 +1742,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.LIMTD_AMT, B.LIMITED_AMT \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.LIMTD_AMT = B.LIMITED_AMT \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.LIMTD_AMT, B.LIMITED_AMT \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.LIMTD_AMT = B.LIMITED_AMT \n" +
                         ")";
 
         // log the Sql
@@ -1827,9 +1827,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.ENRTD_AMT, B.ENTERED_AMT \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.ENTRD_AMT = B.ENTERED_AMT \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.ENRTD_AMT, B.ENTERED_AMT \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.ENTRD_AMT = B.ENTERED_AMT \n" +
                         ")";
 
         // log the Sql
@@ -1918,9 +1918,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.COST_STATUS_CODE, B.COST_STAT \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.COST_STATUS_CODE = B.COST_STAT \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.COST_STATUS_CODE, B.COST_STAT \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.COST_STATUS_CODE = B.COST_STAT \n" +
                         ")";
 
         // log the Sql
@@ -2003,9 +2003,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_LDG_COST_AMT, B.FOR_LDGCOST \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.FOR_LDG_COST_AMT = B.FOR_LDGCOST \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_LDG_COST_AMT, B.FOR_LDGCOST \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.FOR_LDG_COST_AMT = B.FOR_LDGCOST \n" +
                         ")";
 
         // log the Sql
@@ -2088,9 +2088,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_LDG_RATE_AMT, B.FOR_LDGRATE \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.FOR_LDG_RATE_AMT = B.FOR_LDGRATE \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.FOR_LDG_RATE_AMT, B.FOR_LDGRATE \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.FOR_LDG_RATE_AMT = B.FOR_LDGRATE \n" +
                         ")";
 
         // log the Sql
@@ -2173,9 +2173,9 @@ public class LodgingExpnsWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.LODGING_EXPNS_WID, A.EXPNS_START_DT, B.ACCRUED_START_DATE \n" +
-                        "\t FROM DTSDM.LODGING_EXPNS_WH A, FRED.LODGE B \n" +
-                        "\t WHERE A.EXPNS_START_DT = B.ACCRUED_START_DATE \n" +
+                        "  SELECT DISTINCT A.LODGING_EXPNS_WID, A.EXPNS_START_DT, B.ACCRUED_START_DATE \n" +
+                        "  FROM DTSDM.LODGING_EXPNS_WH A, DTSDM_SRC_STG.LODGE B \n" +
+                        "  WHERE A.EXPNS_START_DT = B.ACCRUED_START_DATE \n" +
                         ")";
 
         // log the Sql

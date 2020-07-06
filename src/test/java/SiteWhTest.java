@@ -76,7 +76,7 @@ public class SiteWhTest extends TableTest {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         String condition = " Check the population of the SITE_WH.SRC_SITE_ID column";
-        String reason = " Straight pull from FRED.SITE";
+        String reason = " Straight pull from DTSDM_SRC_STG.SITE";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -85,7 +85,7 @@ public class SiteWhTest extends TableTest {
         String sql1 = "select count(*) from \n" +
                 "(\n" +
                 "select distinct SRC_SITE_ID, count (*)\n" +
-                "from SITE_WH\n" +
+                "from DTSDM.LITE_WH\n" +
                 "group by SRC_SITE_ID\n" +
                 "having count(*) > 1\n" +
                 ")";

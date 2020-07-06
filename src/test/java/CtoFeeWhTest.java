@@ -31,7 +31,7 @@ public class CtoFeeWhTest extends TableTest {
 
 
 
-        String sql = "select count(*) from CTO_FEE_WH where CTO_FEE_WID = 0";
+        String sql = "select count(*) from DTSDM.CTO_FEE_WH where CTO_FEE_WID = 0";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();
@@ -81,7 +81,7 @@ public class CtoFeeWhTest extends TableTest {
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
-        String sql1 = "select distinct TICKET_WID, count (*) from CTO_FEE_WH \n" +
+        String sql1 = "select distinct TICKET_WID, count (*) from DTSDM.CTO_FEE_WH \n" +
                         "group by TICKET_WID having count (*) > 1";
 
         // log the Sql

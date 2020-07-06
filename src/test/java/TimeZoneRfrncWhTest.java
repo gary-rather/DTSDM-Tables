@@ -192,9 +192,9 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TIME_ZONE_WID, A.TIME_ZONE_CD, B.U##DESCRIPTION \n" +
-                        "\t FROM DTSDM.TIME_ZONE_RFRNC_WH A, FRED.ADM_TIME_ZONE B \n" +
-                        "\t WHERE A.TIME_ZONE_CD = B.U##DESCRIPTION \n" +
+                        "  SELECT DISTINCT A.TIME_ZONE_WID, A.TIME_ZONE_CD, B.U##DESCRIPTION \n" +
+                        "  FROM DTSDM.TIME_ZONE_RFRNC_WH A, DTSDM_SRC_STG.ADM_TIME_ZONE B \n" +
+                        "  WHERE A.TIME_ZONE_CD = B.U##DESCRIPTION \n" +
                         ")";
 
         // log the Sql
@@ -276,9 +276,9 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TIME_ZONE_WID, A.TIME_ZONE_DESCR, B.LONG_DESC \n" +
-                        "\t FROM DTSDM.TIME_ZONE_RFRNC_WH A, FRED.ADM_TIME_ZONE B \n" +
-                        "\t WHERE A.TIME_ZONE_DESCR = B.LONG_DESC \n" +
+                        "  SELECT DISTINCT A.TIME_ZONE_WID, A.TIME_ZONE_DESCR, B.LONG_DESC \n" +
+                        "  FROM DTSDM.TIME_ZONE_RFRNC_WH A, DTSDM_SRC_STG.ADM_TIME_ZONE B \n" +
+                        "  WHERE A.TIME_ZONE_DESCR = B.LONG_DESC \n" +
                         ")";
 
         // log the Sql
@@ -360,9 +360,9 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.TIME_ZONE_WID, A.SORT_ORDR_NUM, B.SORT_ORDER \n" +
-                        "\t FROM DTSDM.TIME_ZONE_RFRNC_WH A, FRED.ADM_TIME_ZONE B \n" +
-                        "\t WHERE A.SORT_ORDR_NUM = B.SORT_ORDER \n" +
+                        "  SELECT A.TIME_ZONE_WID, A.SORT_ORDR_NUM, B.SORT_ORDER \n" +
+                        "  FROM DTSDM.TIME_ZONE_RFRNC_WH A, DTSDM_SRC_STG.ADM_TIME_ZONE B \n" +
+                        "  WHERE A.SORT_ORDR_NUM = B.SORT_ORDER \n" +
                         ")";
 
         // log the Sql
@@ -444,9 +444,9 @@ public class TimeZoneRfrncWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                 "( \n" +
-                "\t SELECT A.TIME_ZONE_WID, A.SRC_TIME_ZONE_CD, B.CODE \n" +
-                "\t FROM DTSDM.TIME_ZONE_RFRNC_WH A, FRED.ADM_TIME_ZONE B \n" +
-                "\t WHERE A.SRC_TIME_ZONE_CD = B.CODE \n" +
+                "  SELECT A.TIME_ZONE_WID, A.SRC_TIME_ZONE_CD, B.CODE \n" +
+                "  FROM DTSDM.TIME_ZONE_RFRNC_WH A, DTSDM_SRC_STG.ADM_TIME_ZONE B \n" +
+                "  WHERE A.SRC_TIME_ZONE_CD = B.CODE \n" +
                 ")";
 
         // log the Sql

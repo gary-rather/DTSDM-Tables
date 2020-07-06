@@ -193,7 +193,7 @@ public class SuborgWhTest extends TableTest{
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
 
-        String sql1 = "select distinct agncy_wid from suborg_wh where agncy_wid != 0";
+        String sql1 = "select distinct agncy_wid from DTSDM.Luborg_wh where agncy_wid != 0";
 
         String sql2 = "select distinct orglist.agency, agncy_wh.agncy_wid\n" +
                         "from DTSDM_SRC_STG.orglist\n" +
@@ -835,7 +835,7 @@ public class SuborgWhTest extends TableTest{
         wr.logSql(theSql);
 
         int dtsdmCount = 0;
-        int fredCount = 0;
+        int DTSDM_SRC_STGCount = 0;
 
         System.out.println("Starting SuborgWhTest.test9,sql1");
         try {
@@ -860,7 +860,7 @@ public class SuborgWhTest extends TableTest{
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        fredCount = rs.getInt("count(*)");
+                        DTSDM_SRC_STGCount = rs.getInt("count(*)");
                     }
                 }
             }
@@ -871,14 +871,14 @@ public class SuborgWhTest extends TableTest{
 
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
 
-        ResultObject ro1 = new ResultObject((fredCount == dtsdmCount),"(fredCount == dtsdmCount)");
+        ResultObject ro1 = new ResultObject((DTSDM_SRC_STGCount == dtsdmCount),"(DTSDM_SRC_STGCount == dtsdmCount)");
         roList.add(ro1);
 
         wr.logTestResults(roList);
 
         System.out.println("SuborgWh sql1 count = " + dtsdmCount);
-        System.out.println("SuborgWh sql2 count = " + fredCount);
-        assertEquals(dtsdmCount,fredCount);
+        System.out.println("SuborgWh sql2 count = " + DTSDM_SRC_STGCount);
+        assertEquals(dtsdmCount,DTSDM_SRC_STGCount);
 
         System.out.println("Finish SuborgWhTest.test9");
         System.out.println();

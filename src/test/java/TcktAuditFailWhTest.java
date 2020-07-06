@@ -198,17 +198,17 @@ public class TcktAuditFailWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TCKT_AUDIT_FAIL_WID, \n" +
-                        "\t\t\t A.TICKET_WID AS TEST_TICKET_WID, \n" +
-                        "\t\t\t B.TICKET_WID AS ETL_TICKET_WID \n" +
+                        "  SELECT DISTINCT A.TCKT_AUDIT_FAIL_WID, \n" +
+                        "    A.TICKET_WID AS TEST_TICKET_WID, \n" +
+                        "    B.TICKET_WID AS ETL_TICKET_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
-                        "\t\t\t DTSDM.TICKET_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
+                        "  FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
+                        "    DTSDM.TICKET_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
                         "\n" +
-                        "\t WHERE A.TICKET_WID = B.TICKET_WID \n" +
-                        "\t AND B.SRC_VCHNUM = C.U##VCHNUM \n" +
+                        "  WHERE A.TICKET_WID = B.TICKET_WID \n" +
+                        "  AND B.SRC_VCHNUM = C.U##VCHNUM \n" +
                         "\n" +
-                        "\t ORDER BY A.TCKT_AUDIT_FAIL_WID \n" +
+                        "  ORDER BY A.TCKT_AUDIT_FAIL_WID \n" +
                         ")";
 
         // log the Sql
@@ -293,17 +293,17 @@ public class TcktAuditFailWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TCKT_AUDIT_FAIL_WID, \n" +
-                        "\t\t\t A.REASON_WID AS TEST_REASON_WID, \n" +
-                        "\t\t\t B.REASON_WID AS ETL_REASON_WID \n" +
+                        "  SELECT DISTINCT A.TCKT_AUDIT_FAIL_WID, \n" +
+                        "    A.REASON_WID AS TEST_REASON_WID, \n" +
+                        "    B.REASON_WID AS ETL_REASON_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
-                        "\t\t\t DTSDM.REASON_RFRNC_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
+                        "  FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
+                        "    DTSDM.REASON_RFRNC_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
                         "\n" +
-                        "\t WHERE B.REASON_WID = A.REASON_WID \n" +
-                        "\t AND A.JUSTIFCTN_TXT = C.JUSTIFY \n" +
+                        "  WHERE B.REASON_WID = A.REASON_WID \n" +
+                        "  AND A.JUSTIFCTN_TXT = C.JUSTIFY \n" +
                         "\n" +
-                        "\t ORDER BY A.TCKT_AUDIT_FAIL_WID \n" +
+                        "  ORDER BY A.TCKT_AUDIT_FAIL_WID \n" +
                         ")";
 
         // log the Sql
@@ -388,17 +388,17 @@ public class TcktAuditFailWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.TCKT_AUDIT_FAIL_WID, \n" +
-                        "\t\t\t A.JUSTIFCTN_TXT AS TEST_JUSTIFY, \n" +
-                        "\t\t\t C.JUSTIFY AS ETL_JUSTIFY \n" +
+                        "  SELECT DISTINCT A.TCKT_AUDIT_FAIL_WID, \n" +
+                        "    A.JUSTIFCTN_TXT AS TEST_JUSTIFY, \n" +
+                        "    C.JUSTIFY AS ETL_JUSTIFY \n" +
                         "\n" +
-                        "\t FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
-                        "\t\t\t DTSDM.REASON_RFRNC_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
+                        "  FROM DTSDM.TCKT_AUDIT_FAIL_WH A, \n" +
+                        "    DTSDM.REASON_RFRNC_WH B, DTSDM_SRC_STG.AUDITDTL C \n" +
                         "\n" +
-                        "\t WHERE B.REASON_WID = A.REASON_WID \n" +
-                        "\t AND A.JUSTIFCTN_TXT = C.JUSTIFY \n" +
+                        "  WHERE B.REASON_WID = A.REASON_WID \n" +
+                        "  AND A.JUSTIFCTN_TXT = C.JUSTIFY \n" +
                         "\n" +
-                        "\t ORDER BY A.TCKT_AUDIT_FAIL_WID \n" +
+                        "  ORDER BY A.TCKT_AUDIT_FAIL_WID \n" +
                         ")";
 
         // log the Sql

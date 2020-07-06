@@ -296,7 +296,7 @@ public class VndrWhTest extends TableTest {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         String condition = " Check the population of the VNDR_WH.VNDR_TYPE_WID column";
-        String reason = " Look up TYPE_WID in TYPE_CONSOLDTD_RFRNC_WH. For vendors sourced from TICKSUB, get ID for record having type code 'PRPTY', or Property. For vendors sourced from VCHPNR, get ID for record having  type 'CTO'";
+        String reason = " Look up TYPE_WID in TYPE_CONSOLDTD_RFRNC_WH. For vendors sourced from DTSDM.LICKSUB, get ID for record having type code 'PRPTY', or Property. For vendors sourced from VCHPNR, get ID for record having  type 'CTO'";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -382,7 +382,7 @@ public class VndrWhTest extends TableTest {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         String condition = " Check the values of the VNDR_WH.AGNCY_DESCR column";
-        String reason = " No business rules for this column! But looks like this column represents the sum(CTO_FEE) for CTO’s in FRED.PNRTOUCH";
+        String reason = " No business rules for this column! But looks like this column represents the sum(CTO_FEE) for CTO’s in DTSDM_SRC_STG.PNRTOUCH";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 

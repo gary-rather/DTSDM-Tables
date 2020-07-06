@@ -89,8 +89,8 @@ public class ExpnsSmryWhTest extends TableTest {
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
 
-        String sql1 = "select distinct EXPNS_SMRY_WH. EXPNS_SMRY_WID, count(*)\n from DTSDM.EXPNS_SMRY_WH\n" +
-                "group by EXPNS_SMRY_WH. EXPNS_SMRY_WID having count(*) > 1";
+        String sql1 = "select distinct EXPNS_SMRY_WH. EXPNS_SMRY_WID, count(*) from DTSDM.EXPNS_SMRY_WH \n" +
+                "group by EXPNS_SMRY_WH.EXPNS_SMRY_WID having count(*) > 1";
 
         String sql2 = "select count (distinct EXPNS_SMRY_WH. EXPNS_SMRY_WID) from DTSDM.EXPNS_SMRY_WH";
         String sql3 = "select count(*) from DTSDM.EXPNS_SMRY_WH";
@@ -192,7 +192,7 @@ public class ExpnsSmryWhTest extends TableTest {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         String condition = " Check the population of the EXPNS_SMRY_WH.EXPNS_TYPE_WID column";
-        String reason = " Look up value in TYPE_CONSOLDTD_RFRNC_WH to get ID * Sublabel describes the type of expense, i.e. lodging, airfare (Com. Carr%), rental car, m&ie, etc. * Include only the following types: 'Hotel Tax', 'LODGING', 'COM. CARR.-I', 'RENTAL CAR', 'Gas%', M&IE', 'OTHER' * Transform values to UPPER * Records for Hotel Tax and Gas expenses are sourced from FRED.LODGE; others sourced from ACCTOTALS";
+        String reason = " Look up value in TYPE_CONSOLDTD_RFRNC_WH to get ID * Sublabel describes the type of expense, i.e. lodging, airfare (Com. Carr%), rental car, m&ie, etc. * Include only the following types: 'Hotel Tax', 'LODGING', 'COM. CARR.-I', 'RENTAL CAR', 'Gas%', M&IE', 'OTHER' * Transform values to UPPER * Records for Hotel Tax and Gas expenses are sourced from DTSDM_SRC_STG.LODGE; others sourced from ACCTOTALS";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -201,25 +201,25 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t select es.expns_type_wid as etl_expns_type_wid, \n" +
-                        "\t\t\t tcr.type_wid as test_expns_type_wid \n" +
+                        "  select es.expns_type_wid as etl_expns_type_wid, \n" +
+                        "    tcr.type_wid as test_expns_type_wid \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
-                        "\t\t\t dtsdm.type_consoldtd_rfrnc_wh tcr, \n" +
-                        "\t\t\t DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals at \n" +
+                        "  from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
+                        "    dtsdm.type_consoldtd_rfrnc_wh tcr, \n" +
+                        "    DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals at \n" +
                         "\n" +
-                        "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and dc.dcmnt_type_wid = tcr.type_wid \n" +
-                        "\t and dc.dcmnt_name = l.u##vchnum \n" +
-                        "\t and dc.src_doctype = l.u##doctype \n" +
-                        "\t and dc.src_ssn = l.u##ssn \n" +
-                        "\t and l.u##vchnum = at.u##vchnum \n" +
-                        "\t and l.u##doctype = at.u##doctype \n" +
-                        "\t and l.u##ssn = at.u##ssn \n" +
-                        "\t and tcr.type_cd = upper(l.expenses) \n" +
-                        "\t and upper(l.expenses) in ('HOTEL TAX%', 'GAS%') \n" +
-                        "\t and tcr.type_cd = at.u##sublabel \n" +
-                        "\t and at.u##sublabel in ('LODGING', 'COM. CARR.-I', \n" +
+                        "  where es.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and dc.dcmnt_type_wid = tcr.type_wid \n" +
+                        "  and dc.dcmnt_name = l.u##vchnum \n" +
+                        "  and dc.src_doctype = l.u##doctype \n" +
+                        "  and dc.src_ssn = l.u##ssn \n" +
+                        "  and l.u##vchnum = at.u##vchnum \n" +
+                        "  and l.u##doctype = at.u##doctype \n" +
+                        "  and l.u##ssn = at.u##ssn \n" +
+                        "  and tcr.type_cd = upper(l.expenses) \n" +
+                        "  and upper(l.expenses) in ('HOTEL TAX%', 'GAS%') \n" +
+                        "  and tcr.type_cd = at.u##sublabel \n" +
+                        "  and at.u##sublabel in ('LODGING', 'COM. CARR.-I', \n" +
                                                 "'RENTAL CAR', 'M'||'&'||'IE', 'OTHER') \n" +
                         ")";
 
@@ -304,18 +304,18 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t select es.org_accnt_wid as etl_org_accnt_wid, \n" +
-                        "\t\t\t oa.org_accnt_wid as test_org_accnt_wid \n" +
+                        "  select es.org_accnt_wid as etl_org_accnt_wid, \n" +
+                        "    oa.org_accnt_wid as test_org_accnt_wid \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
-                        "\t\t\t dtsdm.org_accnt_wh oa, DTSDM_SRC_STG.acctotals a \n" +
+                        "  from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
+                        "    dtsdm.org_accnt_wh oa, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
-                        "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and a.acclabel = oa.accnt_label \n" +
-                        "\t and upper(a.org) = oa.full_org_cd \n" +
-                        "\t and dc.dcmnt_name = a.u##vchnum \n" +
-                        "\t and dc.src_doctype = a.u##doctype \n" +
-                        "\t and dc.src_ssn = a.u##ssn \n" +
+                        "  where es.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and a.acclabel = oa.accnt_label \n" +
+                        "  and upper(a.org) = oa.full_org_cd \n" +
+                        "  and dc.dcmnt_name = a.u##vchnum \n" +
+                        "  and dc.src_doctype = a.u##doctype \n" +
+                        "  and dc.src_ssn = a.u##ssn \n" +
                         ")";
 
         // log the Sql
@@ -399,19 +399,19 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t select es.dcmnt_wid as etl_dcmnt_wid, dc.dcmnt_wid as test_dcmnt_wid \n" +
+                        "  select es.dcmnt_wid as etl_dcmnt_wid, dc.dcmnt_wid as test_dcmnt_wid \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.acctsex ats \n" +
+                        "  from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.acctsex ats \n" +
                         "\n" +
-                        "\t where es.src_vchnum = dc.dcmnt_name \n" +
-                        "\t and es.src_ssn = dc.src_ssn \n" +
-                        "\t and es.src_doctype = dc.src_doctype \n" +
-                        "\t and dc.dcmnt_name = ats.u##vchnum \n" +
-                        "\t and dc.src_doctype = ats.u##doctype \n" +
-                        "\t and dc.src_ssn = ats.u##ssn \n" +
-                        "\t and dc.adjstmt_lvl = ats.adj_level \n" +
-                        "\t and ats.adj_level = 0 \n" +
-                        "\t and es.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  where es.src_vchnum = dc.dcmnt_name \n" +
+                        "  and es.src_ssn = dc.src_ssn \n" +
+                        "  and es.src_doctype = dc.src_doctype \n" +
+                        "  and dc.dcmnt_name = ats.u##vchnum \n" +
+                        "  and dc.src_doctype = ats.u##doctype \n" +
+                        "  and dc.src_ssn = ats.u##ssn \n" +
+                        "  and dc.adjstmt_lvl = ats.adj_level \n" +
+                        "  and ats.adj_level = 0 \n" +
+                        "  and es.dcmnt_wid = dc.dcmnt_wid \n" +
                         ")";
 
         // log the Sql
@@ -591,16 +591,16 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select es.nonreimb_cost_amt as etl_nonreimb_cost_amt, \n" +
-                        "\t\t\t a.noreimb_cost as test_nonreimb_cost_amt \n" +
+                        "  select es.nonreimb_cost_amt as etl_nonreimb_cost_amt, \n" +
+                        "    a.noreimb_cost as test_nonreimb_cost_amt \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, DTSDM_SRC_STG.acctotals a \n" +
+                        "  from dtsdm.expns_smry_wh es, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
-                        "\t where es.src_vchnum = a.u##vchnum \n" +
-                        "\t and es.src_doctype = a.u##doctype \n" +
-                        "\t and es.src_ssn = a.u##ssn \n" +
-                        "\t and es.nonreimb_cost_amt !=0 \n" +
-                        "\t and es.nonreimb_cost_amt != a.noreimb_cost \n" +
+                        "  where es.src_vchnum = a.u##vchnum \n" +
+                        "  and es.src_doctype = a.u##doctype \n" +
+                        "  and es.src_ssn = a.u##ssn \n" +
+                        "  and es.nonreimb_cost_amt !=0 \n" +
+                        "  and es.nonreimb_cost_amt != a.noreimb_cost \n" +
                         ")";
 
         // log the Sql
@@ -696,18 +696,18 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select es.src_vchnum as etl_src_vchnum, l.u##vchnum as test_src_vchnum \n" +
+                        "  select es.src_vchnum as etl_src_vchnum, l.u##vchnum as test_src_vchnum \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
+                        "  from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
-                        "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and dc.dcmnt_name = l.u##vchnum \n" +
-                        "\t and dc.src_doctype = l.u##doctype \n" +
-                        "\t and dc.src_ssn = l.u##ssn \n" +
-                        "\t and l.u##vchnum = a.u##vchnum \n" +
-                        "\t and l.u##doctype = a.u##doctype \n" +
-                        "\t and l.u##ssn = a.u##ssn \n" +
-                        "\t and es.src_vchnum != l.u##vchnum \n" +
+                        "  where es.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and dc.dcmnt_name = l.u##vchnum \n" +
+                        "  and dc.src_doctype = l.u##doctype \n" +
+                        "  and dc.src_ssn = l.u##ssn \n" +
+                        "  and l.u##vchnum = a.u##vchnum \n" +
+                        "  and l.u##doctype = a.u##doctype \n" +
+                        "  and l.u##ssn = a.u##ssn \n" +
+                        "  and es.src_vchnum != l.u##vchnum \n" +
                         ")";
 
         // log the Sql
@@ -767,18 +767,18 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                 "( \n" +
-                "\t select es.src_doctype as etl_src_doctype, l.u##doctype as test_src_doctype \n" +
+                "  select es.src_doctype as etl_src_doctype, l.u##doctype as test_src_doctype \n" +
                 "\n" +
-                "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals at \n" +
+                "  from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals at \n" +
                 "\n" +
-                "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
-                "\t and dc.dcmnt_name = l.u##vchnum \n" +
-                "\t and dc.src_doctype = l.u##doctype \n" +
-                "\t and dc.src_ssn = l.u##ssn \n" +
-                "\t and l.u##vchnum = at.u##vchnum \n" +
-                "\t and l.u##doctype = at.u##doctype \n" +
-                "\t and l.u##ssn = at.u##ssn \n" +
-                "\t and es.src_doctype != l.u##doctype \n" +
+                "  where es.dcmnt_wid = dc.dcmnt_wid \n" +
+                "  and dc.dcmnt_name = l.u##vchnum \n" +
+                "  and dc.src_doctype = l.u##doctype \n" +
+                "  and dc.src_ssn = l.u##ssn \n" +
+                "  and l.u##vchnum = at.u##vchnum \n" +
+                "  and l.u##doctype = at.u##doctype \n" +
+                "  and l.u##ssn = at.u##ssn \n" +
+                "  and es.src_doctype != l.u##doctype \n" +
                 ")";
 
         // log the Sql
@@ -838,18 +838,18 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql = "select count(*) from \n" +
                         "( \n" +
-                        "\t select es.src_ssn as etl_src_doctype, l.u##ssn as test_src_doctype \n" +
+                        "  select es.src_ssn as etl_src_doctype, l.u##ssn as test_src_doctype \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
+                        "  from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
-                        "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and dc.dcmnt_name = l.u##vchnum \n" +
-                        "\t and dc.src_doctype = l.u##doctype \n" +
-                        "\t and dc.src_ssn = l.u##ssn \n" +
-                        "\t and l.u##vchnum = a.u##vchnum \n" +
-                        "\t and l.u##doctype = a.u##doctype \n" +
-                        "\t and l.u##ssn = a.u##ssn \n" +
-                        "\t and es.src_ssn != l.u##ssn \n" +
+                        "  where es.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and dc.dcmnt_name = l.u##vchnum \n" +
+                        "  and dc.src_doctype = l.u##doctype \n" +
+                        "  and dc.src_ssn = l.u##ssn \n" +
+                        "  and l.u##vchnum = a.u##vchnum \n" +
+                        "  and l.u##doctype = a.u##doctype \n" +
+                        "  and l.u##ssn = a.u##ssn \n" +
+                        "  and es.src_ssn != l.u##ssn \n" +
                         ")";
 
         // log the Sql
@@ -911,20 +911,20 @@ public class ExpnsSmryWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t select es.src_expense_type as etl_src_expense_type, \n" +
-                        "\t\t\t a.u##sublabel as test_src_expense_type \n" +
+                        "  select es.src_expense_type as etl_src_expense_type, \n" +
+                        "    a.u##sublabel as test_src_expense_type \n" +
                         "\n" +
-                        "\t from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
-                        "\t\t\t DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
+                        "  from dtsdm.expns_smry_wh es, dtsdm.dcmnt_wh dc, \n" +
+                        "    DTSDM_SRC_STG.lodge l, DTSDM_SRC_STG.acctotals a \n" +
                         "\n" +
-                        "\t where es.dcmnt_wid = dc.dcmnt_wid \n" +
-                        "\t and dc.dcmnt_name = l.u##vchnum \n" +
-                        "\t and dc.src_doctype = l.u##doctype \n" +
-                        "\t and dc.src_ssn = l.u##ssn \n" +
-                        "\t and l.u##vchnum = a.u##vchnum \n" +
-                        "\t and l.u##doctype = a.u##doctype \n" +
-                        "\t and l.u##ssn = a.u##ssn \n" +
-                        "\t and a.u##sublabel = upper(expenses) \n" +
+                        "  where es.dcmnt_wid = dc.dcmnt_wid \n" +
+                        "  and dc.dcmnt_name = l.u##vchnum \n" +
+                        "  and dc.src_doctype = l.u##doctype \n" +
+                        "  and dc.src_ssn = l.u##ssn \n" +
+                        "  and l.u##vchnum = a.u##vchnum \n" +
+                        "  and l.u##doctype = a.u##doctype \n" +
+                        "  and l.u##ssn = a.u##ssn \n" +
+                        "  and a.u##sublabel = upper(expenses) \n" +
                         ")";
 
         // log the Sql

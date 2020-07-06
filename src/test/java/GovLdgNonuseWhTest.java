@@ -192,14 +192,14 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.GOV_LDG_NONUSE_WID, A.TRIP_LEG_WID, B.TRIP_LEG_WID \n" +
+                        "  SELECT A.GOV_LDG_NONUSE_WID, A.TRIP_LEG_WID, B.TRIP_LEG_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM.TRIP_LEG_WH B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.LDG_RES_NONUSE C \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM.TRIP_LEG_WH B, \n" +
+                        "    DTSDM_SRC_STG.LDG_RES_NONUSE C \n" +
                         "\n" +
-                        "\t WHERE A.TRIP_LEG_WID = B.TRIP_LEG_WID \n" +
-                        "\t AND B.LEG_NUM = C.LEG \n" +
-                        "\t AND B.ARRV_LOCATN_NAME = C.ARR_LOCATION \n" +
+                        "  WHERE A.TRIP_LEG_WID = B.TRIP_LEG_WID \n" +
+                        "  AND B.LEG_NUM = C.LEG \n" +
+                        "  AND B.ARRV_LOCATN_NAME = C.ARR_LOCATION \n" +
                         ")";
 
         // log the Sql
@@ -281,9 +281,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_CNA_DLS_SYS, B.DOD_LDG_CNA \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.DOD_LDG_CNA_DLS_SYS = SUBSTR(TRIM(B.DOD_LDG_CNA),3,2) \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_CNA_DLS_SYS, B.DOD_LDG_CNA \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.DOD_LDG_CNA_DLS_SYS = SUBSTR(TRIM(B.DOD_LDG_CNA),3,2) \n" +
                         ")";
 
         // log the Sql
@@ -365,9 +365,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_CNA_NBR, B.DOD_LDG_CNA \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.DOD_LDG_CNA_NBR = TRIM(B.DOD_LDG_CNA) \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_CNA_NBR, B.DOD_LDG_CNA \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.DOD_LDG_CNA_NBR = TRIM(B.DOD_LDG_CNA) \n" +
                         ")";
 
         // log the Sql
@@ -449,9 +449,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_CNCL_NBR, B.DOD_LDG_CANCEL_NUM \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.DOD_LDG_CNCL_NBR = B.DOD_LDG_CANCEL_NUM \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_CNCL_NBR, B.DOD_LDG_CANCEL_NUM \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.DOD_LDG_CNCL_NBR = B.DOD_LDG_CANCEL_NUM \n" +
                         ")";
 
         // log the Sql
@@ -533,9 +533,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_DECLINE_FLG, B.DOD_LDG_DECLINE \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.DOD_LDG_DECLINE_FLG = B.DOD_LDG_DECLINE \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_DECLINE_FLG, B.DOD_LDG_DECLINE \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.DOD_LDG_DECLINE_FLG = B.DOD_LDG_DECLINE \n" +
                         ")";
 
         // log the Sql
@@ -617,11 +617,11 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_SRVC_UNAVLBL_FLG, \n" +
-                        "\t\t\t B.DOD_LDG_SERVICE_NOT_AVAIL \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.DOD_LDG_SRVC_UNAVLBL_FLG, \n" +
+                        "    B.DOD_LDG_SERVICE_NOT_AVAIL \n" +
                         "\n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.DOD_LDG_DECLINE_FLG = B.DOD_LDG_DECLINE \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.DOD_LDG_DECLINE_FLG = B.DOD_LDG_DECLINE \n" +
                         ")";
 
         // log the Sql
@@ -703,9 +703,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.HAS_DOD_LDG_FLG, B.HAS_DOD_LDG_FLG \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.HAS_DOD_LDG_FLG = B.HAS_DOD_LDG \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.HAS_DOD_LDG_FLG, B.HAS_DOD_LDG_FLG \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.HAS_DOD_LDG_FLG = B.HAS_DOD_LDG \n" +
                         ")";
 
         // log the Sql
@@ -787,9 +787,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PREF_LDG_DECLINE_FLG, B.PREF_LDG_DECLINE \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.PREF_LDG_DECLINE_FLG = B.PREF_LDG_DECLINE \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PREF_LDG_DECLINE_FLG, B.PREF_LDG_DECLINE \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.PREF_LDG_DECLINE_FLG = B.PREF_LDG_DECLINE \n" +
                         ")";
 
         // log the Sql
@@ -871,9 +871,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PREF_LDG_AVLBL_FLG, B.PREF_LDG_AVAILABLE \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.PREF_LDG_AVLBL_FLG = B.PREF_LDG_AVAILABLE \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PREF_LDG_AVLBL_FLG, B.PREF_LDG_AVAILABLE \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.PREF_LDG_AVLBL_FLG = B.PREF_LDG_AVAILABLE \n" +
                         ")";
 
         // log the Sql
@@ -955,9 +955,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.HAS_PREF_LDG_FLG, B.HAS_PREFERRED_LDG \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.HAS_PREF_LDG_FLG = B.HAS_PREFERRED_LDG \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.HAS_PREF_LDG_FLG, B.HAS_PREFERRED_LDG \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.HAS_PREF_LDG_FLG = B.HAS_PREFERRED_LDG \n" +
                         ")";
 
         // log the Sql
@@ -1039,9 +1039,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PPV_LDG_DECLINE_FLG, B.PPV_LDG_DECLINE \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.PPV_LDG_DECLINE_FLG = B.PPV_LDG_DECLINE \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PPV_LDG_DECLINE_FLG, B.PPV_LDG_DECLINE \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.PPV_LDG_DECLINE_FLG = B.PPV_LDG_DECLINE \n" +
                         ")";
 
         // log the Sql
@@ -1123,9 +1123,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PPV_LDG_AVAIL_FLG, B.PPV_LDG_DECLINE \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.PPV_LDG_AVAIL_FLG = B.PPV_LDG_DECLINE \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.PPV_LDG_AVAIL_FLG, B.PPV_LDG_DECLINE \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.PPV_LDG_AVAIL_FLG = B.PPV_LDG_DECLINE \n" +
                         ")";
 
         // log the Sql
@@ -1207,9 +1207,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.HAS_PPV_LDG_FLG, B.PPV_LDG_AVAILABLE \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.HAS_PPV_LDG_FLG = B.PPV_LDG_AVAILABLE \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.HAS_PPV_LDG_FLG, B.PPV_LDG_AVAILABLE \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.HAS_PPV_LDG_FLG = B.PPV_LDG_AVAILABLE \n" +
                         ")";
 
         // log the Sql
@@ -1291,9 +1291,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.SRC_LDG_RES_NONUSE_ID, B.LDG_RES_NONUSE_ID \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.SRC_LDG_RES_NONUSE_ID = B.LDG_RES_NONUSE_ID \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.SRC_LDG_RES_NONUSE_ID, B.LDG_RES_NONUSE_ID \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.SRC_LDG_RES_NONUSE_ID = B.LDG_RES_NONUSE_ID \n" +
                         ")";
 
         // log the Sql
@@ -1375,9 +1375,9 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.SRC_ARR_LOCATION, B.ARR_LOCATION \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
-                        "\t WHERE A.SRC_ARR_LOCATION = B.ARR_LOCATION \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.SRC_ARR_LOCATION, B.ARR_LOCATION \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM_SRC_STG.LDG_RES_NONUSE B \n" +
+                        "  WHERE A.SRC_ARR_LOCATION = B.ARR_LOCATION \n" +
                         ")";
 
         // log the Sql
@@ -1459,11 +1459,11 @@ public class GovLdgNonuseWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.LOCATN_WID, B.LOCATN_WID \n" +
-                        "\t FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM.LOCATN_WH B, DTSDM_SRC_STG.LDG_RES_NONUSE C \n" +
-                        "\t WHERE A.LOCATN_WID = B.LOCATN_WID \n" +
-                        "\t AND B.LOCATN_NAME = C.ARR_LOCATION \n" +
-                        "\t AND C.ARR_LOCATION = A.SRC_ARR_LOCATION \n" +
+                        "  SELECT DISTINCT A.GOV_LDG_NONUSE_WID, A.LOCATN_WID, B.LOCATN_WID \n" +
+                        "  FROM DTSDM.GOV_LDG_NONUSE_WH A, DTSDM.LOCATN_WH B, DTSDM_SRC_STG.LDG_RES_NONUSE C \n" +
+                        "  WHERE A.LOCATN_WID = B.LOCATN_WID \n" +
+                        "  AND B.LOCATN_NAME = C.ARR_LOCATION \n" +
+                        "  AND C.ARR_LOCATION = A.SRC_ARR_LOCATION \n" +
                         ")";
 
         // log the Sql

@@ -32,7 +32,7 @@ public class TicketReconWhTest extends TableTest {
 
 
 
-        String sql = "Select count(*) from TICKET_RECON_WH  where TICKET_RECON_WID = 0 \n";
+        String sql = "Select count(*) from DTSDM.LICKET_RECON_WH  where TICKET_RECON_WID = 0 \n";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();
@@ -86,7 +86,7 @@ public class TicketReconWhTest extends TableTest {
                 "(\n" +
                 "select distinct TICKET_RECON_WID,TICKET_WID,AUTH_TCKT_COST_AMT,VCHR_TCKT_COST_AMT,AUTH_RSRVTN_COST_AMT,\n" +
                 "VCHR_RSRVTN_COST_AMT,INSERT_DATE,UPDATE_DATE,DELETED_FLAG, count (*)\n" +
-                "from TICKET_RECON_WH\n" +
+                "from DTSDM.LICKET_RECON_WH\n" +
                 "group by TICKET_RECON_WID,TICKET_WID,AUTH_TCKT_COST_AMT,VCHR_TCKT_COST_AMT,AUTH_RSRVTN_COST_AMT,\n" +
                 "VCHR_RSRVTN_COST_AMT,INSERT_DATE,UPDATE_DATE,DELETED_FLAG\n" +
                 "having count(*) > 1\n" +

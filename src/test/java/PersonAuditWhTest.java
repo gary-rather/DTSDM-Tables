@@ -83,7 +83,7 @@ public class PersonAuditWhTest extends TableTest {
 
 
         String sql1 = "select distinct CHNG_TYPE_CD, SRC_AUDIT_ID, count (*)\n" +
-                "from PERSON_AUDIT_WH\n" +
+                "from DTSDM.LERSON_AUDIT_WH\n" +
                 "group by CHNG_TYPE_CD, SRC_AUDIT_ID\n" +
                 "having count(*) > 1\n";
 

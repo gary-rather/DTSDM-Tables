@@ -86,7 +86,7 @@ public class PersonAddrWhTest extends TableTest {
         String sql1 = "select count(*) from \n" +
                 "(\n" +
                 "select distinct PERSON_WID,ADDR_TYPE_DESCR, count (*)\n" +
-                "from PERSON_ADDR_WH\n" +
+                "from DTSDM.LERSON_ADDR_WH\n" +
                 "group by PERSON_WID,ADDR_TYPE_DESCR\n" +
                 "having count(*) > 1\n" +
                 "\n" +

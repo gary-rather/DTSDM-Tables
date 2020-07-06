@@ -32,7 +32,7 @@ public class TicketAuditFailWhTest extends TableTest {
 
 
 
-        String sql = "Select count(*) from TCKT_AUDIT_FAIL_WH  where TCKT_AUDIT_FAIL_WID = 0 \n";
+        String sql = "Select count(*) from DTSDM.TCKT_AUDIT_FAIL_WH  where TCKT_AUDIT_FAIL_WID = 0 \n";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();
@@ -85,8 +85,8 @@ public class TicketAuditFailWhTest extends TableTest {
         String sql1 = "select count(*) from \n" +
                 "(\n" +
                 "select distinct TICKET_WID,REASON_WID, count (*)\n" +
-                "from TCKT_AUDIT_FAIL_WH\n" +
-                "group by TICKET_WID,\tREASON_WID\n" +
+                "from DTSDM.TCKT_AUDIT_FAIL_WH\n" +
+                "group by TICKET_WID, REASON_WID\n" +
                 "having count(*) > 1\n" +
                 ")";
 

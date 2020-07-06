@@ -86,9 +86,9 @@ public class OrgAccntExtndWhTest extends TableTest {
 
         String sql1 = "select count(*) from \n" +
                 "(\n" +
-                "select distinct ORG_ACCNT_WID,EXTND_ACC1,\tEXTND_ACC2,EXTND_ACC3,EXTND_ACC4,EXTND_ACC5, count (*)\n" +
-                "from ORG_ACCNT_EXTND_WH\n" +
-                "group by ORG_ACCNT_WID,EXTND_ACC1,EXTND_ACC2,\tEXTND_ACC3,EXTND_ACC4,EXTND_ACC5\n" +
+                "select distinct ORG_ACCNT_WID,EXTND_ACC1, EXTND_ACC2,EXTND_ACC3,EXTND_ACC4,EXTND_ACC5, count (*)\n" +
+                "from DTSDM.LRG_ACCNT_EXTND_WH\n" +
+                "group by ORG_ACCNT_WID,EXTND_ACC1,EXTND_ACC2, EXTND_ACC3,EXTND_ACC4,EXTND_ACC5\n" +
                 "having count(*) > 1\n" +
                 ")";
 

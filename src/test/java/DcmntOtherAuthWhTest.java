@@ -32,7 +32,7 @@ public class DcmntOtherAuthWhTest extends TableTest {
 
 
 
-        String sql = "Select count(*) from  DCMNT_OTHER_AUTH_WH  where DCMNT_OTHER_AUTH_WID = 0 \n";
+        String sql = "Select count(*) from  DTSDM.DCMNT_OTHER_AUTH_WH  where DCMNT_OTHER_AUTH_WID = 0 \n";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();
@@ -85,7 +85,7 @@ public class DcmntOtherAuthWhTest extends TableTest {
         String sql1 = "select count(*) from " +
                 "(" +
                 "select distinct PROGRESS_RECID, count (*)\n" +
-                "from DCMNT_OTHER_AUTH_WH\n" +
+                "from DTSDM.DCMNT_OTHER_AUTH_WH\n" +
                 "group by PROGRESS_RECID\n" +
                 "having count (*) > 1 \n" +
                 ")\n";

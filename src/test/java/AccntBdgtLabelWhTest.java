@@ -30,7 +30,7 @@ public class AccntBdgtLabelWhTest extends TableTest {
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
-        String sql = "select count(*) from ACCNT_BDGT_LABEL_WH where ACCNT_BDGT_LABEL_WID = 0";
+        String sql = "select count(*) from dtsdm.ACCNT_BDGT_LABEL_WH where ACCNT_BDGT_LABEL_WID = 0";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();
@@ -81,7 +81,7 @@ public class AccntBdgtLabelWhTest extends TableTest {
 
         String sql1 = "select count(*) from (\n" +
                 "select distinct SRC_BUDGET_LEDGER_ID, count (*)\n" +
-                "from ACCNT_BDGT_LABEL_WH\n" +
+                "from dtsdm.ACCNT_BDGT_LABEL_WH\n" +
                 "group by src_budget_ledger_id\n" +
                 "having count(*) > 1\n" +
                 ")\n" ;

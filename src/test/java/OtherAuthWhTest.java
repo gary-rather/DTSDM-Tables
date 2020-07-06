@@ -195,14 +195,14 @@ public class OtherAuthWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_OTHER_AUTH_WID, A.DCMNT_WID, B.DCMNT_WID \n" +
-                        "\t FROM DTSDM.DCMNT_OTHER_AUTH_WH A, DTSDM.DCMNT_WH B, FRED.TAOTHER C \n" +
-                        "\t WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
-                        "\t AND B.DCMNT_NAME = C.U##VCHNUM \n" +
-                        "\t AND B.ADJSTMT_LVL = C.ADJ_LEVEL \n" +
-                        "\t AND B.SRC_DOCTYPE = C.U##DOCTYPE \n" +
-                        "\t AND B.SRC_SSN = C.U##SSN \n" +
-                        "\t AND B.TRIP_NUM = C.TRIPNUM \n" +
+                        "  SELECT DISTINCT A.DCMNT_OTHER_AUTH_WID, A.DCMNT_WID, B.DCMNT_WID \n" +
+                        "  FROM DTSDM.DCMNT_OTHER_AUTH_WH A, DTSDM.DCMNT_WH B, DTSDM_SRC_STG.TAOTHER C \n" +
+                        "  WHERE A.DCMNT_WID = B.DCMNT_WID \n" +
+                        "  AND B.DCMNT_NAME = C.U##VCHNUM \n" +
+                        "  AND B.ADJSTMT_LVL = C.ADJ_LEVEL \n" +
+                        "  AND B.SRC_DOCTYPE = C.U##DOCTYPE \n" +
+                        "  AND B.SRC_SSN = C.U##SSN \n" +
+                        "  AND B.TRIP_NUM = C.TRIPNUM \n" +
                         ")";
 
         // log the Sql
@@ -285,15 +285,15 @@ public class OtherAuthWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_OTHER_AUTH_WID, \n" +
-                        "\t\t\t A.OTHER_AUTH_TYPE_WID, B.TYPE_WID \n" +
+                        "  SELECT DISTINCT A.DCMNT_OTHER_AUTH_WID, \n" +
+                        "    A.OTHER_AUTH_TYPE_WID, B.TYPE_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.DCMNT_OTHER_AUTH_WH A, \n" +
-                        "\t\t\t DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, \n" +
-                        "\t\t\t FRED.TAOTHER C \n" +
+                        "  FROM DTSDM.DCMNT_OTHER_AUTH_WH A, \n" +
+                        "    DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, \n" +
+                        "    DTSDM_SRC_STG.TAOTHER C \n" +
                         "\n" +
-                        "\t WHERE A.OTHER_AUTH_TYPE_WID = B.TYPE_WID \n" +
-                        "\t AND B.TYPE_DESCR = C.AUTHORIZED \n" +
+                        "  WHERE A.OTHER_AUTH_TYPE_WID = B.TYPE_WID \n" +
+                        "  AND B.TYPE_DESCR = C.AUTHORIZED \n" +
                         ")";
 
         // log the Sql
@@ -376,11 +376,11 @@ public class OtherAuthWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.DCMNT_OTHER_AUTH_WID, \n" +
-                        "\t\t\t A.OTHER_AUTH_RMRKS_TXT, B.AUTH_REM \n" +
+                        "  SELECT DISTINCT A.DCMNT_OTHER_AUTH_WID, \n" +
+                        "    A.OTHER_AUTH_RMRKS_TXT, B.AUTH_REM \n" +
                         "\n" +
-                        "\t FROM DTSDM.DCMNT_OTHER_AUTH_WH A, FRED.TAOTHER B \n" +
-                        "\t WHERE A.OTHER_AUTH_RMRKS_TXT = B.AUTH_REM \n" +
+                        "  FROM DTSDM.DCMNT_OTHER_AUTH_WH A, DTSDM_SRC_STG.TAOTHER B \n" +
+                        "  WHERE A.OTHER_AUTH_RMRKS_TXT = B.AUTH_REM \n" +
                         ")";
 
         // log the Sql
@@ -463,17 +463,17 @@ public class OtherAuthWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.DCMNT_OTHER_AUTH_WID, A.PERSTEMPO_TXT, B.AUTHORIZED \n" +
-                        "\t FROM DTSDM.DCMNT_OTHER_AUTH_WH A, FRED.TAOTHER B \n" +
-                        "\t WHERE A.PERSTEMPO = ( \n" +
-                        "\t\t\t\t\t SELECT \n" +
-                        "\t\t\t\t\t\t CASE \n" +
-                        "\t\t\t\t\t\t\t WHEN FRED.AUTHORIZED LIKE 'PERSTEMPO%' \n" +
-                        "\t\t\t\t\t\t\t THEN SUBSTR(16,1) \n" +
-                        "\t\t\t\t\t\t\t ELSE NULL \n" +
-                        "\t\t\t\t\t\t END\n" +
-                        "\t\t\t\t\t FROM FRED.TAOTHER \n" +
-                        "\t\t\t\t\t ) \n" +
+                        "  SELECT A.DCMNT_OTHER_AUTH_WID, A.PERSTEMPO_TXT, B.AUTHORIZED \n" +
+                        "  FROM DTSDM.DCMNT_OTHER_AUTH_WH A, DTSDM_SRC_STG.TAOTHER B \n" +
+                        "  WHERE A.PERSTEMPO = ( \n" +
+                        "      SELECT \n" +
+                        "       CASE \n" +
+                        "        WHEN DTSDM_SRC_STG.AUTHORIZED LIKE 'PERSTEMPO%' \n" +
+                        "        THEN SUBSTR(16,1) \n" +
+                        "        ELSE NULL \n" +
+                        "       END\n" +
+                        "      FROM DTSDM_SRC_STG.TAOTHER \n" +
+                        "      ) \n" +
                         ")";
 
         // log the Sql

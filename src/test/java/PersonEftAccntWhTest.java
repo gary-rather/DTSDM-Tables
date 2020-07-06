@@ -200,9 +200,9 @@ public class PersonEftAccntWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.PERSON_MASTER_WID, B.U##SSN \n" +
-                        "\t FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
-                        "\t WHERE A.PERSON_MASTER_WID = B.U##SSN \n" +
+                        "  SELECT A.PERSON_MASTER_WID, B.U##SSN \n" +
+                        "  FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
+                        "  WHERE A.PERSON_MASTER_WID = B.U##SSN \n" +
                         ")";
 
         // log the Sql
@@ -286,10 +286,10 @@ public class PersonEftAccntWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_TYPE_WID, B.TYPE_WID \n" +
-                        "\t FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, DTSDM_SRC_STG.TPEREFT C \n" +
-                        "\t WHERE A.EFT_ACCNT_TYPE_WID = B.TYPE_WID \n" +
-                        "\t AND B.TYPE_DESCR = C.U##EFT_TYPE \n" +
+                        "  SELECT DISTINCT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_TYPE_WID, B.TYPE_WID \n" +
+                        "  FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, DTSDM_SRC_STG.TPEREFT C \n" +
+                        "  WHERE A.EFT_ACCNT_TYPE_WID = B.TYPE_WID \n" +
+                        "  AND B.TYPE_DESCR = C.U##EFT_TYPE \n" +
                         ")";
 
         // log the Sql
@@ -372,12 +372,12 @@ public class PersonEftAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
-                        "\t FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
-                        "\t WHERE A.EFT_ACCNT_NUM != B.EFT_ACCOUNT \n" +
-                        "\t AND A.ACCNT_ROUTNG_NUM = B.EFT_ROUTING \n" +
-                        "\t AND A.EXPRTN_DT = B.EXPDATE \n" +
-                        "\t AND A.ACCNT_ACTV_FLAG = B.CCACTIVE \n" +
+                        "  SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
+                        "  FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
+                        "  WHERE A.EFT_ACCNT_NUM != B.EFT_ACCOUNT \n" +
+                        "  AND A.ACCNT_ROUTNG_NUM = B.EFT_ROUTING \n" +
+                        "  AND A.EXPRTN_DT = B.EXPDATE \n" +
+                        "  AND A.ACCNT_ACTV_FLAG = B.CCACTIVE \n" +
                         ")";
 
         // log the Sql
@@ -437,12 +437,12 @@ public class PersonEftAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
-                        "\t FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
-                        "\t WHERE A.EFT_ACCNT_NUM = B.EFT_ACCOUNT \n" +
-                        "\t AND A.ACCNT_ROUTNG_NUM != B.EFT_ROUTING \n" +
-                        "\t AND A.EXPRTN_DT = B.EXPDATE \n" +
-                        "\t AND A.ACCNT_ACTV_FLAG = B.CCACTIVE \n" +
+                        "  SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
+                        "  FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
+                        "  WHERE A.EFT_ACCNT_NUM = B.EFT_ACCOUNT \n" +
+                        "  AND A.ACCNT_ROUTNG_NUM != B.EFT_ROUTING \n" +
+                        "  AND A.EXPRTN_DT = B.EXPDATE \n" +
+                        "  AND A.ACCNT_ACTV_FLAG = B.CCACTIVE \n" +
                         ")";
 
         // log the Sql
@@ -502,12 +502,12 @@ public class PersonEftAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
-                        "\t FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
-                        "\t WHERE A.EFT_ACCNT_NUM = B.EFT_ACCOUNT \n" +
-                        "\t AND A.ACCNT_ROUTNG_NUM = B.EFT_ROUTING \n" +
-                        "\t AND A.EXPRTN_DT != B.EXPDATE \n" +
-                        "\t AND A.ACCNT_ACTV_FLAG = B.CCACTIVE \n" +
+                        "  SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
+                        "  FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
+                        "  WHERE A.EFT_ACCNT_NUM = B.EFT_ACCOUNT \n" +
+                        "  AND A.ACCNT_ROUTNG_NUM = B.EFT_ROUTING \n" +
+                        "  AND A.EXPRTN_DT != B.EXPDATE \n" +
+                        "  AND A.ACCNT_ACTV_FLAG = B.CCACTIVE \n" +
                         ")";
 
         // log the Sql
@@ -567,12 +567,12 @@ public class PersonEftAccntWhTest extends TableTest {
 
         String sql = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
-                        "\t FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
-                        "\t WHERE A.EFT_ACCNT_NUM = B.EFT_ACCOUNT \n" +
-                        "\t AND A.ACCNT_ROUTNG_NUM = B.EFT_ROUTING \n" +
-                        "\t AND A.EXPRTN_DT = B.EXPDATE \n" +
-                        "\t AND A.ACCNT_ACTV_FLAG != B.CCACTIVE \n" +
+                        "  SELECT A.PERSON_EFT_ACCNT_WID, A.EFT_ACCNT_NUM, B.EFT_ACCOUNT \n" +
+                        "  FROM DTSDM.PERSON_EFT_ACCNT_WH A, DTSDM_SRC_STG.TPEREFT B \n" +
+                        "  WHERE A.EFT_ACCNT_NUM = B.EFT_ACCOUNT \n" +
+                        "  AND A.ACCNT_ROUTNG_NUM = B.EFT_ROUTING \n" +
+                        "  AND A.EXPRTN_DT = B.EXPDATE \n" +
+                        "  AND A.ACCNT_ACTV_FLAG != B.CCACTIVE \n" +
                         ")";
 
         // log the Sql

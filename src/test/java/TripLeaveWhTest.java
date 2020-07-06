@@ -197,19 +197,19 @@ public class TripLeaveWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                 "( \n" +
-                "\t SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
-                "\t\t\t A.TRIP_WID AS TEST_TRIP_WID, \n" +
-                "\t\t\t B.TRIP_WID AS ETL_TRIP_WID \n" +
+                "  SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
+                "    A.TRIP_WID AS TEST_TRIP_WID, \n" +
+                "    B.TRIP_WID AS ETL_TRIP_WID \n" +
                 "\n" +
-                "\t FROM DTSDM.TRIP_LEAVE_WH A, \n" +
-                "\t\t\t DTSDM.DCMNT_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
+                "  FROM DTSDM.TRIP_LEAVE_WH A, \n" +
+                "    DTSDM.DCMNT_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
                 "\n" +
-                "\t WHERE A.TRIP_WID = B.TRIP_WID \n" +
-                "\t AND B.DCMNT_NAME = C.U##VCHNUM \n" +
-                "\t AND B.SRC_DOCTYPE = C.U##DOCTYPE \n" +
-                "\t AND B.SRC_SSN = C.U##SSN \n" +
-                "\t AND B.ADJSTMT_LVL = C.ADJ_LEVEL \n" +
-                "\t ORDER BY A.TRIP_LEAVE_WID" +
+                "  WHERE A.TRIP_WID = B.TRIP_WID \n" +
+                "  AND B.DCMNT_NAME = C.U##VCHNUM \n" +
+                "  AND B.SRC_DOCTYPE = C.U##DOCTYPE \n" +
+                "  AND B.SRC_SSN = C.U##SSN \n" +
+                "  AND B.ADJSTMT_LVL = C.ADJ_LEVEL \n" +
+                "  ORDER BY A.TRIP_LEAVE_WID" +
                 ")";
 
         // log the Sql
@@ -294,18 +294,18 @@ public class TripLeaveWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                 "( \n" +
-                "\t SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
-                "\t\t\t B.DCMNT_WID AS ETL_DCMNT_WID \n" +
+                "  SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
+                "    B.DCMNT_WID AS ETL_DCMNT_WID \n" +
                 "\n" +
-                "\t FROM DTSDM.TRIP_LEAVE_WH A, \n" +
-                "\t\t\t DTSDM.DCMNT_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
+                "  FROM DTSDM.TRIP_LEAVE_WH A, \n" +
+                "    DTSDM.DCMNT_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
                 "\n" +
-                "\t WHERE A.TRIP_WID = B.TRIP_WID \n" +
-                "\t AND B.DCMNT_NAME = C.U##VCHNUM \n" +
-                "\t AND B.SRC_DOCTYPE = C.U##DOCTYPE \n" +
-                "\t AND B.SRC_SSN = C.U##SSN \n" +
-                "\t AND B.ADJSTMT_LVL = C.ADJ_LEVEL \n" +
-                "\t ORDER BY A.TRIP_LEAVE_WID" +
+                "  WHERE A.TRIP_WID = B.TRIP_WID \n" +
+                "  AND B.DCMNT_NAME = C.U##VCHNUM \n" +
+                "  AND B.SRC_DOCTYPE = C.U##DOCTYPE \n" +
+                "  AND B.SRC_SSN = C.U##SSN \n" +
+                "  AND B.ADJSTMT_LVL = C.ADJ_LEVEL \n" +
+                "  ORDER BY A.TRIP_LEAVE_WID" +
                 ")";
 
         // log the Sql
@@ -389,14 +389,14 @@ public class TripLeaveWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                 "( \n" +
-                "\t SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
-                "\t\t\t A.TRIP_LEG_WID AS TEST_TRIP_LEG_WID, \n" +
-                "\t\t\t B.TRIP_LEG_WID AS ETL_TRIP_LEG_WID \n" +
+                "  SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
+                "    A.TRIP_LEG_WID AS TEST_TRIP_LEG_WID, \n" +
+                "    B.TRIP_LEG_WID AS ETL_TRIP_LEG_WID \n" +
                 "\n" +
-                "\t FROM DTSDM.TRIP_LEAVE_WH A, DTSDM.TRIP_LEG_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
+                "  FROM DTSDM.TRIP_LEAVE_WH A, DTSDM.TRIP_LEG_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
                 "\n" +
-                "\t WHERE A.TRIP_LEG_WID = B.TRIP_LEG_WID \n" +
-                "\t AND C.LVDATE BETWEEN B.LEG_DPRT_DT AND B.LEG_ARRV_DT \n" +
+                "  WHERE A.TRIP_LEG_WID = B.TRIP_LEG_WID \n" +
+                "  AND C.LVDATE BETWEEN B.LEG_DPRT_DT AND B.LEG_ARRV_DT \n" +
                 ")";
 
         // log the Sql
@@ -481,14 +481,14 @@ public class TripLeaveWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                 "( \n" +
-                "\t SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
-                "\t\t\t A.LV_TYPE_WID AS TEST_LV_TYPE_WID, \n" +
-                "\t\t\t B.TYPE_WID AS ETL_LV_TYPE_WID \n" +
+                "  SELECT DISTINCT A.TRIP_LEAVE_WID, \n" +
+                "    A.LV_TYPE_WID AS TEST_LV_TYPE_WID, \n" +
+                "    B.TYPE_WID AS ETL_LV_TYPE_WID \n" +
                 "\n" +
-                "\t FROM DTSDM.TRIP_LEAVE_WH A, \n" +
-                "\t\t\t DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
-                "\t WHERE A.LV_TYPE_WID = B.TYPE_WID \n" +
-                "\t AND B.TYPE_CD = C.LVTYPE \n" +
+                "  FROM DTSDM.TRIP_LEAVE_WH A, \n" +
+                "    DTSDM.TYPE_CONSOLDTD_RFRNC_WH B, DTSDM_SRC_STG.TLEAVE C \n" +
+                "  WHERE A.LV_TYPE_WID = B.TYPE_WID \n" +
+                "  AND B.TYPE_CD = C.LVTYPE \n" +
                 ")";
 
         // log the Sql

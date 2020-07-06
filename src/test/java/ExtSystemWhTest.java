@@ -197,14 +197,14 @@ public class ExtSystemWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.EXT_SYSTEM_WID, A.EXT_SYSTEM_CD, \n" +
-                        "\t\t\t B.U##PARTNER_SYSTEM_CODE, C.ERP_SYSTEM_CD \n" +
+                        "  SELECT A.EXT_SYSTEM_WID, A.EXT_SYSTEM_CD, \n" +
+                        "    B.U##PARTNER_SYSTEM_CODE, C.ERP_SYSTEM_CD \n" +
                         "\n" +
-                        "\t FROM DTSDM.EXT_SYSTEM_WH A, DTSDM_SRC_STG.PARTNER_SYSTEM B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.DM_ERP_SYSTEM C \n" +
+                        "  FROM DTSDM.EXT_SYSTEM_WH A, DTSDM_SRC_STG.PARTNER_SYSTEM B, \n" +
+                        "    DTSDM_SRC_STG.DM_ERP_SYSTEM C \n" +
                         "\n" +
-                        "\t WHERE A.EXT_SYSTEM_CD = B.U##PARTNER_SYSTEM_CODE\n" +
-                        "\t AND A.EXT_SYSTEM_CD = C.ERP_SYSTEM_CD" +
+                        "  WHERE A.EXT_SYSTEM_CD = B.U##PARTNER_SYSTEM_CODE\n" +
+                        "  AND A.EXT_SYSTEM_CD = C.ERP_SYSTEM_CD" +
                         ")";
 
         // log the Sql
@@ -295,7 +295,7 @@ public class ExtSystemWhTest extends TableTest {
                         "SELECT B.EXT_SYSTEM_WID, B.EXT_SYSTEM_TYPE_CD, A.TYPE_CD \n" +
                         "\n" +
                         "FROM DTSDM.TYPE_CONSOLDTD_RFRNC_WH A, \n" +
-                        "\t\t\t DTSDM.EXT_SYSTEM_WH B, DTSDM_SRC_STG.PARTNER_SYSTEM C \n" +
+                        "    DTSDM.EXT_SYSTEM_WH B, DTSDM_SRC_STG.PARTNER_SYSTEM C \n" +
                         "\n" +
                         "WHERE C.U##PARTNER_SYSTEM_CODE = B.EXT_SYSTEM_CD \n" +
                         "AND B.EXT_SYSTEM_TYPE_CD != A.TYPE_CD \n" +
@@ -362,7 +362,7 @@ public class ExtSystemWhTest extends TableTest {
                         "SELECT B.EXT_SYSTEM_WID, B.EXT_SYSTEM_TYPE_CD, A.TYPE_CD \n" +
                         "\n" +
                         "FROM DTSDM.TYPE_CONSOLDTD_RFRNC_WH A, \n" +
-                        "\t\t\t DTSDM.EXT_SYSTEM_WH B, DTSDM_SRC_STG.PARTNER_SYSTEM C \n" +
+                        "    DTSDM.EXT_SYSTEM_WH B, DTSDM_SRC_STG.PARTNER_SYSTEM C \n" +
                         "\n" +
                         "WHERE C.U##PARTNER_SYSTEM_CODE = B.EXT_SYSTEM_CD \n" +
                         "AND B.EXT_SYSTEM_TYPE_CD = A.TYPE_CD \n" +
@@ -428,10 +428,10 @@ public class ExtSystemWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.EXT_SYSTEM_WID, A.SUBORG_WID, B.SUBORG_WID \n" +
-                        "\t FROM DTSDM.EXT_SYSTEM_WH A, DTSDM.SUBORG_WH B, DTSDM_SRC_STG.PARTNER_SYSTEM C \n" +
-                        "\t WHERE A.SUBORG_WID = B.SUBORG_WID \n" +
-                        "\t AND B.FULL_ORG_CD = C.DTS_ORG \n" +
+                        "  SELECT A.EXT_SYSTEM_WID, A.SUBORG_WID, B.SUBORG_WID \n" +
+                        "  FROM DTSDM.EXT_SYSTEM_WH A, DTSDM.SUBORG_WH B, DTSDM_SRC_STG.PARTNER_SYSTEM C \n" +
+                        "  WHERE A.SUBORG_WID = B.SUBORG_WID \n" +
+                        "  AND B.FULL_ORG_CD = C.DTS_ORG \n" +
                         ")";
 
         // log the Sql
@@ -515,13 +515,13 @@ public class ExtSystemWhTest extends TableTest {
 
         String sql2 = "select count(*) from" +
                         "( \n" +
-                        "\t SELECT A.EXT_SYSTEM_WID, A.SRC_ID, B.ID, C.ERP_SYSTEM_WID \n" +
+                        "  SELECT A.EXT_SYSTEM_WID, A.SRC_ID, B.ID, C.ERP_SYSTEM_WID \n" +
                         "\n" +
-                        "\t FROM DTSDM.EXT_SYSTEM_WH A, DTSDM_SRC_STG.PARTNER_SYSTEM B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.DM_ERP_SYSTEM C \n" +
+                        "  FROM DTSDM.EXT_SYSTEM_WH A, DTSDM_SRC_STG.PARTNER_SYSTEM B, \n" +
+                        "    DTSDM_SRC_STG.DM_ERP_SYSTEM C \n" +
                         "\n " +
-                        "\t WHERE A.SRC_ID = B.ID \n" +
-                        "\t AND B.ID = C.ERP_SYSTEM_WID \n" +
+                        "  WHERE A.SRC_ID = B.ID \n" +
+                        "  AND B.ID = C.ERP_SYSTEM_WID \n" +
                         ")";
 
         // log the Sql

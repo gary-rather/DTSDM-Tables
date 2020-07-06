@@ -195,38 +195,38 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_PERSON_WID, B.PERSON_WID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_PERSON_WID, B.PERSON_WID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##PASSWD C, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##PASSWD C, \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_PERSON_WID = B.PERSON_WID \n" +
-                        "\t AND B.SSN_FULL = C.AUDIT_SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.CHNG_PERSON_WID = B.PERSON_WID \n" +
+                        "  AND B.SSN_FULL = C.AUDIT_SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_PERSON_WID, B.PERSON_WID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_PERSON_WID, B.PERSON_WID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##SIGNATURE C \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##SIGNATURE C \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_PERSON_WID = B.PERSON_WID \n" +
-                        "\t AND B.SSN_FULL = C.AUDIT_SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.CHNG_PERSON_WID = B.PERSON_WID \n" +
+                        "  AND B.SSN_FULL = C.AUDIT_SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -355,38 +355,38 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.USER_PERSON_WID, B.PERSON_WID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.USER_PERSON_WID, B.PERSON_WID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##PASSWD C, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##PASSWD C, \n" +
                         "\n" +
-                        "\t WHERE A.USER_PERSON_WID = B.PERSON_WID \n" +
-                        "\t AND B.SSN_FULL = C.SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.USER_PERSON_WID = B.PERSON_WID \n" +
+                        "  AND B.SSN_FULL = C.SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.USER_PERSON_WID, B.PERSON_WID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.USER_PERSON_WID, B.PERSON_WID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##SIGNATURE C \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, DTSDM.PERSON_WH B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##SIGNATURE C \n" +
                         "\n" +
-                        "\t WHERE A.USER_PERSON_WID = B.PERSON_WID \n" +
-                        "\t AND B.SSN_FULL = C.SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.USER_PERSON_WID = B.PERSON_WID \n" +
+                        "  AND B.SSN_FULL = C.SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -515,36 +515,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_DT, B.AUDIT_DATE, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_DT, B.AUDIT_DATE, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##PASSWD B, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##PASSWD B, \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_DT = B.AUDIT_DT \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.CHNG_DT = B.AUDIT_DT \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_DT, B.AUDIT_DATE, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_DT, B.AUDIT_DATE, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##SIGNATURE B, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##SIGNATURE B, \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_DT = B.AUDIT_DT \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.CHNG_DT = B.AUDIT_DT \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -673,36 +673,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_TYPE_CD, B.AUDIT_DML_TYPE, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_TYPE_CD, B.AUDIT_DML_TYPE, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##PASSWD B, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##PASSWD B, \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_TYPE_CD = B.AUDIT_DML_TYPE \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.CHNG_TYPE_CD = B.AUDIT_DML_TYPE \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_TYPE_CD, B.AUDIT_DML_TYPE, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_TYPE_CD, B.AUDIT_DML_TYPE, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##SIGNATURE B, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##SIGNATURE B, \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_TYPE_CD = B.AUDIT_DML_TYPE \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.CHNG_TYPE_CD = B.AUDIT_DML_TYPE \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -831,36 +831,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_DB_USER_NAME, B.AUDIT_DB_USER, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_DB_USER_NAME, B.AUDIT_DB_USER, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##PASSWD B, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##PASSWD B, \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_DB_USER_NAME = B.AUDIT_DB_USER \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.CHNG_DB_USER_NAME = B.AUDIT_DB_USER \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_DB_USER_NAME, B.AUDIT_DB_USER, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_DB_USER_NAME, B.AUDIT_DB_USER, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##SIGNATURE B, \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##SIGNATURE B, \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_DB_USER_NAME = B.AUDIT_DB_USER \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.CHNG_DB_USER_NAME = B.AUDIT_DB_USER \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -989,38 +989,38 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.USER_WID, B.USER_WID \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.USER_WID, B.USER_WID \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, DTSDM.USER_WH B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD C \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, DTSDM.USER_WH B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD C \n" +
                         "\n" +
-                        "\t WHERE A.USER_WID = B.USER_WID \n" +
-                        "\t AND B.DTS_USER_ID = C.USER_ID \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.USER_WID = B.USER_WID \n" +
+                        "  AND B.DTS_USER_ID = C.USER_ID \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.USER_WID, B.USER_WID \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.USER_WID, B.USER_WID \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, DTSDM.USER_WH B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE C \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, DTSDM.USER_WH B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE C \n" +
                         "\n" +
-                        "\t WHERE A.USER_WID = B.USER_WID \n" +
-                        "\t AND B.DTS_USER_ID = C.USER_ID \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.USER_WID = B.USER_WID \n" +
+                        "  AND B.DTS_USER_ID = C.USER_ID \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
 
@@ -1150,23 +1150,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_FNAME, B.FNAME \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_FNAME, B.FNAME \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A,\n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A,\n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_FNAME = B.FNAME \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_FNAME = B.FNAME \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -1270,36 +1270,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_LNAME, B.LNAME, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_LNAME, B.LNAME, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED##PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG##PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_LNAME = B.LNAME \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_LNAME = B.LNAME \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_LNAME, B.NAME, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_LNAME, B.NAME, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_LNAME = B.NAME \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.UPDT_USER_LNAME = B.NAME \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -1428,23 +1428,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_MINIT, B.MNAME \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_MINIT, B.MNAME \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A,\n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A,\n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_MINIT = B.MNAME \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_MINIT = B.MNAME \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -1548,23 +1548,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_EMAIL_ADDR, B.EMAIL_ADDR \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_EMAIL_ADDR, B.EMAIL_ADDR \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A,\n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A,\n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_EMAIL_ADDR = B.EMAIL_ADDR \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_EMAIL_ADDR = B.EMAIL_ADDR \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -1674,23 +1674,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_GRP_OWNR_SUBORG_WID, B.GROUPORG \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_GRP_OWNR_SUBORG_WID, B.GROUPORG \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A,\n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A,\n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_GRP_OWNR_SUBORG_WID = B.GROUPORG \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_GRP_OWNR_SUBORG_WID = B.GROUPORG \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -1794,23 +1794,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_PRMSN_LVL, B.LEVEL_ \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_PRMSN_LVL, B.LEVEL_ \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A,\n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A,\n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_PRMSN_LVL = B.LEVEL_ \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_PRMSN_LVL = B.LEVEL_ \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -1914,40 +1914,40 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_SUBORG_WID, B.SUBORG_WID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_SUBORG_WID, B.SUBORG_WID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM.SUBORG_WID B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD C \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM.SUBORG_WID B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD C \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_SUBORG_WID = B.SUBORG_WID \n" +
-                        "\t and B.FULL_ORG_CD = C.ORG \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_SUBORG_WID = B.SUBORG_WID \n" +
+                        "  and B.FULL_ORG_CD = C.ORG \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_SUBORG_WID, B.SUBORG_WID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_SUBORG_WID, B.SUBORG_WID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM.SUBORG_WID B, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE C \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM.SUBORG_WID B, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE C \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_SUBORG_WID = B.SUBORG_WID \n" +
-                        "\t and B.FULL_ORG_CD = C.ORG \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.UPDT_USER_SUBORG_WID = B.SUBORG_WID \n" +
+                        "  and B.FULL_ORG_CD = C.ORG \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -2076,25 +2076,25 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_ACCSS_SUBORG_WID, B.SUBORG_WID \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_ACCSS_SUBORG_WID, B.SUBORG_WID \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM.SUBORG_WH B," +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD C \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM.SUBORG_WH B," +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD C \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_ACCSS_SUBORG_WID = B.SUBORG_WID \n" +
-                        "\t and B.FULL_ORG_CD = C.ORG_ACCESS" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_ACCSS_SUBORG_WID = B.SUBORG_WID \n" +
+                        "  and B.FULL_ORG_CD = C.ORG_ACCESS" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -2198,23 +2198,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_GRP_NAME, B.USER_GROUP \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_GRP_NAME, B.USER_GROUP \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_GRP_NAME = B.USER_GROUP \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_GRP_NAME = B.USER_GROUP \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -2318,24 +2318,24 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_DEBT_MGT_MONITOR_FLAG, " +
-                        "\t\t\t B.DEBT_MGT_MONITOR_FLAG \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_DEBT_MGT_MONITOR_FLAG, " +
+                        "    B.DEBT_MGT_MONITOR_FLAG \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_DEBT_MGT_MONITOR_FLAG = B.DEBT_MGT_MONITOR_FLAG \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_DEBT_MGT_MONITOR_FLAG = B.DEBT_MGT_MONITOR_FLAG \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         // log the Sql
@@ -2439,23 +2439,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_APPRV_OVRD_SW, B.APPROVERIDE \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_APPRV_OVRD_SW, B.APPROVERIDE \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_APPRV_OVRD_SW = B.APPROVERIDE \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.UPDT_APPRV_OVRD_SW = B.APPROVERIDE \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -2559,23 +2559,23 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.NDEA_FLAG, B.DGE_TENTERED \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT A.USER_AUDIT_WID, \n" +
+                        "    A.NDEA_FLAG, B.DGE_TENTERED \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.NDEA_FLAG = B.DGE_TENTERED \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.NDEA_FLAG = B.DGE_TENTERED \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -2679,36 +2679,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_DT_KEY, TO_CHAR(B.AUDIT_DT, 'MMDDYYYY'), \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_DT_KEY, TO_CHAR(B.AUDIT_DT, 'MMDDYYYY'), \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_DT_KEY = TO_CHAR(B.AUDIT_DT, 'MMDDYYYY') \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.CHNG_DT_KEY = TO_CHAR(B.AUDIT_DT, 'MMDDYYYY') \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_DT_KEY, TO_CHAR(B.AUDIT_DT, 'MMDDYYYY'), \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_DT_KEY, TO_CHAR(B.AUDIT_DT, 'MMDDYYYY'), \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_DT_KEY = TO_CHAR(B.AUDIT_DT, 'MMDDYYYY') \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.CHNG_DT_KEY = TO_CHAR(B.AUDIT_DT, 'MMDDYYYY') \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -2837,36 +2837,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_PERSON_NAME, B.AUDIT_USER_NAME, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_PERSON_NAME, B.AUDIT_USER_NAME, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_PERSON_NAME = B.AUDIT_USER_NAME \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.CHNG_PERSON_NAME = B.AUDIT_USER_NAME \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_PERSON_NAME, B.AUDIT_USER_NAME, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_PERSON_NAME, B.AUDIT_USER_NAME, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_PERSON_NAME = B.AUDIT_USER_NAME \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.CHNG_PERSON_NAME = B.AUDIT_USER_NAME \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -2995,11 +2995,11 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0";
@@ -3105,36 +3105,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_PERSON_SSN, B.SSN, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_PERSON_SSN, B.SSN, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_PERSON_SSN = B.SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.CHNG_PERSON_SSN = B.SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.CHNG_PERSON_SSN, B.SSN, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.CHNG_PERSON_SSN, B.SSN, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.CHNG_PERSON_SSN = B.SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.CHNG_PERSON_SSN = B.SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -3263,36 +3263,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.SRC_AUDIT_ID, B.AUDIT_ID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.SRC_AUDIT_ID, B.AUDIT_ID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.SRC_AUDIT_ID = B.AUDIT_ID \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.SRC_AUDIT_ID = B.AUDIT_ID \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.SRC_AUDIT_ID, B.AUDIT_ID, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.SRC_AUDIT_ID, B.AUDIT_ID, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.SRC_AUDIT_ID = B.AUDIT_ID \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.SRC_AUDIT_ID = B.AUDIT_ID \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -3421,36 +3421,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_FULL_ORG_CD, B.ORG, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_FULL_ORG_CD, B.ORG, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_FULL_ORG_CD = B.ORG \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_FULL_ORG_CD = B.ORG \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_FULL_ORG_CD, B.ORG, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_FULL_ORG_CD, B.ORG, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_FULL_ORG_CD = B.ORG \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.UPDT_USER_FULL_ORG_CD = B.ORG \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql
@@ -3579,36 +3579,36 @@ public class UserAuditWhTest extends TableTest {
 
         String sql1 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#PASSWD'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD'";
 
         String sql2 = "select * from DTSDM.USER_AUDIT_WH A \n" +
                         "where A.USER_AUDIT_WID != 0 \n" +
-                        "and A.SRC_TBL_NAME = 'FRED#SIGNATURE'";
+                        "and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE'";
 
         String sql3 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_SSN, B.SSN, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_SSN, B.SSN, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#PASSWD B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#PASSWD B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_SSN = B.SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#PASSWD' \n" +
+                        "  WHERE A.UPDT_USER_SSN = B.SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#PASSWD' \n" +
                         ")";
 
         String sql4 = "select count(*) from \n" +
                         "( \n" +
-                        "\t SELECT DISTINCT A.USER_AUDIT_WID, \n" +
-                        "\t\t\t A.UPDT_USER_SSN, B.SSN, \n" +
-                        "\t\t\t A.SRC_TBL_NAME \n" +
+                        "  SELECT DISTINCT A.USER_AUDIT_WID, \n" +
+                        "    A.UPDT_USER_SSN, B.SSN, \n" +
+                        "    A.SRC_TBL_NAME \n" +
                         "\n" +
-                        "\t FROM DTSDM.USER_AUDIT_WH A, \n" +
-                        "\t\t\t DTSDM_SRC_STG.FRED#SIGNATURE B \n" +
+                        "  FROM DTSDM.USER_AUDIT_WH A, \n" +
+                        "    DTSDM_SRC_STG.DTSDM_SRC_STG#SIGNATURE B \n" +
                         "\n" +
-                        "\t WHERE A.UPDT_USER_SSN = B.SSN \n" +
-                        "\t and A.SRC_TBL_NAME = 'FRED#SIGNATURE' \n" +
+                        "  WHERE A.UPDT_USER_SSN = B.SSN \n" +
+                        "  and A.SRC_TBL_NAME = 'DTSDM_SRC_STG#SIGNATURE' \n" +
                         ")";
 
         // log the Sql

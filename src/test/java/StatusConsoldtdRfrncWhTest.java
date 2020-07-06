@@ -171,7 +171,7 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
                 "'DCMNT'\n";
 
         String sql3 = "select distinct STATUS_WID,STATUS_CD,STATUS_DESCR,STATUS_TYPE_DESCR,RCD_TYPE_CD,RCD_TYPE_DESCR, count(*)  \n" +
-                "from status_consoldtd_rfrnc_wh \n" +
+                "from DTSDM.Ltatus_consoldtd_rfrnc_wh \n" +
                 "where rcd_type_cd = 'DCMNT' \n" +
                 "group by STATUS_WID,STATUS_CD,STATUS_DESCR,STATUS_TYPE_DESCR,RCD_TYPE_CD,RCD_TYPE_DESCR \n" +
                 "having count(*) > 1 \n";
@@ -274,15 +274,15 @@ public class StatusConsoldtdRfrncWhTest extends TableTest {
 
 
         // Select distinct country codes
-        String sql1 = "select * from STATUS_CONSOLDTD_RFRNC_WH where RCD_TYPE_CD = 'DEBT_TRNS'";
+        String sql1 = "select * from DTSDM.LTATUS_CONSOLDTD_RFRNC_WH where RCD_TYPE_CD = 'DEBT_TRNS'";
 
 
-        String sql2 = "select distinct status_descr from STATUS_CONSOLDTD_RFRNC_WH \n" +
+        String sql2 = "select distinct status_descr from DTSDM.LTATUS_CONSOLDTD_RFRNC_WH \n" +
                 "where RCD_TYPE_CD = 'DEBT_TRNS'\n";
 
         String sql3 = "Select distinct pdh.status from DTSDM_SRC_STG.pm_debt_hist pdh";
 
-        String sql4 = "select distinct status_type_descr from STATUS_CONSOLDTD_RFRNC_WH \n" +
+        String sql4 = "select distinct status_type_descr from DTSDM.LTATUS_CONSOLDTD_RFRNC_WH \n" +
                 "where RCD_TYPE_CD = 'DEBT_TRNS'\n";
 
         String sql5 = "Select distinct pdh.type from DTSDM_SRC_STG.pm_debt_hist pdh";

@@ -185,21 +185,21 @@ public class TripWhTest extends TableTest {
         String sql1 = "select count(*) from\n" +
                 "(\n" +
                 "select distinct person_wid, count(*)\n" +
-                "from dcmnt_wh\n" +
+                "from DTSDM.mnt_wh\n" +
                 "where CURR_TRVL_DCMNT_SW = 1\n" +
                 "group by person_wid\n" +
                 ") \n";
 
         String sql2 = "select count(*) from\n" +
                 "(select distinct person_wid\n" +
-                "from trip_wh)\n";
+                "from DTSDM.Lrip_wh)\n";
 
         String sql3 = "select distinct person_wid\n" +
-                "from dcmnt_wh\n" +
+                "from DTSDM.mnt_wh\n" +
                 "where CURR_TRVL_DCMNT_SW = 1\n" +
                 "MINUS\n" +
                 "select distinct person_wid\n" +
-                "from trip_wh\n";
+                "from DTSDM.Lrip_wh\n";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();
@@ -608,7 +608,7 @@ public class TripWhTest extends TableTest {
                 "                select distinct\n" +
                 "                dcmnt_base_name,\n" +
                 "                src_ssn\n" +
-                "                from dcmnt_wh\n" +
+                "                from DTSDM.mnt_wh\n" +
                 "                where adjstmt_lvl = 0\n" +
                 "                and dcmnt_actv_ind = 'Y'\n" +
                 "                and dcmnt_wid != 0\n" +
@@ -616,7 +616,7 @@ public class TripWhTest extends TableTest {
                 "        ) src,\n" +
                 "    (\n" +
                 "        select count(trip_wid) trgt_cnt\n" +
-                "        from trip_wh\n" +
+                "        from DTSDM.Lrip_wh\n" +
                 "        where trip_wid != 0\n" +
                 "    ) trgt";
 

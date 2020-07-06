@@ -32,7 +32,7 @@ public class DutyStnWhTest extends TableTest {
 
 
 
-        String sql = "Select count(*) \n" + "from DUTY_STN_WH \n" + " where DUTY_STN_WID = 0 \n";
+        String sql = "Select count(*) \n" + "from DTSDM.DUTY_STN_WH \n" + " where DUTY_STN_WID = 0 \n";
 
         // log the Sql
         ArrayList<SqlObject> theSql = new ArrayList<>();
@@ -83,7 +83,7 @@ public class DutyStnWhTest extends TableTest {
 
 
         String sql1 = "select distinct DUTY_STN_NAME, count (*)\n" +
-                "from DUTY_STN_WH\n" +
+                "from DTSDM.DUTY_STN_WH\n" +
                 "group by DUTY_STN_NAME\n" +
                 "having count(*) > 1\n";
 

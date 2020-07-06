@@ -187,7 +187,7 @@ public class LocatnWhTest extends TableTest {
         // Log the Class and method
         System.out.println("Starting " + this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName());
         String condition = " Check the population of the LOCATN_WH.LOCATN_NAME, LOCATN_WH.CITY_NAME, LOCATN_WH.STATE_COUNTRY_CD columns";
-        String reason = " straight pull from FRED ( ITINRY.LOCATION)";
+        String reason = " straight pull from DTSDM_SRC_STG ( ITINRY.LOCATION)";
 
         wr.printDiv(this.getClass().getSimpleName() + " " + new Throwable().getStackTrace()[0].getMethodName(), condition, reason);
 
@@ -214,7 +214,7 @@ public class LocatnWhTest extends TableTest {
         wr.logSql(theSql);
 
         int dtsdmCount = 0;
-        int fredCount = 0;
+        int DTSDM_SRC_STGCount = 0;
 
         System.out.println("Starting LocatnWhTest.test3,sql1");
         try {
@@ -239,7 +239,7 @@ public class LocatnWhTest extends TableTest {
                 try (ResultSet rs = ps.executeQuery();) {
                     // System.out.println("Size of results = " + rs.getInt(1));
                     while (rs.next()) {
-                        fredCount = rs.getInt(1);
+                        DTSDM_SRC_STGCount = rs.getInt(1);
                     }
                 }
             }
@@ -253,14 +253,14 @@ public class LocatnWhTest extends TableTest {
 
         ArrayList<ResultObject> roList = new ArrayList<ResultObject>();
 
-        ResultObject ro = new ResultObject((fredCount == dtsdmCount-1),"(fredCount == dtsdmCount-1)");
+        ResultObject ro = new ResultObject((DTSDM_SRC_STGCount == dtsdmCount-1),"(DTSDM_SRC_STGCount == dtsdmCount-1)");
         roList.add(ro);
 
         wr.logTestResults(roList);
 
-        System.out.println("Test 3: FRED Table Count = " + fredCount);
+        System.out.println("Test 3: DTSDM_SRC_STG Table Count = " + DTSDM_SRC_STGCount);
         System.out.println("Test 3: DTSDM Table Count = " + dtsdmCount);
-        assertEquals(dtsdmCount-1,fredCount);
+        assertEquals(dtsdmCount-1,DTSDM_SRC_STGCount);
 
         System.out.println("Finish LocatnWhTest.test3");
         System.out.println();

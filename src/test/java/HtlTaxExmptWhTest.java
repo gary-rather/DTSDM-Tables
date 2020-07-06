@@ -195,9 +195,9 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t select a.htl_tax_exmpt_wid, a.state_country_cd, b.state_code \n" +
-                        "\t from dtsdm.htl_tax_exmpt_wh a, dtsdm_src_stg.htl_tax_exmpt_location b \n" +
-                        "\t where a.state_country_cd = b.state_code \n" +
+                        "  select a.htl_tax_exmpt_wid, a.state_country_cd, b.state_code \n" +
+                        "  from dtsdm.htl_tax_exmpt_wh a, dtsdm_src_stg.htl_tax_exmpt_location b \n" +
+                        "  where a.state_country_cd = b.state_code \n" +
                         ")";
 
         // log the Sql
@@ -280,17 +280,17 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t select a.htl_tax_exmpt_wid, \n" +
-                        "\t\t\t a.state_country_wid, \n" +
-                        "\t\t\t b.state_country_wid \n" +
+                        "  select a.htl_tax_exmpt_wid, \n" +
+                        "    a.state_country_wid, \n" +
+                        "    b.state_country_wid \n" +
                         "\n" +
-                        "\t from dtsdm.htl_tax_exmpt_wh a, \n" +
-                        "\t\t\t dtsdm.state_country_rfrnc_wh b, \n" +
-                        "\t\t\t dtsdm_src_stg.htl_tax_exmpt_location c \n" +
+                        "  from dtsdm.htl_tax_exmpt_wh a, \n" +
+                        "    dtsdm.state_country_rfrnc_wh b, \n" +
+                        "    dtsdm_src_stg.htl_tax_exmpt_location c \n" +
                         "\n" +
-                        "\t where a.state_country_wid = b.state_country_wid \n" +
-                        "\t and b.state_country_cd = c.state_code \n" +
-                        "\t and c.state_code = a.state_country_cd \n" +
+                        "  where a.state_country_wid = b.state_country_wid \n" +
+                        "  and b.state_country_cd = c.state_code \n" +
+                        "  and c.state_code = a.state_country_cd \n" +
                         ")";
 
         // log the Sql
@@ -373,17 +373,17 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t select a.htl_tax_exmpt_wid, \n" +
-                        "\t\t\t a.htl_tax_exmpt_cd, \n" +
-                        "\t\t\t b.tax_exmpt_type \n" +
+                        "  select a.htl_tax_exmpt_wid, \n" +
+                        "    a.htl_tax_exmpt_cd, \n" +
+                        "    b.tax_exmpt_type \n" +
                         "\n" +
-                        "\t from dtsdm.htl_tax_exmpt_wh a, \n" +
-                        "\t\t\t dtsdm_src_stg.htl_tax_exmpt_location b, \n" +
-                        "\t\t\t dtsdm_src_stg.state c \n" +
+                        "  from dtsdm.htl_tax_exmpt_wh a, \n" +
+                        "    dtsdm_src_stg.htl_tax_exmpt_location b, \n" +
+                        "    dtsdm_src_stg.state c \n" +
                         "\n" +
-                        "\t where a.htl_tax_exmpt_cd = b.tax_exmpt_type \n" +
-                        "\t and b.state_code = c.stcode \n" +
-                        "\t and c.stcode = a.state_country_cd \n" +
+                        "  where a.htl_tax_exmpt_cd = b.tax_exmpt_type \n" +
+                        "  and b.state_code = c.stcode \n" +
+                        "  and c.stcode = a.state_country_cd \n" +
                         ")";
 
         // log the Sql
@@ -466,9 +466,9 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t select a.htl_tax_exmpt_wid, a.htl_tax_exp_dt, b.date_expiry \n" +
-                        "\t from dtsdm.htl_tax_exmpt_wh a, dtsdm_src_stg.htl_tax_exmpt_location b \n" +
-                        "\t where a.htl_tax_exp_dt = b.date_expiry \n" +
+                        "  select a.htl_tax_exmpt_wid, a.htl_tax_exp_dt, b.date_expiry \n" +
+                        "  from dtsdm.htl_tax_exmpt_wh a, dtsdm_src_stg.htl_tax_exmpt_location b \n" +
+                        "  where a.htl_tax_exp_dt = b.date_expiry \n" +
                         ")";
 
         // log the Sql
@@ -551,9 +551,9 @@ public class HtlTaxExmptWhTest extends TableTest {
 
         String sql2 = "select count(*) from \n" +
                         "( \n" +
-                        "\t select a.htl_tax_exmpt_wid, a.htl_tax_exmpt_src_id, b.htl_tax_exmpt_location_id \n" +
-                        "\t from dtsdm.htl_tax_exmpt_wh a, dtsdm_src_stg.htl_tax_exmpt_location b \n" +
-                        "\t where a.htl_tax_exmpt_src_id = b.htl_tax_exmpt_location_id \n" +
+                        "  select a.htl_tax_exmpt_wid, a.htl_tax_exmpt_src_id, b.htl_tax_exmpt_location_id \n" +
+                        "  from dtsdm.htl_tax_exmpt_wh a, dtsdm_src_stg.htl_tax_exmpt_location b \n" +
+                        "  where a.htl_tax_exmpt_src_id = b.htl_tax_exmpt_location_id \n" +
                         ")";
 
         // log the Sql
